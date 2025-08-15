@@ -1,0 +1,9 @@
+2024/03/21 18:04:27 => GetCusts API 取得錯誤：Error: ConnectFailure (Connection timed out)
+2024/03/21 19:43:51 => GetCusts API 取得錯誤：Error: ConnectFailure (Connection timed out)
+2024/03/21 19:43:51 => GetCusts API 取得錯誤：Error: ConnectFailure (Network is unreachable)
+2024/03/21 19:43:51 => GetCusts API 取得錯誤：Error: ConnectFailure (Network is unreachable)
+2024/03/21 19:44:19 => GetCusts API 取得錯誤：Thread was being aborted.
+2024/03/21 21:01:19 => 取得資料json
+2024/03/21 21:01:52 => 取得資料json
+2024/03/21 21:26:06 => 取得資料json
+2024/03/21 21:26:39 => 取得資料json

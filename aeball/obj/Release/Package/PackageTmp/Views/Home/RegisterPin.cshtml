@@ -1,0 +1,294 @@
+﻿
+@functions{
+    public string TokenValue()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
+
+<style>
+    div.register-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        width: 100px;
+    }
+
+        div.register-state div.state {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+        }
+
+            div.register-state div.state.active {
+                background: #ffdec0;
+                border: 1px solid #ff7b00;
+            }
+
+    input.pin {
+        text-align: center;
+        width: 43px;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    span.hint {
+        color: red;
+        font-size: 14px;
+        position: absolute;
+    }
+
+    i.password-icon svg.eye-on {
+        display: none;
+    }
+
+    i.password-icon svg.eye-close {
+        display: block;
+    }
+
+    i.password-icon.eye-on svg.eye-on {
+        display: block;
+    }
+
+    i.password-icon.eye-on svg.eye-close {
+        display: none;
+    }
+    
+    @@media (max-width: 992px) {
+        .dv-pin-input{
+            text-align: center;
+        }
+        .pin-label {
+            transform: translateX(-60px);
+        }
+        span.hint {
+            transform: translateX(-140px);
+        }
+    }
+
+
+</style>
+
+
+<script>
+    var numReg = /^\d+$/;
+
+    $(document).ready(function () {
+        $('input.pin').keyup(function (e) {
+            var key = window.event ? e.keyCode : e.which;
+            if (key == 8 || key == 46) {
+                var input = $(this)[0];
+                const prevInput = input.previousElementSibling;
+
+                if (prevInput) {
+                    prevInput.focus();
+                    prevInput.select();
+                }
+            }
+        });
+    });
+
+    function SaveUser() {
+        var pin = $('#txt_Pin_1').val() + $('#txt_Pin_2').val() + $('#txt_Pin_3').val() + $('#txt_Pin_4').val() + $('#txt_Pin_5').val() + $('#txt_Pin_6').val();
+        var pin2 = $('#txt_chkPin_1').val() + $('#txt_chkPin_2').val() + $('#txt_chkPin_3').val() + $('#txt_chkPin_4').val() + $('#txt_chkPin_5').val() + $('#txt_chkPin_6').val();
+        if (pin == '') { alert('請設定 PIN 碼！'); return false; }
+        if (pin2 == '') { alert('請再次輸入 PIN 碼！'); return false; }
+        if (pin.length != 6) { alert('PIN碼格式錯誤！'); return false; }
+        if (pin2.length != 6) { alert('PIN碼格式錯誤！'); return false; }
+        if (pin != pin2) { alert('PIN 碼輸入不一致！'); return false; }
+        var model = {
+            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+            cuPin: pin,
+        }
+        $.ajax({
+            url: '@Url.Action("SavePin", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: model,
+            success: function (d) {
+                if (d.RetCode == 0) {
+                    location.href = '@Url.Action("RegisterSuccess", "Home")';
+                } else if (d.RetCode == 1) {
+                    alert("儲存失敗！" + d.Message);
+                    location.href = '@Url.Action("Register", "Home")';
+                } else {
+                    alert("儲存失敗！" + d.Message);
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function moveToNext(input) {
+        // 自動切換到下一個輸入框
+        const maxLength = parseInt(input.getAttribute('maxlength'));
+        const currentLength = input.value.length;
+
+        if (!numReg.test($(input).val())) {
+            $(input).val('');
+        }
+        else if (currentLength === maxLength) {
+            const nextInput = input.nextElementSibling;
+
+            if (nextInput) {
+                nextInput.focus();
+                if (nextInput.type == 'password') nextInput.select();
+            }
+        }
+    }
+
+    function txt_pin1_onchange(obj) {
+        var pin = $('#txt_Pin_1').val() + $('#txt_Pin_2').val() + $('#txt_Pin_3').val() + $('#txt_Pin_4').val() + $('#txt_Pin_5').val() + $('#txt_Pin_6').val();
+        if (pin == '') { $(obj).closest('div').find('.hint').html('請設定 PIN 碼！'); return false; }
+        else if (pin.length != 6) { $(obj).closest('div').find('.hint').html('PIN碼格式錯誤！'); return false; }
+        else { $(obj).closest('div').find('.hint').html(''); return false; }
+    }
+
+    function txt_pin_onchange(obj) {
+        var pin = $('#txt_Pin_1').val() + $('#txt_Pin_2').val() + $('#txt_Pin_3').val() + $('#txt_Pin_4').val() + $('#txt_Pin_5').val() + $('#txt_Pin_6').val();
+        var pin2 = $('#txt_chkPin_1').val() + $('#txt_chkPin_2').val() + $('#txt_chkPin_3').val() + $('#txt_chkPin_4').val() + $('#txt_chkPin_5').val() + $('#txt_chkPin_6').val();
+        if (pin.length != 6) { $(obj).closest('div').find('.hint').html('PIN碼格式錯誤！'); return false; }
+        else if (pin != pin2) { $(obj).closest('div').find('.hint').html('再次輸入PIN碼與設定不同！'); return false; }
+        else { $(obj).closest('div').find('.hint').html(''); return false; }
+    }
+
+    function showPass(obj) {
+        $(obj).toggleClass('eye-on');
+        if ($(obj).hasClass('eye-on')) {
+            $(obj).closest('.pin-row').find('input').prop('type', 'password');
+        } else {
+            $(obj).closest('.pin-row').find('input').prop('type', 'text');
+        }
+    }
+
+</script>
+
+@*加入會員*@
+<div class="container body-content">
+    <section style="margin-top: 200px;margin-bottom: 200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        @*<h1>加入aeball會員</h1>
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                            <div class="register-state"><div class="state">1</div></div>
+                            <div class="register-state" style="width: 50px">---------</div>
+                            <div class="register-state"><div class="state">2</div></div>
+                            <div class="register-state" style="width: 50px">---------</div>
+                            <div class="register-state"><div class="state active">3</div></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                            <div class="register-state"><div>建立帳號</div></div>
+                            <div class="register-state" style="width: 50px"></div>
+                            <div class="register-state"><div>填寫會員資料</div></div>
+                            <div class="register-state" style="width: 50px"></div>
+                            <div class="register-state"><div>設定PIN碼</div></div>
+                        </div>*@
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle;margin-top:20px;">
+                            <img style="width: 100%; max-width: 300px;" src="@Url.Content("~/Content/Images/Register/註冊狀態列-3.png")" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 50px; margin-bottom: 20px;">
+                <div class="form-group">
+                    <div class="text-center">
+                        <h3>設定 PIN 碼</h3>
+                        <div class="Caption">
+                            PIN 碼將用於機台登入<br />
+                            設定一組好記的六位數 PIN 碼吧！
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @Html.AntiForgeryToken()
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row pin-row" style="justify-content: center;">
+                        <label class="control-label col-lg-2 pin-label" style="width: 180px;">
+                            請設定 PIN 碼
+                            <i class="password-icon eye-on" style="display: inline-block; transform: translateY(3px); " onclick="showPass(this)">
+                                <svg class="eye-close" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.68806 9.41454C4.71275 6.52412 7.3444 5 9.9892 5C13.0931 5 15.7601 7.01284 17.3308 9.42892L17.3317 9.4302C17.4416 9.60026 17.5 9.79822 17.5 10.0005C17.5 10.2024 17.4417 10.4001 17.3321 10.5701C15.7624 13.0175 13.1125 15 9.9892 15C6.83266 15 4.23342 13.0212 2.66775 10.581C2.55529 10.407 2.49697 10.2038 2.50012 9.99693C2.50329 9.78949 2.56812 9.58764 2.68643 9.41688L2.68806 9.41454ZM3.62829 10.0144C5.06142 12.2302 7.34161 13.8889 9.9892 13.8889C12.6082 13.8889 14.9384 12.2214 16.3734 10.0007C14.9324 7.80276 12.5837 6.11111 9.9892 6.11111C7.81298 6.11111 5.50026 7.3603 3.62829 10.0144Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99971 8.08643C8.93854 8.08643 8.07829 8.94317 8.07829 10C8.07829 11.0569 8.93854 11.9136 9.99971 11.9136C11.0609 11.9136 11.9211 11.0569 11.9211 10C11.9211 8.94317 11.0609 8.08643 9.99971 8.08643ZM6.96264 10C6.96264 8.32952 8.32238 6.97532 9.99971 6.97532C11.677 6.97532 13.0368 8.32952 13.0368 10C13.0368 11.6705 11.677 13.0247 9.99971 13.0247C8.32238 13.0247 6.96264 11.6705 6.96264 10Z" fill="#BDBDBD" />
+                                </svg>
+                                <svg class="eye-on" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.89625 5.89682C3.23814 5.73771 3.64322 5.88819 3.80102 6.23293C6.28448 11.6586 13.7155 11.6586 16.199 6.23293C16.3568 5.88819 16.7619 5.73771 17.1037 5.89682C17.4456 6.05593 17.5949 6.46438 17.4371 6.80912C14.4661 13.2999 5.53388 13.2999 2.56292 6.80912C2.40512 6.46438 2.55436 6.05593 2.89625 5.89682Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9767 9.00641C14.281 8.78278 14.7075 8.85024 14.9293 9.15709L17.3691 12.5326C17.5908 12.8395 17.5239 13.2695 17.2196 13.4932C16.9153 13.7168 16.4888 13.6493 16.2671 13.3425L13.8273 9.96692C13.6055 9.66007 13.6724 9.23004 13.9767 9.00641Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10.3022C10.3766 10.3022 10.6818 10.61 10.6818 10.9897V14.3126C10.6818 14.6922 10.3766 15 10 15C9.62347 15 9.31822 14.6922 9.31822 14.3126V10.9897C9.31822 10.61 9.62347 10.3022 10 10.3022Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.02333 9.00641C6.32764 9.23004 6.39454 9.66008 6.17276 9.96692L3.73296 13.3425C3.51118 13.6493 3.0847 13.7168 2.7804 13.4932C2.47609 13.2695 2.40919 12.8395 2.63097 12.5326L5.07076 9.15709C5.29254 8.85024 5.71902 8.78278 6.02333 9.00641Z" fill="#BDBDBD" />
+                                </svg>
+                            </i>
+                        </label>
+                        <div class="col-lg-4 dv-pin-input">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_Pin_1" onchange="txt_pin1_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_Pin_2" onchange="txt_pin1_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_Pin_3" onchange="txt_pin1_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_Pin_4" onchange="txt_pin1_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_Pin_5" onchange="txt_pin1_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_Pin_6" onchange="txt_pin1_onchange(this)" oninput="moveToNext(this)" onclick="this.select()"><br />
+                            <span class="hint"></span>
+                            <div style="height: 12px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row pin-row" style="justify-content: center;">
+                        <label class="control-label col-lg-2 pin-label" style="width: 180px;">
+                            再次輸入 PIN 碼
+                            <i class="password-icon eye-on" style="display: inline-block; transform: translateY(3px); " onclick="showPass(this)">
+                                <svg class="eye-close" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.68806 9.41454C4.71275 6.52412 7.3444 5 9.9892 5C13.0931 5 15.7601 7.01284 17.3308 9.42892L17.3317 9.4302C17.4416 9.60026 17.5 9.79822 17.5 10.0005C17.5 10.2024 17.4417 10.4001 17.3321 10.5701C15.7624 13.0175 13.1125 15 9.9892 15C6.83266 15 4.23342 13.0212 2.66775 10.581C2.55529 10.407 2.49697 10.2038 2.50012 9.99693C2.50329 9.78949 2.56812 9.58764 2.68643 9.41688L2.68806 9.41454ZM3.62829 10.0144C5.06142 12.2302 7.34161 13.8889 9.9892 13.8889C12.6082 13.8889 14.9384 12.2214 16.3734 10.0007C14.9324 7.80276 12.5837 6.11111 9.9892 6.11111C7.81298 6.11111 5.50026 7.3603 3.62829 10.0144Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99971 8.08643C8.93854 8.08643 8.07829 8.94317 8.07829 10C8.07829 11.0569 8.93854 11.9136 9.99971 11.9136C11.0609 11.9136 11.9211 11.0569 11.9211 10C11.9211 8.94317 11.0609 8.08643 9.99971 8.08643ZM6.96264 10C6.96264 8.32952 8.32238 6.97532 9.99971 6.97532C11.677 6.97532 13.0368 8.32952 13.0368 10C13.0368 11.6705 11.677 13.0247 9.99971 13.0247C8.32238 13.0247 6.96264 11.6705 6.96264 10Z" fill="#BDBDBD" />
+                                </svg>
+                                <svg class="eye-on" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.89625 5.89682C3.23814 5.73771 3.64322 5.88819 3.80102 6.23293C6.28448 11.6586 13.7155 11.6586 16.199 6.23293C16.3568 5.88819 16.7619 5.73771 17.1037 5.89682C17.4456 6.05593 17.5949 6.46438 17.4371 6.80912C14.4661 13.2999 5.53388 13.2999 2.56292 6.80912C2.40512 6.46438 2.55436 6.05593 2.89625 5.89682Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9767 9.00641C14.281 8.78278 14.7075 8.85024 14.9293 9.15709L17.3691 12.5326C17.5908 12.8395 17.5239 13.2695 17.2196 13.4932C16.9153 13.7168 16.4888 13.6493 16.2671 13.3425L13.8273 9.96692C13.6055 9.66007 13.6724 9.23004 13.9767 9.00641Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10.3022C10.3766 10.3022 10.6818 10.61 10.6818 10.9897V14.3126C10.6818 14.6922 10.3766 15 10 15C9.62347 15 9.31822 14.6922 9.31822 14.3126V10.9897C9.31822 10.61 9.62347 10.3022 10 10.3022Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.02333 9.00641C6.32764 9.23004 6.39454 9.66008 6.17276 9.96692L3.73296 13.3425C3.51118 13.6493 3.0847 13.7168 2.7804 13.4932C2.47609 13.2695 2.40919 12.8395 2.63097 12.5326L5.07076 9.15709C5.29254 8.85024 5.71902 8.78278 6.02333 9.00641Z" fill="#BDBDBD" />
+                                </svg>
+                            </i>
+                        </label>
+                        <div class="col-lg-4 dv-pin-input" style="position: relative">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_chkPin_1" onchange="txt_pin_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_chkPin_2" onchange="txt_pin_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_chkPin_3" onchange="txt_pin_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_chkPin_4" onchange="txt_pin_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_chkPin_5" onchange="txt_pin_onchange(this)" oninput="moveToNext(this)" onclick="this.select()">
+                            <input type="password" pattern="[0-9]*" maxlength="1" inputmode="numeric" class="input-group form-control pin" id="txt_chkPin_6" onchange="txt_pin_onchange(this)" oninput="moveToNext(this)" onclick="this.select()"><br />
+                            <span class="hint"></span>
+                            <div style="height: 12px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="display: flex; justify-content: center;">
+                        <button type="button" class="btn btn-primary Button-lg" style="min-width: 100px; width: 20%; margin-right: 5%; background: #2e2c2c; border: 1px solid #2e2c2c " onclick="location.href='@Url.Action("RegisterUser", "Home")'">回上頁</button>
+                        <button type="button" class="btn btn-primary Button-lg" style="min-width: 100px; width: 20%; margin-left: 5%; " onclick="SaveUser()">下一步</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

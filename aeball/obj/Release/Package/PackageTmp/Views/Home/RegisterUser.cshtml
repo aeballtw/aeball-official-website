@@ -1,0 +1,269 @@
+﻿@model Comlib.SysUser
+@functions{
+    public string TokenValue()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
+
+
+<style>
+    div.register-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        width: 100px;
+    }
+
+        div.register-state div.state {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+        }
+
+            div.register-state div.state.active {
+                background: #ffdec0;
+                border: 1px solid #ff7b00;
+            }
+
+    span.hint {
+        color: red;
+        font-size: 14px;
+        position: absolute;
+    }
+
+    @@media (min-width: 992px) {
+        label.control-label.col-lg-2 {
+            width: 100px;
+        }
+    }
+</style>
+
+
+<script>
+    var emailRule = @("/^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z]+$/");
+
+    $(document).ready(function () {
+        sel_City_onchange();
+    });
+
+    function SaveUser() {
+        if ($('#txt_CuName').val() == '') { alert('請輸入姓名！'); return false; }
+        if ($('#txt_CuMail').val() != '' && !emailRule.test($('#txt_CuMail').val())) { alert('電子信箱格式不正確！'); return false; }
+        
+        if ($('#txt_CuBirth').val() == '' || $('#sel_Town').val() == '' || $('#txt_CuArea').val() == '' || $('#txt_CuMail').val() == '' || $('input[name=CuGender]:checked').length == 0) customConfirm('會員資料未完成', '完成填寫即可獲得 aeball points 30點', function(){ dbSaveUser() })
+        else dbSaveUser();
+    }
+
+    function dbSaveUser() {
+        var model = {
+            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+            cuName: $('#txt_CuName').val(),
+            cuBirthday: $('#txt_CuBirth').val(),
+            cuGender: $('input[name=CuGender]:checked').val(),
+            cuCity: $('#sel_City').val(),
+            cuTown: $('#sel_Town').val(),
+            cuArea: $('#txt_CuArea').val(),
+            cuMail: $('#txt_CuMail').val()
+        }
+        $.ajax({
+            url: '@Url.Action("SaveUser", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: model,
+            success: function (d) {
+                if (d.RetCode == 0) {
+                    location.href = '@Url.Action("RegisterPin", "Home")';
+                } else if (d.RetCode == 1) {
+                    alert("儲存失敗！" + d.Message);
+                    location.href = '@Url.Action("Register", "Home")';
+                } else {
+                    alert("儲存失敗！" + d.Message);
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function txt_CuName_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).next().html('姓名為必填欄位'); return false; }
+        else { $(obj).next().html(''); return true; }
+    }
+
+    function txt_CuBirth_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).next().html(''); return false; }
+        else if ($('#txt_Date').val() != '' && Date.parse($('#txt_Date').val()) > Date.now()) { $(obj).next().html('出生日期不正確！'); return false; }
+        else $(obj).next().html('');
+    }
+
+    function sel_City_onchange() {
+        var temp = $('#sel_Town').val();
+        debugger;
+        if ($('#sel_City').val() == '') {
+            //$('#sel_Town option').hide();
+            //$('#sel_Town option:eq(0)').show();
+            //$('#sel_Town').val('');
+            $('#sel_Town').html('<option value="">請選擇</option>');
+        } else {
+            $('#sel_Town').html('');
+            $('#sel_Town').html($('#sel_temp_Town').html());
+            $('#sel_Town option').each(function () {
+                if ($(this).data('city') != $('#sel_City').val() && $(this).val() != '') $(this).remove();
+            })
+            if ($('#sel_Town option[value=' + temp + ']').length != 0) $('#sel_Town').val(temp);
+            else $('#sel_Town').val('');
+            //$('#sel_Town option').hide();
+            //$('#sel_Town option[data-city=' + $('#sel_City').val() + ']').show();
+            //$('#sel_Town option:eq(0)').show();
+            //if ($('#sel_Town').val() != '') {
+            //    if ($('#sel_Town option[value=' + temp + ']').data('city') != $('#sel_City').val())
+            //        $('#sel_Town').val('');
+            //}
+        }
+    }
+
+    function txt_CuMail_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).next().html(''); return false; }
+        else if (!emailRule.test($(obj).val())) { $(obj).next().html('電子信箱格式不正確！'); return false; }
+        else $(obj).next().html('');
+    }
+
+</script>
+
+@*加入會員*@
+<div class="container body-content">
+    <section style="margin-top: 200px;margin-bottom: 200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        @*<h1>加入aeball會員</h1>
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                        <div class="register-state"><div class="state">1</div></div>
+                        <div class="register-state" style="width: 50px">---------</div>
+                        <div class="register-state"><div class="state  active">2</div></div>
+                        <div class="register-state" style="width: 50px">---------</div>
+                        <div class="register-state"><div class="state">3</div></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                        <div class="register-state"><div>建立帳號</div></div>
+                        <div class="register-state" style="width: 50px"></div>
+                        <div class="register-state"><div>填寫會員資料</div></div>
+                        <div class="register-state" style="width: 50px"></div>
+                        <div class="register-state"><div>設定PIN碼</div></div>
+                    </div>*@
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle;margin-top:20px;">
+                            <img style="width: 100%; max-width: 300px;" src="@Url.Content("~/Content/Images/Register/註冊狀態列-2.png")" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 50px; margin-bottom: 20px;">
+                <div class="form-group">
+                    <div class="text-center">
+                        <h3>填寫會員資料</h3>
+                    </div>
+                </div>
+            </div>
+
+            @Html.AntiForgeryToken()
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-5" style="text-align: left">姓名<span style="color: red;">*</span><span class="pad-only" style="color: red;">必填</span></label>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-5">
+                            <input class="input-group form-control" id="txt_CuName" value="@Model.cuName" placeholder="請輸入姓名" onchange="txt_CuName_onchange(this)">
+                            <span class="hint"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-5" style="text-align: left">性別</label>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-5">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="CuGender" id="CuGender_1" value="1" @(Model.cuGender == "1" ? "checked" : "") )>
+                                <label class="form-check-label" for="CuGender_1">男生</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="CuGender" id="CuGender_0" value="0" @(Model.cuGender == "0" ? "checked" : "")>
+                                <label class="form-check-label" for="CuGender_0">女生</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="CuGender" id="CuGender_2" value="2" @(Model.cuGender == "2" ? "checked" : "")>
+                                <label class="form-check-label" for="CuGender_2">其他</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-5" style="text-align: left">出生日期<span style="color: #FF7B00; font-weight: 400; float: right; ">送出無法修改</span></label>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-5">
+                            <input type="date" name="" id="txt_CuBirth" onfocus="this.showPicker()" onchange="txt_CuBirth_onchange(this)" value="@Model.cuBirthday" placeholder="YYYY/MM/DD" class="date form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-5" style="text-align: left">通訊地址</label>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-5">
+                            @RenderPage("~/Views/Shared/_ComDdl.cshtml", new { id = "sel_City", type = "City", style = "width: calc(50% - 5px); float: left;", onchange = "sel_City_onchange()", val = Model.cuCity })
+                            @RenderPage("~/Views/Shared/_ComDdl.cshtml", new { id = "sel_Town", type = "Town", style = "width: calc(50% - 5px); float: right;", val = Model.cuTown })
+                            <div class="clearfix" style="margin-bottom: 10px; "></div>
+                            <input class="input-group form-control" id="txt_CuArea" value="@Model.cuArea" placeholder="請輸入地址">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none">@RenderPage("~/Views/Shared/_ComDdl.cshtml", new { id = "sel_temp_Town", type = "Town", style = "width: calc(50% - 5px); float: right;" })</div>
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-5" style="text-align: left">電子信箱</label>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-5">
+                            <input class="input-group form-control" id="txt_CuMail" value="@Model.cuMail" placeholder="example@mail.com" onchange="txt_CuMail_onchange(this)">
+                            <span class="hint"></span>
+                            <div style="height: 12px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="row" style="justify-content: center;">
+                        <div class="col-lg-5" style="display: flex; justify-content: center;">
+                            <button type="button" class="btn btn-primary Button-lg" style="width: 45%; margin-right: 5%; font-weight: 600; background: #2e2c2c; border: 1px solid #2e2c2c " onclick="location.href='@Url.Action("Register", "Home")'">回上頁</button>
+                            <button type="button" class="btn btn-primary Button-lg" style="width: 45%; margin-left: 5%; font-weight: 600" onclick="SaveUser()">下一步</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

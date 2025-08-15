@@ -1,0 +1,297 @@
+﻿
+@functions{
+    public string TokenValue()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
+
+<style>
+    .icon-pos-absolute {
+        position: absolute;
+        padding-top: 5px;
+        padding-left: 11px;
+        z-index: 2;
+    }
+
+    div.register-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        width: 100px;
+    }
+
+        div.register-state div.state {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+        }
+
+            div.register-state div.state.active {
+                background: #ffdec0;
+                border: 1px solid #ff7b00;
+            }
+
+    span.hint {
+        color: red;
+        font-size: 14px;
+        position: absolute;
+    }
+
+</style>
+
+<script>
+    const phone_regrex = /^(09\d{8})$/
+    var sendCntdownTime = null;
+
+    $(document).ready(function () {
+        setInterval(
+            function () {
+                if (sendCntdownTime != null && new Date().getTime() - sendCntdownTime < 60000) {
+                    $('#btn-sendVerifyCode').html((60 - parseInt((new Date().getTime() - sendCntdownTime) / 1000)) + '秒');
+                    $('#btn-sendVerifyCode').prop('disabled', true);
+                } else {
+                    $('#btn-sendVerifyCode').html('發送驗證碼');
+                    $('#btn-sendVerifyCode').prop('disabled', false);
+                }
+            }, 1000);
+    });
+
+    function SavePhone() {
+        if ($('#txt_CuTel').val() == '') { alert('請輸入手機號碼！'); return false; }
+        if ($('#txt_ValidPhone').val() == '') { alert('請輸入簡訊驗證碼！'); return false; }
+        var model = {
+            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+            cuTel: $('#txt_CuTel').val(),
+            VerifyCode: $('#txt_ValidPhone').val(),
+        }
+        $.ajax({
+            url: '@Url.Action("IdentifyForgetPwd", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: model,
+            success: function (d) {
+                if (d.RetCode == 0) {
+                    location.href = '@Url.Action("ForgetPWD2", "Home")';
+                } else {
+                    alert("儲存失敗！" + d.Message);
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function VerifyForgetPwd() {
+        if ($('#txt_CuTel').val() == '') { alert('請輸入電話號碼'); return false; }
+        var phone = $('#txt_CuTel').val();
+        $.ajax({
+            url: '@Url.Action("VerifyForgetPwd", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                phone: phone
+            },
+            success: function (d) {
+                if (d.RetCode == 0) {
+                    sendCntdownTime = new Date().getTime();
+                    $('btn-sendVerifyCode').html('60秒');
+                    $('btn-sendVerifyCode').prop('disabled', true);
+                } else {
+                    alert("簡訊發送失敗！" + d.Message);
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function txt_CuTel_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).next().html('請輸入電話號碼！'); return false; }
+        if (!phone_regrex.test($(obj).val())) { $(obj).next().html('手機號碼格式不正確！'); return false; }
+        $.ajax({
+            url: '@Url.Action("CheckLoginPhone", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                phone: $(obj).val()
+            },
+            success: function (d) {
+                if (d.RetCode != 0) {
+                    $(obj).next().html(d.Message);
+                    return false;
+                } else {
+                    $(obj).next().html('');
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function txt_VerifyCode_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).parent().find('.hint').html('請輸入簡訊驗證碼！'); return false; }
+        $.ajax({
+            url: '@Url.Action("CheckForgetPWDVerifyCode", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                code: $(obj).val()
+            },
+            success: function (d) {
+                if (d.RetCode != 0) {
+                    $(obj).parent().find('.hint').html(d.Message);
+                    return false;
+                } else {
+                    $(obj).parent().find('.hint').html('');
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+</script>
+
+@*會員登入*@
+<div class="container body-content">
+    <section style="margin-top: 150px;margin-bottom: 200px;">
+
+        <div class="row" style="justify-content: center;">
+            <div class="col-lg-6">
+                <div id="Login_Card">
+                    <div class="row" style="margin-top: 50px;">
+                        <div class="col-md-12 web-only">
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <svg width="239" height="60" style="height: 40px;" viewBox="0 0 239 60" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="ScrollToTop()">
+                                        <path d="M60.0168 30C60.0168 46.5681 46.5811 60 30.0084 60C13.4357 60 0 46.5681 0 30C0 13.4319 13.4357 0 30.0084 0C46.5811 0 60.0168 13.4319 60.0168 30ZM30.0084 3.9793C15.6341 3.9793 3.98041 15.6297 3.98041 30C3.98041 44.3703 15.6341 56.0207 30.0084 56.0207C44.3827 56.0207 56.0363 44.3703 56.0363 30C56.0363 15.6297 44.3827 3.9793 30.0084 3.9793Z" fill="#2e2c2c" />
+                                        <path d="M46.3129 36.4699C44.4127 41.2694 40.4658 45.0317 35.5485 46.6704V29.5749H51.2161C51.0026 18.653 42.5636 9.75247 31.8486 8.82996V12.5288C31.8486 12.5288 31.8645 12.5288 31.8715 12.5306V47.4659C31.8715 47.4659 31.8627 47.4659 31.8574 47.4659V51.1647C40.5046 50.4169 47.6662 44.4744 50.2192 36.4664H46.3129V36.4699ZM35.5485 13.3296C41.2474 15.2293 45.646 19.9794 47.061 25.8919H35.5485V13.3296Z" fill="#2e2c2c" />
+                                        <path d="M28.6251 47.5118C28.6251 47.5118 28.6092 47.5118 28.6004 47.5118V12.4918C28.6004 12.4918 28.611 12.4918 28.6163 12.4918V8.79997C21.5059 9.26211 15.35 13.2308 11.8566 19.0005H16.3416C18.5276 16.2788 21.5041 14.2239 24.9235 13.1867V25.8937H9.19412C8.93476 27.2237 8.79714 28.596 8.79714 30.0018C8.79714 41.2712 17.5555 50.4909 28.6251 51.2053V47.5118ZM24.9235 46.815C17.7178 44.6313 12.4723 37.9304 12.4723 30C12.4723 29.8571 12.4741 29.716 12.4776 29.5749H24.9235V46.815Z" fill="#2e2c2c" />
+                                        <path d="M68.5616 35.3198C68.5616 34.5526 68.7169 33.8382 69.0256 33.1732C69.3344 32.51 69.7543 31.9244 70.2854 31.4199C70.8147 30.9154 71.4393 30.5168 72.1591 30.2275C72.879 29.9383 73.6377 29.7919 74.4387 29.7919H89.6705V24.0116H70.3912V18.4837H89.6705C90.4892 18.4837 91.2602 18.6283 91.9783 18.9193C92.6982 19.2104 93.3227 19.602 93.8521 20.0976C94.3814 20.5932 94.8013 21.1771 95.1118 21.8509C95.4223 22.5247 95.5758 23.2444 95.5758 24.0116V48.3672H89.6687V43.3173C89.6087 44.0087 89.4094 44.6649 89.0688 45.2822C88.7283 45.8996 88.2943 46.4376 87.765 46.8962C87.2357 47.3548 86.6305 47.7146 85.9512 47.9757C85.2719 48.2385 84.5521 48.369 83.7916 48.369H74.4369C73.6377 48.369 72.8772 48.2244 72.1574 47.9333C71.4375 47.6441 70.8129 47.2507 70.2836 46.7551C69.7543 46.2594 69.3344 45.6756 69.0239 45.0018C68.7133 44.328 68.5598 43.6083 68.5598 42.841V35.3216L68.5616 35.3198ZM74.4387 42.8392H89.6705V35.3198H74.4387V42.8392Z" fill="#2e2c2c" />
+                                        <path d="M132.425 36.2459H111.286V42.8392H132.425V48.3672H111.286C110.487 48.3672 109.726 48.2226 109.006 47.9316C108.286 47.6423 107.662 47.2489 107.132 46.7533C106.603 46.2576 106.183 45.6738 105.873 45C105.562 44.3262 105.409 43.6065 105.409 42.8392V24.0116C105.409 23.2444 105.564 22.5247 105.873 21.8509C106.181 21.1771 106.601 20.5932 107.132 20.0976C107.662 19.602 108.286 19.2086 109.006 18.9193C109.726 18.6301 110.485 18.4837 111.286 18.4837H126.518C127.336 18.4837 128.107 18.6283 128.825 18.9193C129.545 19.2104 130.17 19.602 130.699 20.0976C131.228 20.5932 131.648 21.1771 131.959 21.8509C132.269 22.5247 132.423 23.2444 132.423 24.0116V36.2459H132.425ZM111.286 24.0116V30.7179H126.518V24.0116H111.286Z" fill="#2e2c2c" />
+                                        <path d="M170.503 42.8392C170.503 43.6065 170.348 44.3262 170.039 45C169.729 45.6738 169.309 46.2576 168.779 46.7533C168.25 47.2489 167.626 47.6423 166.906 47.9316C166.186 48.2226 165.417 48.3672 164.598 48.3672H148.138C147.339 48.3672 146.578 48.2226 145.859 47.9316C145.139 47.6423 144.514 47.2489 143.985 46.7533C143.456 46.2576 143.036 45.6738 142.725 45C142.415 44.3262 142.261 43.6065 142.261 42.8392V6.97966H148.138V23.7594C148.179 23.0292 148.359 22.343 148.678 21.6974C148.997 21.0519 149.423 20.4909 149.952 20.0147C150.481 19.5385 151.095 19.1645 151.796 18.8929C152.494 18.6212 153.244 18.4854 154.045 18.4854H164.6C165.418 18.4854 166.189 18.6301 166.907 18.9211C167.627 19.2121 168.252 19.6037 168.781 20.0994C169.311 20.595 169.73 21.1789 170.041 21.8527C170.35 22.5265 170.505 23.2461 170.505 24.0134V42.841L170.503 42.8392ZM148.136 24.0116V42.8392H164.596V24.0116H148.136Z" fill="#2e2c2c" />
+                                        <path d="M180.338 35.3198C180.338 34.5526 180.493 33.8382 180.802 33.1732C181.111 32.51 181.531 31.9244 182.062 31.4199C182.591 30.9154 183.216 30.5168 183.935 30.2275C184.655 29.9383 185.414 29.7919 186.215 29.7919H201.447V24.0116H182.168V18.4837H201.447C202.265 18.4837 203.036 18.6283 203.755 18.9193C204.474 19.2104 205.099 19.602 205.628 20.0976C206.158 20.5932 206.578 21.1771 206.888 21.8509C207.199 22.5247 207.352 23.2444 207.352 24.0116V48.3672H201.445V43.3173C201.385 44.0087 201.186 44.6649 200.845 45.2822C200.505 45.8996 200.071 46.4376 199.541 46.8962C199.012 47.3548 198.407 47.7146 197.727 47.9757C197.048 48.2385 196.328 48.369 195.568 48.369H186.213C185.414 48.369 184.654 48.2244 183.934 47.9333C183.214 47.6441 182.589 47.2507 182.06 46.7551C181.531 46.2594 181.111 45.6756 180.8 45.0018C180.49 44.328 180.336 43.6083 180.336 42.841V35.3216L180.338 35.3198ZM186.215 42.8392H201.447V35.3198H186.215V42.8392Z" fill="#2e2c2c" />
+                                        <path d="M223.064 6.97966V48.3672H217.187V6.97966H223.064Z" fill="#2e2c2c" />
+                                        <path d="M238.776 6.97966V48.3672H232.898V6.97966H238.776Z" fill="#2e2c2c" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 web-only">
+                            <div class="form-group">
+                                <div class="text-center" style="display: flex;margin: 20px 0px;">
+                                    <h3 style="width: 50%; opacity: 38%; border-right: 2px solid black; cursor: pointer " onclick="location.href='@Url.Action("Login", "Home")'">會員登入</h3>
+                                    <h3 style="width: 50%; color: #ff7b00;cursor: pointer">忘記密碼</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 pad-only">
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <h1>忘記密碼</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="text-center">
+                                    @*<div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                                        <div class="register-state"><div class="state active">1</div></div>
+                                        <div class="register-state" style="width: 50px">---------</div>
+                                        <div class="register-state"><div class="state">2</div></div>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                                        <div class="register-state"><div>驗證帳號</div></div>
+                                        <div class="register-state" style="width: 50px"></div>
+                                        <div class="register-state"><div>設定新密碼</div></div>
+                                    </div>*@
+                                    <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle;margin-top:20px;">
+                                        <img style="width: 100%; max-width: 300px;" src="@Url.Content("~/Content/Images/Register/忘記密碼狀態列-1.png")" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 pad-only" style="display: none">
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <h5>輸入手機號碼後，按下「發送」即會收到簡訊驗證</h5>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        @Html.AntiForgeryToken()
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <div class="row" style="justify-content: center;">
+                                    <div class="col-lg-10">
+                                        <i class="icon-pos-absolute">
+                                            <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.79183 0.666626H2.2085C1.31136 0.666626 0.583496 1.3665 0.583496 2.22913V15.7708C0.583496 16.6334 1.31136 17.3333 2.2085 17.3333H9.79183C10.689 17.3333 11.4168 16.6334 11.4168 15.7708V2.22913C11.4168 1.3665 10.689 0.666626 9.79183 0.666626ZM6.00016 16.2916C5.40094 16.2916 4.91683 15.8261 4.91683 15.25C4.91683 14.6738 5.40094 14.2083 6.00016 14.2083C6.59938 14.2083 7.0835 14.6738 7.0835 15.25C7.0835 15.8261 6.59938 16.2916 6.00016 16.2916ZM9.79183 12.776C9.79183 12.9908 9.60902 13.1666 9.38558 13.1666H2.61475C2.39131 13.1666 2.2085 12.9908 2.2085 12.776V2.61975C2.2085 2.40491 2.39131 2.22913 2.61475 2.22913H9.38558C9.60902 2.22913 9.79183 2.40491 9.79183 2.61975V12.776Z" fill="#9E9E9E" />
+                                            </svg>
+                                        </i>
+                                        <input class="input-group form-control" pattern="[0-9]*" maxlength="10" inputmode="numeric" id="txt_CuTel" value="" placeholder="請輸入手機號碼" style="padding: 6px 30px;" onchange="txt_CuTel_onchange(this)">
+                                        <span class="hint"></span>
+                                        <div style="height: 12px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <div class="row" style="justify-content: center;">
+                                    <div class="col-lg-10" style="position: relative">
+                                        <i class="icon-pos-absolute">
+                                            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.32 2.02143C7.64679 1.95355 6.01245 2.42952 4.72132 3.34611C3.43179 4.26155 2.58065 5.54654 2.29695 6.94904C2.01372 8.34922 2.309 9.79947 3.1442 11.0355C3.27602 11.2306 3.30967 11.476 3.23525 11.6994L2.56015 13.726L5.21943 13.1598C5.38424 13.1247 5.55603 13.1457 5.7076 13.2193C7.16629 13.9279 8.87294 14.144 10.5054 13.8204C12.1377 13.4968 13.5633 12.6605 14.5282 11.489C15.4909 10.3204 15.9327 8.89651 15.7941 7.48088C15.6554 6.06404 14.9414 4.72071 13.7559 3.70888C12.5684 2.69539 10.9932 2.08932 9.32 2.02143ZM3.84524 2.11043C5.42195 0.991115 7.38908 0.426788 9.38134 0.507618C11.3736 0.588448 13.2784 1.30999 14.7385 2.55617C16.2005 3.80401 17.1214 5.49863 17.301 7.33318C17.4807 9.16894 16.9025 10.9887 15.6966 12.4527C14.4929 13.9139 12.7487 14.9202 10.7996 15.3066C8.93871 15.6755 6.99223 15.4597 5.28667 14.6945L1.5811 15.4834C1.31553 15.5399 1.04003 15.4498 0.859099 15.2473C0.678165 15.0447 0.619505 14.7607 0.705366 14.5029L1.68475 11.5628C0.785783 10.0708 0.471275 8.33767 0.812969 6.64847C1.17902 4.83885 2.26694 3.23088 3.84524 2.11043Z" fill="#BDBDBD" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.99393 7.25124C9.41204 7.25124 9.75097 7.5904 9.75097 8.00877V8.01719C9.75097 8.43556 9.41204 8.77471 8.99393 8.77471C8.57583 8.77471 8.2369 8.43556 8.2369 8.01719V8.00877C8.2369 7.5904 8.57583 7.25124 8.99393 7.25124Z" fill="#BDBDBD" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.62933 7.25124C6.04743 7.25124 6.38637 7.5904 6.38637 8.00877V8.01719C6.38637 8.43556 6.04743 8.77471 5.62933 8.77471C5.21123 8.77471 4.87229 8.43556 4.87229 8.01719V8.00877C4.87229 7.5904 5.21123 7.25124 5.62933 7.25124Z" fill="#BDBDBD" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3586 7.25124C12.7767 7.25124 13.1156 7.5904 13.1156 8.00877V8.01719C13.1156 8.43556 12.7767 8.77471 12.3586 8.77471C11.9405 8.77471 11.6015 8.43556 11.6015 8.01719V8.00877C11.6015 7.5904 11.9405 7.25124 12.3586 7.25124Z" fill="#BDBDBD" />
+                                            </svg>
+                                        </i>
+                                        <input class="input-group form-control" id="txt_ValidPhone" pattern="[0-9]*" maxlength="6" inputmode="numeric" value="" placeholder="輸入六位數驗證碼" style="padding: 6px 30px; width: calc(100% - 120px); display: inline-block;" onchange="txt_VerifyCode_onchange(this)">
+                                        <button type="button" id="btn-sendVerifyCode" class="btn Button-lg" style="width: 116px; padding-top: 4px; padding-bottom: 5px; float: right; background-color: #2E2C2C; color: white" onclick="VerifyForgetPwd()">發送驗證碼</button>
+                                        <span class="hint" style="left: 13px; top: 36px;"></span>
+                                        <div style="height: 12px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary Button-lg" style="width: 300px;" onclick="SavePhone()">下一步</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+

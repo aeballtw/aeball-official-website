@@ -1,0 +1,27 @@
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Debug/Comlib.dll
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Debug/Comlib.pdb
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Debug/Newtonsoft.Json.dll
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Debug/Newtonsoft.Json.xml
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Debug/Comlib.csproj.AssemblyReference.cache
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Debug/Comlib.csproj.CoreCompileInputs.cache
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Debug/Comlib.csproj.CopyComplete
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Debug/Comlib.dll
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Debug/Comlib.pdb
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Debug/Comlib.dll
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Debug/Comlib.pdb
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Debug/Newtonsoft.Json.dll
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Debug/Newtonsoft.Json.xml
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Debug/Comlib.csproj.AssemblyReference.cache
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Debug/Comlib.csproj.CoreCompileInputs.cache
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Debug/Comlib.csproj.CopyComplete
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Debug/Comlib.dll
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Debug/Comlib.pdb
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\bin\Debug\Comlib.dll
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\bin\Debug\Comlib.pdb
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.csproj.AssemblyReference.cache
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.csproj.CoreCompileInputs.cache
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.csproj.Up2Date
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.dll
+C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.pdb

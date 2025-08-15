@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\WebSys\aeball</_PublishTargetUrl>
+    <History>True|2024-05-05T14:28:46.4798253Z;True|2024-04-25T00:48:25.2993987+08:00;True|2024-04-25T00:34:52.9722056+08:00;True|2024-04-19T14:10:05.2073013+08:00;True|2024-04-19T13:41:50.4253467+08:00;True|2024-04-19T10:37:21.3603359+08:00;True|2024-04-19T10:34:53.8547801+08:00;True|2024-04-19T01:16:49.8628030+08:00;True|2024-04-19T01:06:33.2111041+08:00;True|2024-04-19T00:56:34.2240255+08:00;True|2024-04-18T14:56:50.7859045+08:00;True|2024-04-18T01:03:07.7886212+08:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/aeball.dll">
+      <publishTime>05/05/2024 22:28:43</publishTime>
+    </File>
+    <File Include="bin/aeball.pdb">
+      <publishTime>05/05/2024 22:28:43</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>04/17/2024 18:18:37</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>04/17/2024 18:18:37</publishTime>
+    </File>
+    <File Include="bin/Comlib.dll">
+      <publishTime>04/18/2024 01:03:01</publishTime>
+    </File>
+    <File Include="bin/Comlib.pdb">
+      <publishTime>04/18/2024 01:03:01</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>04/17/2024 18:18:29</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/17/2024 18:18:25</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/17/2024 18:18:39</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>04/17/2024 18:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>04/17/2024 18:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>04/17/2024 18:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>04/17/2024 18:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>04/17/2024 18:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Globalization.Calendars.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.ZipFile.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Http.dll">
+      <publishTime>04/17/2024 18:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Sockets.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>04/17/2024 18:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.InteropServices.RuntimeInformation.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>04/17/2024 18:18:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>04/17/2024 18:18:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>04/17/2024 18:18:41</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>04/17/2024 18:18:35</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>04/17/2024 18:18:38</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>04/17/2024 18:18:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>04/17/2024 18:18:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>04/17/2024 18:18:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>04/17/2024 18:18:41</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>04/17/2024 18:18:28</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Web.Helpers.resources.dll">
+      <publishTime>04/17/2024 18:18:41</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Web.Mvc.resources.dll">
+      <publishTime>04/17/2024 18:18:35</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Web.Optimization.resources.dll">
+      <publishTime>04/17/2024 18:18:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Web.Razor.resources.dll">
+      <publishTime>04/17/2024 18:18:36</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>04/17/2024 18:18:41</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>04/17/2024 18:18:41</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Web.WebPages.resources.dll">
+      <publishTime>04/17/2024 18:18:41</publishTime>
+    </File>
+    <File Include="bin/zxing.dll">
+      <publishTime>04/17/2024 18:18:19</publishTime>
+    </File>
+    <File Include="bin/zxing.presentation.dll">
+      <publishTime>04/17/2024 18:18:19</publishTime>
+    </File>
+    <File Include="Content/css/all.css">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap.css">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/css/jquery-ui.css">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/css/rwd.css">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/css/slick/ajax-loader.gif">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/css/slick/fonts/slick.eot">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/css/slick/fonts/slick.svg">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/css/slick/fonts/slick.ttf">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/css/slick/fonts/slick.woff">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/css/slick/slick-theme.css">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/css/slick/slick.css">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/css/style.css">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/css/sweetalert2.css">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/data/user.txt">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Content/file/智能籃球櫃會員註冊條款_20210218.docx.pdf">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/file/隱私權條款.pdf">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-brands-400.ttf">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-brands-400.woff2">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-regular-400.ttf">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-regular-400.woff2">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-solid-900.ttf">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-solid-900.woff2">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-v4compatibility.ttf">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/fonts/fa-v4compatibility.woff2">
+      <publishTime>04/17/2024 18:17:55</publishTime>
+    </File>
+    <File Include="Content/images/banner/PC_Banner_1.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/banner/PC_Banner_2.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/banner/PC_Banner_3.png">
+      <publishTime>04/18/2024 01:27:14</publishTime>
+    </File>
+    <File Include="Content/images/banner/PC_Banner_4.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/banner/手機_Banner_1.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/banner/手機_Banner_2.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/banner/手機_Banner_3.png">
+      <publishTime>04/18/2024 01:27:03</publishTime>
+    </File>
+    <File Include="Content/images/banner/手機_Banner_4.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Conti 1500.png">
+      <publishTime>04/19/2024 01:24:06</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Conti 700.png">
+      <publishTime>04/19/2024 01:26:00</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Conti 990.png">
+      <publishTime>04/19/2024 01:22:53</publishTime>
+    </File>
+    <File Include="Content/images/basketball/KIPSTA F500.png">
+      <publishTime>04/19/2024 01:27:41</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Mikasa V300W.png">
+      <publishTime>04/19/2024 01:32:00</publishTime>
+    </File>
+    <File Include="Content/images/basketball/molten GR7D.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Nike All Court.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Offload R500.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Spalding BB-150.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Spalding Gold Series.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Tarmak BT 500X.png">
+      <publishTime>05/03/2024 09:36:47</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Tarmak R100.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Wilson DRV Plus.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/borrow/P_step_1.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/borrow/P_step_2.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/borrow/P_step_3.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/borrow/P_step_4.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/borrow/W_step_1.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/borrow/W_step_2.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/borrow/W_step_3.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/borrow/W_step_4.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/brand/brand_1.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/brand/brand_2.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/brand/brand_3.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/Coop/合作夥伴＿背景圖.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/place/place_1_1.png">
+      <publishTime>04/25/2024 00:43:04</publishTime>
+    </File>
+    <File Include="Content/images/place/place_1_2.png">
+      <publishTime>04/17/2024 18:17:58</publishTime>
+    </File>
+    <File Include="Content/images/place/place_1_3.png">
+      <publishTime>04/17/2024 18:17:58</publishTime>
+    </File>
+    <File Include="Content/images/poster/poster1.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/poster/poster2.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/poster/poster_1.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/poster/poster_2.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/register/忘記密碼狀態列-1.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/register/忘記密碼狀態列-2.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/register/註冊狀態列-1.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/register/註冊狀態列-2.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/register/註冊狀態列-3.png">
+      <publishTime>04/17/2024 18:17:57</publishTime>
+    </File>
+    <File Include="Content/images/return/P_step_1.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/return/P_step_2.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/return/P_step_3.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/return/P_step_4.png">
+      <publishTime>05/03/2024 20:45:53</publishTime>
+    </File>
+    <File Include="Content/images/return/W_step_1.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/return/W_step_2.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/return/W_step_3.png">
+      <publishTime>04/17/2024 18:17:56</publishTime>
+    </File>
+    <File Include="Content/images/return/W_step_4.png">
+      <publishTime>05/03/2024 20:46:04</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>04/17/2024 18:17:40</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>04/17/2024 18:17:53</publishTime>
+    </File>
+    <File Include="Scripts/data.js">
+      <publishTime>05/05/2024 22:08:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.6.0.min.js">
+      <publishTime>04/17/2024 18:17:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min.js">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery.mobile-1.4.5.js">
+      <publishTime>04/17/2024 18:17:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>04/17/2024 18:17:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>04/17/2024 18:17:53</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>04/17/2024 18:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>04/17/2024 18:17:52</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>04/17/2024 18:17:52</publishTime>
+    </File>
+    <File Include="Scripts/popper.js">
+      <publishTime>04/17/2024 18:17:52</publishTime>
+    </File>
+    <File Include="Scripts/slick.js">
+      <publishTime>04/17/2024 18:17:53</publishTime>
+    </File>
+    <File Include="Scripts/sweetalert2.js">
+      <publishTime>04/17/2024 18:17:53</publishTime>
+    </File>
+    <File Include="Views/Home/FAQ.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Home/ForgetPWD.cshtml">
+      <publishTime>04/17/2024 18:17:43</publishTime>
+    </File>
+    <File Include="Views/Home/ForgetPWD2.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/05/2024 22:08:27</publishTime>
+    </File>
+    <File Include="Views/Home/Login.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Home/Place.cshtml">
+      <publishTime>05/05/2024 22:06:25</publishTime>
+    </File>
+    <File Include="Views/Home/Register.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Home/RegisterPin.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Home/RegisterSuccess.cshtml">
+      <publishTime>04/25/2024 00:34:21</publishTime>
+    </File>
+    <File Include="Views/Home/RegisterUser.cshtml">
+      <publishTime>04/17/2024 18:17:43</publishTime>
+    </File>
+    <File Include="Views/Member/Index.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Member/ModifyPin.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Member/ModifyPwd.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Member/ModifyUser.cshtml">
+      <publishTime>04/17/2024 18:17:42</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>04/17/2024 18:17:43</publishTime>
+    </File>
+    <File Include="Views/Shared/_ComDdl.cshtml">
+      <publishTime>04/17/2024 18:17:43</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>04/17/2024 18:17:43</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>04/17/2024 18:17:41</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/18/2024 01:03:05</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

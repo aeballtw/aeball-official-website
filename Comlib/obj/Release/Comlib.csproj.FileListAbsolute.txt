@@ -1,0 +1,72 @@
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Release/Comlib.dll
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Release/Comlib.pdb
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Release/Newtonsoft.Json.dll
+D:/devil87119/網站/2023/aeball/aeball/Comlib/bin/Release/Newtonsoft.Json.xml
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Release/Comlib.csproj.CopyComplete
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Release/Comlib.dll
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Release/Comlib.pdb
+D:/devil87119/網站/2023/aeball/aeball/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Release/Comlib.dll
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Release/Comlib.pdb
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Release/Newtonsoft.Json.dll
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/bin/Release/Newtonsoft.Json.xml
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Release/Comlib.csproj.CopyComplete
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Release/Comlib.dll
+/Users/jlhuang0830/Downloads/aeball 2/Comlib/obj/Release/Comlib.pdb
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/bin/Release/Comlib.dll
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/bin/Release/Comlib.pdb
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/bin/Release/Newtonsoft.Json.dll
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/bin/Release/Newtonsoft.Json.xml
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.Up2Date
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.dll
+C:/Users/user/Downloads/aeball 網頁原始碼-20240326T162153Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.pdb
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/bin/Release/Comlib.dll
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/bin/Release/Comlib.pdb
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/bin/Release/Newtonsoft.Json.dll
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/bin/Release/Newtonsoft.Json.xml
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.Up2Date
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.dll
+C:/Users/user/Downloads/aeball 網頁原始碼-20240417T101032Z-001/aeball 網頁原始碼/Comlib/obj/Release/Comlib.pdb
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/bin/Release/Comlib.dll
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/bin/Release/Comlib.pdb
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/bin/Release/Newtonsoft.Json.dll
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/bin/Release/Newtonsoft.Json.xml
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/obj/Release/Comlib.csproj.Up2Date
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/obj/Release/Comlib.dll
+C:/Users/2165l/Downloads/aeball 網頁原始碼_0505-20240617T052456Z-001/aeball 網頁原始碼_0505/aeball 網頁原始碼/Comlib/obj/Release/Comlib.pdb
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/bin/Release/Comlib.dll
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/bin/Release/Comlib.pdb
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/bin/Release/Newtonsoft.Json.dll
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/bin/Release/Newtonsoft.Json.xml
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/obj/Release/Comlib.csproj.Up2Date
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/obj/Release/Comlib.dll
+D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 網頁原始碼_0819/Comlib/obj/Release/Comlib.pdb
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/bin/Release/Comlib.dll
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/bin/Release/Comlib.pdb
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/bin/Release/Newtonsoft.Json.dll
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/bin/Release/Newtonsoft.Json.xml
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/obj/Release/Comlib.csproj.CopyComplete
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/obj/Release/Comlib.dll
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_0827/Comlib/obj/Release/Comlib.pdb
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/bin/Release/Comlib.dll
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/bin/Release/Comlib.pdb
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/bin/Release/Newtonsoft.Json.dll
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/bin/Release/Newtonsoft.Json.xml
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.csproj.AssemblyReference.cache
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.csproj.CoreCompileInputs.cache
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.csproj.CopyComplete
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.dll
+/Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.pdb

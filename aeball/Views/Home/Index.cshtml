@@ -1,0 +1,844 @@
+﻿@{
+
+}
+<script>
+    var poster_borrow_interval = true;
+    var poster_return_interval = true;
+    var poster_borrow_index = 0;
+    var poster_return_index = 0;
+    var basketballInfo = [
+        @*{
+            src: webroot + 'Content/Images/basketball/Tarmak R100.png',
+            title: 'Tarmak R100',
+            content: '標準規格，泡棉橡膠外層',
+            price: 5
+        },*@
+        @*{
+            src: webroot + 'Content/Images/basketball/Spalding BB-150.png',
+            title: 'Spalding BB 150',
+            content: '深溝規格，紋路深觸感佳',
+            price: 10
+        },*@
+        @*{
+            src: webroot + 'Content/Images/basketball/molten GR7D.png',
+            title: 'molten GR7D',
+            content: '深溝橡膠顆粒，提升回彈力',
+            price: 10
+        },*@
+        {
+            src: webroot + 'Content/Images/basketball/Spalding DownTown.png',
+            title: 'Spalding DownTown',
+            content: '橡膠顆粒，防滑性高觸感佳',
+            price: 15
+        },
+        {
+            src: webroot + 'Content/Images/basketball/Conti 1500.png',
+            title: 'Conti 1500',
+            content: '高觸感仿皮橡膠，減緩衝擊',
+            price: 20
+        },
+        {
+            src: webroot + 'Content/Images/basketball/Wilson DRV Plus.png',
+            title: 'Nike Playground',
+            content: '溝紋加深設計，控球更精準',
+            price: 25
+        },
+        @*{
+            src: webroot + 'Content/Images/basketball/Wilson DRV Plus.png',
+            title: 'Wilson DRV Plus',
+            content: '深溝細顆粒，NBA 指定品牌',
+            price: 25
+        },*@
+        {
+            src: webroot + 'Content/Images/basketball/Nike All Court.png',
+            title: 'Nike All Court',
+            content: '表面膠黏設計，提升控制力',
+            price: 35
+        },
+        {
+            src: webroot + 'Content/Images/basketball/Tarmak BT 500X.png',
+            title: 'Tarmak BT 500X',
+            content: '獨特合成皮，絕佳回彈性',
+            price: 40
+        },
+        @*{
+            src: webroot + 'Content/Images/basketball/Spalding Gold Series.png',
+            title: 'Spalding Gold Series',
+            content: '高級合成皮革，防滑排汗',
+            price: 50
+        },*@
+        {
+            src: webroot + 'Content/Images/basketball/Conti 700.png',
+            title: 'Conti 700',
+            content: '超軟橡膠排球',
+            price: 10
+        },
+        @*{
+            src: webroot + 'Content/Images/basketball/Conti 990.png',
+            title: 'Conti 990',
+            content: '頂級超世代橡膠排球',
+            price: 10
+        },*@
+        {
+            src: webroot + 'Content/Images/basketball/Mikasa V300W.png',
+            title: 'Mikasa V300W',
+            content: 'FIVB 認證超纖皮製比賽排球',
+            price: 40
+        },
+        {
+            src: webroot + 'Content/Images/basketball/KIPSTA F500.png',
+            title: 'KIPSTA F500',
+            content: 'FIFA 5號混合足球',
+            price: 20
+        },
+        @*{
+            src: webroot + 'Content/Images/basketball/Offload R500.png',
+            title: 'Offload R500',
+            content: '比賽用標準橄欖球',
+            price: 20
+        },*@
+    ]
+    @*var BasketBallIndex = 0;*@
+
+    $(document).ready(function () {
+        $('#dv_basketball').slick({
+            centerMode: true,
+            arrows: false,
+            slidesToShow: 5,
+            focusOnSelect: true,
+            swipeToSlide: true,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '50px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '20px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+
+        $('#dv_basketball').on('afterChange', function (event, slick, currentSlide) {
+            $('#basketball_info .title').html(basketballInfo[currentSlide].title);
+            $('#basketball_info .content').html(basketballInfo[currentSlide].content);
+            $('#basketball_info .price').html('<span style="font-size:24px;">' + basketballInfo[currentSlide].price + '</span><span style="font-size:14px;"> 元 / 0.5小時</span>');
+        })
+
+        $("#poster-borrow-swithed > div").mouseover(function () {
+            poster_borrow_interval = false;
+            poster_borrow_index = $(this).data('index');
+            showPoster(this, poster_borrow_index);
+        });
+
+        $("#poster-borrow-swithed > div").mouseout(function () {
+            poster_borrow_interval = true;
+        });
+
+        $("#poster-return-swithed > div").mouseover(function () {
+            poster_return_interval = false;
+            poster_return_index = $(this).data('index');
+            showPoster(this, poster_return_index);
+        });
+
+        $("#poster-return-swithed > div").mouseout(function () {
+            poster_return_interval = true;
+        });
+
+        setInterval(
+            function () {
+                if (poster_borrow_interval) { poster_borrow_index = (poster_borrow_index + 1) % 4; showPoster($('#poster-borrow-swithed > div.active'), poster_borrow_index) };
+                if (poster_return_interval) { poster_return_index = (poster_return_index + 1) % 4; showPoster($('#poster-return-swithed > div.active'), poster_return_index) };
+            }, 4000);
+    });
+
+    @*function BasketBallSwitch(num) {
+        BasketBallIndex = (BasketBallIndex + num + basketballInfo.length) % basketballInfo.length;
+        $('#dv_basketball div:eq(0) img').attr('src', basketballInfo[(BasketBallIndex - 2 + basketballInfo.length) % basketballInfo.length].src);
+        $('#dv_basketball div:eq(1) img').attr('src', basketballInfo[(BasketBallIndex - 1 + basketballInfo.length) % basketballInfo.length].src);
+        $('#dv_basketball div:eq(2) img').attr('src', basketballInfo[(BasketBallIndex + basketballInfo.length) % basketballInfo.length].src);
+        $('#dv_basketball div:eq(3) img').attr('src', basketballInfo[(BasketBallIndex + 1) % basketballInfo.length].src);
+        $('#dv_basketball div:eq(4) img').attr('src', basketballInfo[(BasketBallIndex + 2) % basketballInfo.length].src);
+
+        $('#basketball_info .title').html(basketballInfo[BasketBallIndex].title);
+        $('#basketball_info .content').html(basketballInfo[BasketBallIndex].content);
+        $('#basketball_info .price').html('<span style="font-size:24px;">' + basketballInfo[BasketBallIndex].price + '</span><span style="font-size:14px;"> 元 / 0.5小時</span>');
+    }*@
+
+    function showPoster(obj, index) {
+        var $head = $(obj).closest('.poster-switched');
+        $head.find('div.active').removeClass('active');
+        $head.find('div.dv-step:eq(' + index + ')').addClass('active');
+        $head.find('div.dv-step').removeClass('step-progress');
+        for (var i = 0; i < index; i++) {
+            $head.find('div.dv-step:eq(' + i + ')').addClass('step-progress');
+        }
+        $head.closest('div.row').find('div.pic img').removeClass('active');
+        $head.closest('div.row').find('div.pic img:eq(' + index + ')').addClass('active');
+    }
+
+</script>
+
+<section id="sec_banner">
+    <div class="" style="margin-top: 66px;">
+        <div class="col-md-12 px-0">
+
+            <div class="web-only">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/PC_Banner_1.png")" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/PC_Banner_2.png")" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/PC_Banner_3.png")" class="d-block w-100" style="cursor: pointer;" onclick="window.open('https://forms.gle/eePcnZmTY64uGX1V8')">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/PC_Banner_4.png")" class="d-block w-100">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pad-only">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/手機_Banner_1.png")" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/手機_Banner_2.png")" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/手機_Banner_3.png")" class="d-block w-100" style="cursor: pointer;" onclick="window.open('https://forms.gle/eePcnZmTY64uGX1V8')">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/手機_Banner_4.png")" class="d-block w-100">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@*註冊*@
+<div class="container body-content" style="min-height:fit-content">
+    <section style="margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        <h1 class="AboutUs-Text" style="line-height: 1.2;"><span style="font-family: 'Aldrich'; color: #ff7b00; font-weight: 100 ">aeball</span> 在城市中</h1>
+                        <h1 class="AboutUs-Text" style="white-space: nowrap; line-height: 1.2;">創造輕鬆便利的運動新體驗</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@*海報*@
+<section id="sec_poster" style="background-color: #fff4ea;padding-top: 70px; border-radius: 20px;">
+    <div class="">
+        <div class="col-md-12 px-0" style="overflow: hidden;">
+            <div class="form-group">
+                <div class="row">
+                    @*<div class="col-md-6 web-only">
+                            <div style="display: flex; padding: 10% 5%; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: space-evenly; align-items: flex-start; height: 100%; min-height: 400px;">
+                                <div class="card-box" style="min-height: min-content; height: 40%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h2 style="text-align: center;"><span style="color: #ff7b00">以租代買</span> 省下你的荷包</h2>
+                                    <div class="Caption" style="text-align: center;">
+                                        籃球 / 排球 / 足球
+                                        隨選即用
+                                    </div>
+                                </div>
+                                <div class="card-box" style="min-height: min-content; height: 40%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h2 style="text-align: center;"><span style="color: #ff7b00">整合服務</span> 省下你的荷包</h2>
+                                    <div class="Caption" style="text-align: center;">
+                                        借還球 / 充電 / 置物
+                                        一次滿足
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="col-md-12">
+                        <div class="text-center" style="display: flex; height: 100%;">
+                            <img src="@Url.Content("~/Content/images/poster/poster1.png")" class="pad-only d-block" style="width: 100%; padding: 25px; margin: auto;">
+                            <img src="@Url.Content("~/Content/images/poster/poster2.png")" class="web-only d-block" style="width: 100%; padding: 25px; margin: auto;">
+                        </div>
+                    </div>
+                    @*<div class="col-md-6 pad-only">
+                            <div style="display: flex; padding: 10% 5%; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: space-evenly; align-items: flex-start; height: 100%; min-height: 400px;">
+                                <div class="card-box" style="min-height: min-content; height: 40%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h2 style="text-align: center;"><span style="color: #ff7b00">以租代買</span> 省下你的荷包</h2>
+                                    <div class="Caption" style="text-align: center;">
+                                        籃球 / 排球 / 足球
+                                        隨選即用
+                                    </div>
+                                </div>
+                                <div class="card-box" style="min-height: min-content; height: 40%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h2 style="text-align: center;"><span style="color: #ff7b00">整合服務</span> 省下你的荷包</h2>
+                                    <div class="Caption" style="text-align: center;">
+                                        借還球 / 充電 / 置物
+                                        一次滿足
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container body-content">
+    @*藍球種類*@
+    <section id="sec_basket" style="margin-top: 130px;margin-bottom: 100px;padding-top:70px">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        <h1 class="web-only" style="font-size: 36px;">多樣化器材選擇，貼近你的運動需求</h1>
+                        <h1 class="pad-only" style="font-size: 28px;">多樣化選擇，貼近你的需求</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div id="dv_basketball">
+                        @*<div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Tarmak R100.png")">
+                        </div>*@
+                        @*<div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Spalding BB-150.png")">
+                        </div>*@
+                        @*<div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/molten GR7D.png")">
+                        </div>*@
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Spalding DownTown.png")">
+                        </div>
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti 1500.png")">
+                        </div>
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Nike Playground.png")">
+                        </div>
+                        @*<div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Wilson DRV Plus.png")">
+                        </div>*@
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Nike All Court.png")">
+                        </div>
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Tarmak BT 500X.png")">
+                        </div>
+                        @*<div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Spalding Gold Series.png")">
+                        </div>*@
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti 700.png")">
+                        </div>
+                        @*<div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti 990.png")">
+                        </div>*@
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Mikasa V300W.png")">
+                        </div>
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/KIPSTA F500.png")">
+                        </div>
+                        @*<div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Offload R500.png")">
+                        </div>*@
+                    </div>
+                    @*<div id="dv_basketball" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <img onclick="BasketBallSwitch(-2)" src="@Url.Content("~/Content/images/basketball/KIPSTA F500.png")">
+                            </div>
+                            <div>
+                                <img onclick="BasketBallSwitch(-1)" src="@Url.Content("~/Content/images/basketball/Offload R500.png")">
+                            </div>
+                            <div>
+                                <img src="@Url.Content("~/Content/images/basketball/Spalding Gold Series.png")">
+                            </div>
+                            <div>
+                                <img onclick="BasketBallSwitch(1)" src="@Url.Content("~/Content/images/basketball/Tarmak BT 500X.png")">
+                            </div>
+                            <div>
+                                <img onclick="BasketBallSwitch(2)" src="@Url.Content("~/Content/images/basketball/Nike All Court.png")">
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="display:flex;justify-content:center;align-content:space-around">
+                        <div style="display: flex; margin-right: 10px;">
+                            <button type="button" class="btn btn-primary Button-lg" style="margin: auto; width: 30px; height: 30px; padding: 0px; border-radius: 50%; background: #ffe6cf; color: #ff7b00 " onclick="$('#dv_basketball').slick('slickPrev')"><div style="margin-top: 0px;"><</div></button>@*BasketBallSwitch(-1);*@
+                        </div>
+                        <div class="card-box" style="width:300px;text-align: center;" id="basketball_info">
+                            <h3 class="title">Spalding DownTown</h3>
+                            <h3 class="content Caption">橡膠顆粒，防滑性高觸感佳</h3>
+                            <h3 class="price" style="color: #ff7b00"><span style="font-size:24px;">15</span><span style="font-size:14px;"> 元 / 0.5小時</span></h3>
+                        </div>
+                        <div style="display: flex; margin-left: 10px;">
+                            <button type="button" class="btn btn-primary Button-lg" style="margin: auto; width: 30px; height: 30px; padding: 0px; border-radius: 50%; background: #ffe6cf; color: #ff7b00 " onclick="$('#dv_basketball').slick('slickNext');"><div style="margin-top: 0px;">></div></button>@*BasketBallSwitch(1);*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+@*借球*@
+<section id="sec_borrow" style="padding-top: 70px; overflow: hidden">
+    <div class="container body-content">
+        <div class="web-only">
+
+            <div class="col-md-12 px-0" style="background: #fff4ea ">
+                <div class="form-group">
+                    <div class="row" style="min-height: 500px;">
+                        <div class="col-md-7 pic pic-marque" style="display: flex; align-items: center; justify-content: center; ">
+                            <img class="active" style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/borrow/W_step_1.png")">
+                            <img style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/borrow/W_step_2.png")">
+                            <img style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/borrow/W_step_3.png")">
+                            <img style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/borrow/W_step_4.png")">
+                        </div>
+                        <div class="col-md-5" style=" display: flex;">
+                            <div style="margin: auto;">
+                                <h2 style="transform: translateX(-30px); color: #ff7b00">租借</h2>
+                                <h2 style="transform: translateX(-30px); font-size: 24px;">隨租隨用享受運動樂趣</h2>
+                                <div id="poster-borrow-swithed" class="poster-switched" style="margin-top: 30px;">
+
+                                    <div class="dv-step active" data-index="0">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px; ">STEP 1</text>
+                                        </svg>
+                                        <div class="borderLeft"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262 ">在機台點選「租借」</h3>
+                                    </div>
+                                    <div class="dv-step" data-index="1">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px; ">STEP 2</text>
+                                        </svg>
+                                        <div class="borderLeft"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262 ">會員登入</h3>
+                                        <div class="Caption">感應會員條碼 / 輸入 PIN 碼</div>
+                                    </div>
+                                    <div class="dv-step" data-index="2">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px; ">STEP 3</text>
+                                        </svg>
+                                        <div class="borderLeft"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262 ">選擇櫃位、器材</h3>
+                                    </div>
+                                    <div class="dv-step" data-index="3">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px; ">STEP 4</text>
+                                        </svg>
+                                        <div class="borderLeft" style="bottom: 60px;"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262 ">取出器材並置入個人物品</h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="pad-only">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <h1 style="color: #ff7b00; font-size: 26px;">租借</h1>
+                    <h1 style="font-size: 20px;">隨租隨用享受運動樂趣</h1>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 32px; transform: translateX(16px);">
+                @*step 1*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600; ">STEP 1</text>
+                </svg>
+
+                <div style="border-left: 2px solid black;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px);">在機台點選「租借」</h3>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px; " data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%;margin-bottom: 20px; " src="@Url.Content("~/Content/images/borrow/P_step_1.png")">
+                    </div>
+                </div>
+
+                @*step 2*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600; ">STEP 2</text>
+                </svg>
+
+                <div style="border-left: 2px solid black;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px); ">會員登入</h3><br />
+                        <div class="Caption" style="display: inline-block; margin-left: 40px;">感應會員條碼 / 輸入 PIN 碼</div>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px; " data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%; margin-bottom: 20px; " src="@Url.Content("~/Content/images/borrow/P_step_2.png")">
+                    </div>
+                </div>
+
+                @*step 3*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600;">STEP 3</text>
+                </svg>
+
+                <div style="border-left: 2px solid black;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px); ">選擇櫃位、器材</h3>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px; " data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%;margin-bottom: 20px; " src="@Url.Content("~/Content/images/borrow/P_step_3.png")">
+                    </div>
+                </div>
+
+                @*step 4*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600; ">STEP 4</text>
+                </svg>
+
+                <div style="border-left: 2px solid black; margin-bottom: 70px;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px); ">取出器材並置入個人物品</h3>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px;" data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%;margin-bottom: 20px; " src="@Url.Content("~/Content/images/borrow/P_step_4.png")">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container body-content">
+    @*還球*@
+    <section id="sec_return" style="padding-top: 70px; overflow: hidden">
+
+        <div class="web-only">
+
+            <div class="col-md-12 px-0" style="background: #fff4ea ">
+                <div class="form-group">
+                    <div class="row" style="min-height: 500px;">
+                        <div class="col-md-5" style=" display: flex; transform: translateX(80px);">
+                            <div style="margin: auto;">
+                                <h2 style="transform: translateX(-30px); color: #ff7b00 ">歸還</h2>
+                                <h2 style="transform: translateX(-30px); font-size: 24px; ">多種支付方式輕鬆歸還</h2>
+                                <div id="poster-return-swithed" class="poster-switched" style="margin-top: 30px;">
+
+                                    <div class="dv-step active" data-index="0">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px;">STEP 1</text>
+                                        </svg>
+                                        <div class="borderLeft"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262">在機台點選「歸還」</h3>
+                                    </div>
+                                    <div class="dv-step" data-index="1">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px; ">STEP 2</text>
+                                        </svg>
+                                        <div class="borderLeft"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262 ">會員登入</h3>
+                                        <div class="Caption">感應會員條碼 / 輸入 PIN 碼</div>
+                                    </div>
+                                    <div class="dv-step" data-index="2">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px; ">STEP 3</text>
+                                        </svg>
+                                        <div class="borderLeft"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262 ">將器材放回並取出個人物品</h3>
+                                    </div>
+                                    <div class="dv-step" data-index="3">
+                                        <svg width="62" height="24" class="step" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translate(-100px, 3px); position: absolute; ">
+                                            <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#424242" />
+                                            <text x="5" y="17" style="fill: white; font-size: 14px; ">STEP 4</text>
+                                        </svg>
+                                        <div class="borderLeft" style="bottom: 60px;"></div>
+                                        <div class="poster-icon circle">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" stroke="#BDBDBD" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <div class="poster-icon circle-checked">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="8" r="7" fill="#FF7B00" stroke="#FF7B00" stroke-width="2" />
+                                                <path d="M5.3335 8.20366L6.97452 9.83329L10.6668 6.16663" stroke="#FEFDFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="display: inline-block; font-size: 16px; color: #626262 ">使用多元支付方式付款</h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 pic pic-marque" style="display: flex; align-items: center; justify-content: center; ">
+                            <img style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/return/W_step_1.png")">
+                            <img style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/return/W_step_2.png")">
+                            <img style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/return/W_step_3.png")">
+                            <img style="max-width: 900px; width: 80%;" src="@Url.Content("~/Content/images/return/W_step_4.png")">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="phone-only">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <h1 style="color: #ff7b00; font-size: 26px;">歸還</h1>
+                    <h1 style="font-size: 20px;">多種支付方式輕鬆歸還</h1>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 32px; transform: translateX(16px);">
+                @*step 1*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#626262" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600; ">STEP 1</text>
+                </svg>
+
+                <div style="border-left: 2px solid black;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px); ">在機台點選「還球」</h3>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px; " data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%;margin-bottom: 20px; " src="@Url.Content("~/Content/images/return/P_step_1.png")">
+                    </div>
+                </div>
+
+                @*step 2*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#626262" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600; ">STEP 2</text>
+                </svg>
+
+                <div style="border-left: 2px solid black;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px); ">會員登入</h3><br />
+                        <div class="Caption" style="display: inline-block; margin-left: 40px;">感應會員條碼 / 輸入 PIN 碼</div>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px; " data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%; margin-bottom: 20px; " src="@Url.Content("~/Content/images/return/P_step_2.png")">
+                    </div>
+                </div>
+
+                @*step 3*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#626262" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600;">STEP 3</text>
+                </svg>
+
+                <div style="border-left: 2px solid black;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px); ">將器材放回並取出個人物品</h3>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px; " data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%;margin-bottom: 20px; " src="@Url.Content("~/Content/images/return/P_step_3.png")">
+                    </div>
+                </div>
+
+                @*step 4*@
+                <svg width="62" height="24" viewBox="0 0 62 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(1.5);">
+                    <path d="M47.9621 0H2C0.895431 0 0 0.89543 0 2V22C0 23.1046 0.895431 24 2 24H48.0894C48.5468 24 48.9904 23.8432 49.3462 23.5558L60.2786 14.724C61.1999 13.9797 61.2762 12.6024 60.4429 11.7609L49.3832 0.592711C49.0076 0.213405 48.496 0 47.9621 0Z" fill="#626262" />
+                    <text x="5" y="17" style="fill: white; font-size: 13px; font-weight: 600; ">STEP 4</text>
+                </svg>
+
+                <div style="border-left: 2px solid black;">
+                    <div style="transform: translateY(-27px); margin-left: 40px; ">
+                        <h3 style="display: inline-block; margin-left: 40px; color: #626262; font-size: 20px; transform: translateY(2px); ">使用多元支付方式付款</h3>
+                    </div>
+                    <div style="text-align: center; padding-bottom: 40px;" data-aos="fade-left">
+                        <img style="max-width: 900px; width: 80%;margin-bottom: 20px; " src="@Url.Content("~/Content/images/return/P_step_4.png")">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+<section id="sec_coorperate" style="margin-top: 30px; margin-bottom: 100px; transform: translateY(100px); padding-top: 70px; background-image: url( @Url.Content("~/Content/Images/Coop/合作夥伴＿背景圖.png") ); height: 500px; background-position: center; display: flex; align-items: center; overflow: hidden;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="text-center">
+                    <h1 style="line-height: 2; padding-left: 60px; padding-right: 60px">
+                        如果你也喜歡和人分享運動的樂趣，歡迎與 <span style="white-space:nowrap">aeball</span> 合作或加入團隊一同打造更輕便的運動體驗！
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        <div style="display: inline-block;margin:20px;">
+                            <img style="width: 100px;" src="@Url.Content("~/Content/images/brand/brand_1.png")">
+                        </div>
+                        <div style="display: inline-block; margin: 20px;">
+                            <img style="width: 100px;" src="@Url.Content("~/Content/images/brand/brand_2.png")">
+                        </div>
+                        <div style="display: inline-block; margin: 20px;">
+                            <img style="width: 100px;" src="@Url.Content("~/Content/images/brand/brand_3.png")">
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary Button-lg" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSe3rEmJRXR2x1IqdEvNUW1_CuLCw9J_nSF22QWFvS4yT2UYXA/viewform')">成為合作夥伴</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

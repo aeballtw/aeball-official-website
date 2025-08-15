@@ -1,0 +1,419 @@
+﻿@using Comlib;
+@{
+    Layout = null;
+    string type = Page["type"] != null ? Page["type"] : "";
+    string id = Page["id"] != null ? Page["id"] : "";
+    string val = Page["val"] != null ? Page["val"].ToString() : "";
+    string onchange = Page["onchange"] != null ? Page["onchange"] : "";
+    string disabled = Page["disabled"] != null ? Page["disabled"] : "";
+
+
+    string param1 = Page["param1"] != null ? Page["param1"] : "";
+    string style = Page["style"] != null ? Page["style"] : "";
+    string parma1 = Page["parma1"] != null ? Page["parma1"].ToString() : "";
+}
+
+
+
+@if (type == "City")
+{
+    <select id="@(id)" class="form-select" style="@style" @Html.Raw(string.IsNullOrEmpty(onchange)?"":"onchange=\""+onchange+"\"")>
+        <option value="">請選擇</option>
+        <option value="1" @(val == "1"?"selected":"")>台北市</option>
+        <option value="2" @(val == "2"?"selected":"")>基隆市</option>
+        <option value="3" @(val == "3"?"selected":"")>新北市</option>
+        <option value="4" @(val == "4"?"selected":"")>宜蘭縣</option>
+        <option value="6" @(val == "6"?"selected":"")>新竹縣</option>
+        <option value="7" @(val == "7"?"selected":"")>桃園市</option>
+        <option value="8" @(val == "8"?"selected":"")>苗栗縣</option>
+        <option value="9" @(val == "9"?"selected":"")>臺中市</option>
+        <option value="10" @(val == "10"?"selected":"")>彰化縣</option>
+        <option value="11" @(val == "11"?"selected":"")>南投縣</option>
+        <option value="12" @(val == "12"?"selected":"")>嘉義縣</option>
+        <option value="13" @(val == "13"?"selected":"")>雲林縣</option>
+        <option value="14" @(val == "14"?"selected":"")>臺南市</option>
+        <option value="15" @(val == "15"?"selected":"")>高雄市</option>
+        <option value="16" @(val == "16"?"selected":"")>屏東縣</option>
+        <option value="17" @(val == "17"?"selected":"")>臺東縣</option>
+        <option value="18" @(val == "18"?"selected":"")>花蓮縣</option>
+        <option value="90" @(val == "90"?"selected":"")>澎湖縣</option>
+        <option value="91" @(val == "91"?"selected":"")>金門縣</option>
+        <option value="92" @(val == "92"?"selected":"")>連江縣</option>
+        <option value="93" @(val == "93"?"selected":"")>南海諸島</option>
+        <option value="300" @(val == "300"?"selected":"")>新竹市</option>
+        <option value="600" @(val == "600"?"selected":"")>嘉義市</option>
+    </select>
+}
+else if (type == "Town")
+{
+<select id="@(id)" class="form-select" style="@style">
+    <option value="">請選擇</option>
+    <option data-city='1' value='100' @(val == "100" ? "selected" : "")>中正區</option>
+    <option data-city='1' value='103' @(val == "103" ? "selected" : "")>大同區</option>
+    <option data-city='1' value='104' @(val == "104" ? "selected" : "")>中山區</option>
+    <option data-city='1' value='105' @(val == "105" ? "selected" : "")>松山區</option>
+    <option data-city='1' value='106' @(val == "106" ? "selected" : "")>大安區</option>
+    <option data-city='1' value='108' @(val == "108" ? "selected" : "")>萬華區</option>
+    <option data-city='1' value='110' @(val == "110" ? "selected" : "")>信義區</option>
+    <option data-city='1' value='111' @(val == "111" ? "selected" : "")>士林區</option>
+    <option data-city='1' value='112' @(val == "112" ? "selected" : "")>北投區</option>
+    <option data-city='1' value='114' @(val == "114" ? "selected" : "")>內湖區</option>
+    <option data-city='1' value='115' @(val == "115" ? "selected" : "")>南港區</option>
+    <option data-city='1' value='116' @(val == "116" ? "selected" : "")>文山區</option>
+    <option data-city='2' value='200' @(val == "200" ? "selected" : "")>仁愛區</option>
+    <option data-city='2' value='201' @(val == "201" ? "selected" : "")>信義區</option>
+    <option data-city='2' value='202' @(val == "202" ? "selected" : "")>中正區</option>
+    <option data-city='2' value='203' @(val == "203" ? "selected" : "")>中山區</option>
+    <option data-city='2' value='204' @(val == "204" ? "selected" : "")>安樂區</option>
+    <option data-city='2' value='205' @(val == "205" ? "selected" : "")>暖暖區</option>
+    <option data-city='2' value='206' @(val == "206" ? "selected" : "")>七堵區</option>
+    <option data-city='3' value='207' @(val == "207" ? "selected" : "")>萬里區</option>
+    <option data-city='3' value='208' @(val == "208" ? "selected" : "")>金山區</option>
+    <option data-city='92' value='209' @(val == "209" ? "selected" : "")>南竿鄉</option>
+    <option data-city='92' value='210' @(val == "210" ? "selected" : "")>北竿鄉</option>
+    <option data-city='92' value='211' @(val == "211" ? "selected" : "")>莒光鄉</option>
+    <option data-city='92' value='212' @(val == "212" ? "selected" : "")>東引鄉</option>
+    <option data-city='3' value='220' @(val == "220" ? "selected" : "")>板橋區</option>
+    <option data-city='3' value='221' @(val == "221" ? "selected" : "")>汐止區</option>
+    <option data-city='3' value='222' @(val == "222" ? "selected" : "")>深坑區</option>
+    <option data-city='3' value='223' @(val == "223" ? "selected" : "")>石碇區</option>
+    <option data-city='3' value='224' @(val == "224" ? "selected" : "")>瑞芳區</option>
+    <option data-city='3' value='226' @(val == "226" ? "selected" : "")>平溪區</option>
+    <option data-city='3' value='227' @(val == "227" ? "selected" : "")>雙溪區</option>
+    <option data-city='3' value='228' @(val == "228" ? "selected" : "")>貢寮區</option>
+    <option data-city='3' value='231' @(val == "231" ? "selected" : "")>新店區</option>
+    <option data-city='3' value='232' @(val == "232" ? "selected" : "")>坪林區</option>
+    <option data-city='3' value='233' @(val == "233" ? "selected" : "")>烏來區</option>
+    <option data-city='3' value='234' @(val == "234" ? "selected" : "")>永和區</option>
+    <option data-city='3' value='235' @(val == "235" ? "selected" : "")>中和區</option>
+    <option data-city='3' value='236' @(val == "236" ? "selected" : "")>土城區</option>
+    <option data-city='3' value='237' @(val == "237" ? "selected" : "")>三峽區</option>
+    <option data-city='3' value='238' @(val == "238" ? "selected" : "")>樹林區</option>
+    <option data-city='3' value='239' @(val == "239" ? "selected" : "")>鶯歌區</option>
+    <option data-city='3' value='241' @(val == "241" ? "selected" : "")>三重區</option>
+    <option data-city='3' value='242' @(val == "242" ? "selected" : "")>新莊區</option>
+    <option data-city='3' value='243' @(val == "243" ? "selected" : "")>泰山區</option>
+    <option data-city='3' value='244' @(val == "244" ? "selected" : "")>林口區</option>
+    <option data-city='3' value='247' @(val == "247" ? "selected" : "")>蘆洲區</option>
+    <option data-city='3' value='248' @(val == "248" ? "selected" : "")>五股區</option>
+    <option data-city='3' value='249' @(val == "249" ? "selected" : "")>八里區</option>
+    <option data-city='3' value='251' @(val == "251" ? "selected" : "")>淡水區</option>
+    <option data-city='3' value='252' @(val == "252" ? "selected" : "")>三芝區</option>
+    <option data-city='3' value='253' @(val == "253" ? "selected" : "")>石門區</option>
+    <option data-city='4' value='260' @(val == "260" ? "selected" : "")>宜蘭市</option>
+    <option data-city='4' value='261' @(val == "261" ? "selected" : "")>頭城鎮</option>
+    <option data-city='4' value='262' @(val == "262" ? "selected" : "")>礁溪鄉</option>
+    <option data-city='4' value='263' @(val == "263" ? "selected" : "")>壯圍鄉</option>
+    <option data-city='4' value='264' @(val == "264" ? "selected" : "")>員山鄉</option>
+    <option data-city='4' value='265' @(val == "265" ? "selected" : "")>羅東鎮</option>
+    <option data-city='4' value='266' @(val == "266" ? "selected" : "")>三星鄉</option>
+    <option data-city='4' value='267' @(val == "267" ? "selected" : "")>大同鄉</option>
+    <option data-city='4' value='268' @(val == "268" ? "selected" : "")>五結鄉</option>
+    <option data-city='4' value='269' @(val == "269" ? "selected" : "")>冬山鄉</option>
+    <option data-city='4' value='270' @(val == "270" ? "selected" : "")>蘇澳鎮</option>
+    <option data-city='4' value='272' @(val == "272" ? "selected" : "")>南澳鎮</option>
+    <option data-city='4' value='290' @(val == "290" ? "selected" : "")>釣魚臺列嶼</option>
+    <option data-city='6' value='302' @(val == "302" ? "selected" : "")>竹北市</option>
+    <option data-city='6' value='303' @(val == "303" ? "selected" : "")>湖口鄉</option>
+    <option data-city='6' value='304' @(val == "304" ? "selected" : "")>新豐鄉</option>
+    <option data-city='6' value='305' @(val == "305" ? "selected" : "")>新埔鎮</option>
+    <option data-city='6' value='306' @(val == "306" ? "selected" : "")>關西鎮</option>
+    <option data-city='6' value='307' @(val == "307" ? "selected" : "")>芎林鄉</option>
+    <option data-city='6' value='308' @(val == "308" ? "selected" : "")>寶山鄉</option>
+    <option data-city='6' value='310' @(val == "310" ? "selected" : "")>竹東鎮</option>
+    <option data-city='6' value='311' @(val == "311" ? "selected" : "")>五峰鄉</option>
+    <option data-city='6' value='312' @(val == "312" ? "selected" : "")>橫山鄉</option>
+    <option data-city='6' value='313' @(val == "313" ? "selected" : "")>尖石鄉</option>
+    <option data-city='6' value='314' @(val == "314" ? "selected" : "")>北埔鄉</option>
+    <option data-city='6' value='315' @(val == "315" ? "selected" : "")>峨眉鄉</option>
+    <option data-city='7' value='320' @(val == "320" ? "selected" : "")>中壢區</option>
+    <option data-city='7' value='324' @(val == "324" ? "selected" : "")>平鎮區</option>
+    <option data-city='7' value='325' @(val == "325" ? "selected" : "")>龍潭區</option>
+    <option data-city='7' value='326' @(val == "326" ? "selected" : "")>楊梅區</option>
+    <option data-city='7' value='327' @(val == "327" ? "selected" : "")>新屋區</option>
+    <option data-city='7' value='328' @(val == "328" ? "selected" : "")>觀音區</option>
+    <option data-city='7' value='330' @(val == "330" ? "selected" : "")>桃園區</option>
+    <option data-city='7' value='333' @(val == "333" ? "selected" : "")>龜山區</option>
+    <option data-city='7' value='334' @(val == "334" ? "selected" : "")>八德區</option>
+    <option data-city='7' value='335' @(val == "335" ? "selected" : "")>大溪區</option>
+    <option data-city='7' value='336' @(val == "336" ? "selected" : "")>復興區</option>
+    <option data-city='7' value='337' @(val == "337" ? "selected" : "")>大園區</option>
+    <option data-city='7' value='338' @(val == "338" ? "selected" : "")>蘆竹區</option>
+    <option data-city='8' value='350' @(val == "350" ? "selected" : "")>竹南鎮</option>
+    <option data-city='8' value='351' @(val == "351" ? "selected" : "")>頭份市</option>
+    <option data-city='8' value='352' @(val == "352" ? "selected" : "")>三灣鄉</option>
+    <option data-city='8' value='353' @(val == "353" ? "selected" : "")>南庄鄉</option>
+    <option data-city='8' value='354' @(val == "354" ? "selected" : "")>獅潭鄉</option>
+    <option data-city='8' value='356' @(val == "356" ? "selected" : "")>後龍鎮</option>
+    <option data-city='8' value='357' @(val == "357" ? "selected" : "")>通霄鎮</option>
+    <option data-city='8' value='358' @(val == "358" ? "selected" : "")>苑裡鄉</option>
+    <option data-city='8' value='360' @(val == "360" ? "selected" : "")>苗栗市</option>
+    <option data-city='8' value='361' @(val == "361" ? "selected" : "")>造橋鄉</option>
+    <option data-city='8' value='362' @(val == "362" ? "selected" : "")>頭屋鄉</option>
+    <option data-city='8' value='363' @(val == "363" ? "selected" : "")>公館鄉</option>
+    <option data-city='8' value='364' @(val == "364" ? "selected" : "")>大湖鄉</option>
+    <option data-city='8' value='365' @(val == "365" ? "selected" : "")>泰安鄉</option>
+    <option data-city='8' value='366' @(val == "366" ? "selected" : "")>銅鑼鄉</option>
+    <option data-city='8' value='367' @(val == "367" ? "selected" : "")>三義鄉</option>
+    <option data-city='8' value='368' @(val == "368" ? "selected" : "")>西湖鄉</option>
+    <option data-city='8' value='369' @(val == "369" ? "selected" : "")>卓蘭鄉</option>
+    <option data-city='9' value='400' @(val == "400" ? "selected" : "")>中 區</option>
+    <option data-city='9' value='401' @(val == "401" ? "selected" : "")>東 區</option>
+    <option data-city='9' value='402' @(val == "402" ? "selected" : "")>南 區</option>
+    <option data-city='9' value='403' @(val == "403" ? "selected" : "")>西 區</option>
+    <option data-city='9' value='404' @(val == "404" ? "selected" : "")>北 區</option>
+    <option data-city='9' value='406' @(val == "406" ? "selected" : "")>北屯區</option>
+    <option data-city='9' value='407' @(val == "407" ? "selected" : "")>西屯區</option>
+    <option data-city='9' value='408' @(val == "408" ? "selected" : "")>南屯區</option>
+    <option data-city='9' value='411' @(val == "411" ? "selected" : "")>太平區</option>
+    <option data-city='9' value='412' @(val == "412" ? "selected" : "")>大里區</option>
+    <option data-city='9' value='413' @(val == "413" ? "selected" : "")>霧峰區</option>
+    <option data-city='9' value='414' @(val == "414" ? "selected" : "")>烏日區</option>
+    <option data-city='9' value='420' @(val == "420" ? "selected" : "")>豐原區</option>
+    <option data-city='9' value='421' @(val == "421" ? "selected" : "")>后里區</option>
+    <option data-city='9' value='422' @(val == "422" ? "selected" : "")>石岡區</option>
+    <option data-city='9' value='423' @(val == "423" ? "selected" : "")>東勢區</option>
+    <option data-city='9' value='424' @(val == "424" ? "selected" : "")>和平區</option>
+    <option data-city='9' value='426' @(val == "426" ? "selected" : "")>新社區</option>
+    <option data-city='9' value='427' @(val == "427" ? "selected" : "")>潭子區</option>
+    <option data-city='9' value='428' @(val == "428" ? "selected" : "")>大雅區</option>
+    <option data-city='9' value='429' @(val == "429" ? "selected" : "")>神岡區</option>
+    <option data-city='9' value='432' @(val == "432" ? "selected" : "")>大肚區</option>
+    <option data-city='9' value='433' @(val == "433" ? "selected" : "")>沙鹿區</option>
+    <option data-city='9' value='434' @(val == "434" ? "selected" : "")>龍井區</option>
+    <option data-city='9' value='435' @(val == "435" ? "selected" : "")>梧棲區</option>
+    <option data-city='9' value='436' @(val == "436" ? "selected" : "")>清水區</option>
+    <option data-city='9' value='437' @(val == "437" ? "selected" : "")>大甲區</option>
+    <option data-city='9' value='438' @(val == "438" ? "selected" : "")>外埔區</option>
+    <option data-city='9' value='439' @(val == "439" ? "selected" : "")>大安區</option>
+    <option data-city='10' value='500' @(val == "500" ? "selected" : "")>彰化市</option>
+    <option data-city='10' value='502' @(val == "502" ? "selected" : "")>芬園鄉</option>
+    <option data-city='10' value='503' @(val == "503" ? "selected" : "")>花壇鄉</option>
+    <option data-city='10' value='504' @(val == "504" ? "selected" : "")>秀水鄉</option>
+    <option data-city='10' value='505' @(val == "505" ? "selected" : "")>鹿港鎮</option>
+    <option data-city='10' value='506' @(val == "506" ? "selected" : "")>福興鄉</option>
+    <option data-city='10' value='507' @(val == "507" ? "selected" : "")>線西鄉</option>
+    <option data-city='10' value='508' @(val == "508" ? "selected" : "")>和美鎮</option>
+    <option data-city='10' value='509' @(val == "509" ? "selected" : "")>伸港鄉</option>
+    <option data-city='10' value='510' @(val == "510" ? "selected" : "")>員林市</option>
+    <option data-city='10' value='511' @(val == "511" ? "selected" : "")>社頭鄉</option>
+    <option data-city='10' value='512' @(val == "512" ? "selected" : "")>永靖鄉</option>
+    <option data-city='10' value='513' @(val == "513" ? "selected" : "")>埔心鄉</option>
+    <option data-city='10' value='514' @(val == "514" ? "selected" : "")>溪湖鎮</option>
+    <option data-city='10' value='515' @(val == "515" ? "selected" : "")>大村鄉</option>
+    <option data-city='10' value='516' @(val == "516" ? "selected" : "")>埔鹽鄉</option>
+    <option data-city='10' value='520' @(val == "520" ? "selected" : "")>田中鎮</option>
+    <option data-city='10' value='521' @(val == "521" ? "selected" : "")>北斗鎮</option>
+    <option data-city='10' value='522' @(val == "522" ? "selected" : "")>田尾鄉</option>
+    <option data-city='10' value='523' @(val == "523" ? "selected" : "")>埤頭鄉</option>
+    <option data-city='10' value='524' @(val == "524" ? "selected" : "")>溪州鄉</option>
+    <option data-city='10' value='525' @(val == "525" ? "selected" : "")>竹塘鄉</option>
+    <option data-city='10' value='526' @(val == "526" ? "selected" : "")>二林鎮</option>
+    <option data-city='10' value='527' @(val == "527" ? "selected" : "")>大城鄉</option>
+    <option data-city='10' value='528' @(val == "528" ? "selected" : "")>芳苑鄉</option>
+    <option data-city='10' value='530' @(val == "530" ? "selected" : "")>二水鄉</option>
+    <option data-city='11' value='540' @(val == "540" ? "selected" : "")>南投市</option>
+    <option data-city='11' value='541' @(val == "541" ? "selected" : "")>中寮鄉</option>
+    <option data-city='11' value='542' @(val == "542" ? "selected" : "")>草屯鎮</option>
+    <option data-city='11' value='544' @(val == "544" ? "selected" : "")>國姓鄉</option>
+    <option data-city='11' value='545' @(val == "545" ? "selected" : "")>埔里鎮</option>
+    <option data-city='11' value='546' @(val == "546" ? "selected" : "")>仁愛鄉</option>
+    <option data-city='11' value='551' @(val == "551" ? "selected" : "")>名間鄉</option>
+    <option data-city='11' value='552' @(val == "552" ? "selected" : "")>集集鎮</option>
+    <option data-city='11' value='553' @(val == "553" ? "selected" : "")>水里鄉</option>
+    <option data-city='11' value='555' @(val == "555" ? "selected" : "")>魚池鄉</option>
+    <option data-city='11' value='556' @(val == "556" ? "selected" : "")>信義鄉</option>
+    <option data-city='11' value='557' @(val == "557" ? "selected" : "")>竹山鎮</option>
+    <option data-city='11' value='558' @(val == "558" ? "selected" : "")>鹿谷鎮</option>
+    <option data-city='12' value='602' @(val == "602" ? "selected" : "")>番路鄉</option>
+    <option data-city='12' value='603' @(val == "603" ? "selected" : "")>梅山鄉</option>
+    <option data-city='12' value='604' @(val == "604" ? "selected" : "")>竹崎鄉</option>
+    <option data-city='12' value='605' @(val == "605" ? "selected" : "")>阿里山鄉</option>
+    <option data-city='12' value='606' @(val == "606" ? "selected" : "")>中埔鄉</option>
+    <option data-city='12' value='607' @(val == "607" ? "selected" : "")>大埔鄉</option>
+    <option data-city='12' value='608' @(val == "608" ? "selected" : "")>水上鄉</option>
+    <option data-city='12' value='611' @(val == "611" ? "selected" : "")>鹿草鄉</option>
+    <option data-city='12' value='612' @(val == "612" ? "selected" : "")>太保市</option>
+    <option data-city='12' value='613' @(val == "613" ? "selected" : "")>朴子市</option>
+    <option data-city='12' value='614' @(val == "614" ? "selected" : "")>東石鄉</option>
+    <option data-city='12' value='615' @(val == "615" ? "selected" : "")>六腳鄉</option>
+    <option data-city='12' value='616' @(val == "616" ? "selected" : "")>新港鄉</option>
+    <option data-city='12' value='621' @(val == "621" ? "selected" : "")>民雄鄉</option>
+    <option data-city='12' value='622' @(val == "622" ? "selected" : "")>大林鎮</option>
+    <option data-city='12' value='623' @(val == "623" ? "selected" : "")>溪口鄉</option>
+    <option data-city='12' value='624' @(val == "624" ? "selected" : "")>義竹鄉</option>
+    <option data-city='12' value='625' @(val == "625" ? "selected" : "")>布袋鎮</option>
+    <option data-city='13' value='630' @(val == "630" ? "selected" : "")>斗南鎮</option>
+    <option data-city='13' value='631' @(val == "631" ? "selected" : "")>大埤鄉</option>
+    <option data-city='13' value='632' @(val == "632" ? "selected" : "")>虎尾鎮</option>
+    <option data-city='13' value='633' @(val == "633" ? "selected" : "")>土庫鎮</option>
+    <option data-city='13' value='634' @(val == "634" ? "selected" : "")>褒忠鄉</option>
+    <option data-city='13' value='635' @(val == "635" ? "selected" : "")>東勢鄉</option>
+    <option data-city='13' value='636' @(val == "636" ? "selected" : "")>臺西鄉</option>
+    <option data-city='13' value='637' @(val == "637" ? "selected" : "")>崙背鄉</option>
+    <option data-city='13' value='638' @(val == "638" ? "selected" : "")>麥寮鄉</option>
+    <option data-city='13' value='640' @(val == "640" ? "selected" : "")>斗六市</option>
+    <option data-city='13' value='643' @(val == "643" ? "selected" : "")>林內鄉</option>
+    <option data-city='13' value='646' @(val == "646" ? "selected" : "")>古坑鄉</option>
+    <option data-city='13' value='647' @(val == "647" ? "selected" : "")>莿桐鄉</option>
+    <option data-city='13' value='648' @(val == "648" ? "selected" : "")>西螺鎮</option>
+    <option data-city='13' value='649' @(val == "649" ? "selected" : "")>二崙鄉</option>
+    <option data-city='13' value='651' @(val == "651" ? "selected" : "")>北港鎮</option>
+    <option data-city='13' value='652' @(val == "652" ? "selected" : "")>水林鄉</option>
+    <option data-city='13' value='653' @(val == "653" ? "selected" : "")>口湖鄉</option>
+    <option data-city='13' value='654' @(val == "654" ? "selected" : "")>四湖鄉</option>
+    <option data-city='13' value='655' @(val == "655" ? "selected" : "")>元長鄉</option>
+    <option data-city='14' value='700' @(val == "700" ? "selected" : "")>中西區</option>
+    <option data-city='14' value='701' @(val == "701" ? "selected" : "")>東 區</option>
+    <option data-city='14' value='702' @(val == "702" ? "selected" : "")>南 區</option>
+    <option data-city='14' value='704' @(val == "704" ? "selected" : "")>北 區</option>
+    <option data-city='14' value='708' @(val == "708" ? "selected" : "")>安平區</option>
+    <option data-city='14' value='709' @(val == "709" ? "selected" : "")>安南區</option>
+    <option data-city='14' value='710' @(val == "710" ? "selected" : "")>永康區</option>
+    <option data-city='14' value='711' @(val == "711" ? "selected" : "")>歸仁區</option>
+    <option data-city='14' value='712' @(val == "712" ? "selected" : "")>新化區</option>
+    <option data-city='14' value='713' @(val == "713" ? "selected" : "")>左鎮區</option>
+    <option data-city='14' value='714' @(val == "714" ? "selected" : "")>玉井區</option>
+    <option data-city='14' value='715' @(val == "715" ? "selected" : "")>楠西區</option>
+    <option data-city='14' value='716' @(val == "716" ? "selected" : "")>南化區</option>
+    <option data-city='14' value='717' @(val == "717" ? "selected" : "")>仁德區</option>
+    <option data-city='14' value='718' @(val == "718" ? "selected" : "")>關廟區</option>
+    <option data-city='14' value='719' @(val == "719" ? "selected" : "")>龍崎區</option>
+    <option data-city='14' value='720' @(val == "720" ? "selected" : "")>官田區</option>
+    <option data-city='14' value='721' @(val == "721" ? "selected" : "")>麻豆區</option>
+    <option data-city='14' value='722' @(val == "722" ? "selected" : "")>佳里區</option>
+    <option data-city='14' value='723' @(val == "723" ? "selected" : "")>西港區</option>
+    <option data-city='14' value='724' @(val == "724" ? "selected" : "")>七股區</option>
+    <option data-city='14' value='725' @(val == "725" ? "selected" : "")>將軍區</option>
+    <option data-city='14' value='726' @(val == "726" ? "selected" : "")>學甲區</option>
+    <option data-city='14' value='727' @(val == "727" ? "selected" : "")>北門區</option>
+    <option data-city='14' value='730' @(val == "730" ? "selected" : "")>新營區</option>
+    <option data-city='14' value='731' @(val == "731" ? "selected" : "")>後壁區</option>
+    <option data-city='14' value='732' @(val == "732" ? "selected" : "")>白河區</option>
+    <option data-city='14' value='733' @(val == "733" ? "selected" : "")>東山區</option>
+    <option data-city='14' value='734' @(val == "734" ? "selected" : "")>六甲區</option>
+    <option data-city='14' value='735' @(val == "735" ? "selected" : "")>下營區</option>
+    <option data-city='14' value='736' @(val == "736" ? "selected" : "")>柳營區</option>
+    <option data-city='14' value='737' @(val == "737" ? "selected" : "")>鹽水區</option>
+    <option data-city='14' value='741' @(val == "741" ? "selected" : "")>善化區</option>
+    <option data-city='14' value='742' @(val == "742" ? "selected" : "")>大內區</option>
+    <option data-city='14' value='743' @(val == "743" ? "selected" : "")>山上區</option>
+    <option data-city='14' value='744' @(val == "744" ? "selected" : "")>新市區</option>
+    <option data-city='14' value='745' @(val == "745" ? "selected" : "")>安定區</option>
+    <option data-city='15' value='800' @(val == "800" ? "selected" : "")>新興區</option>
+    <option data-city='15' value='801' @(val == "801" ? "selected" : "")>前金區</option>
+    <option data-city='15' value='802' @(val == "802" ? "selected" : "")>苓雅區</option>
+    <option data-city='15' value='803' @(val == "803" ? "selected" : "")>鹽埕區</option>
+    <option data-city='15' value='804' @(val == "804" ? "selected" : "")>鼓山區</option>
+    <option data-city='15' value='805' @(val == "805" ? "selected" : "")>旗津區</option>
+    <option data-city='15' value='806' @(val == "806" ? "selected" : "")>前鎮區</option>
+    <option data-city='15' value='807' @(val == "807" ? "selected" : "")>三民區</option>
+    <option data-city='15' value='811' @(val == "811" ? "selected" : "")>楠梓區</option>
+    <option data-city='15' value='812' @(val == "812" ? "selected" : "")>小港區</option>
+    <option data-city='15' value='813' @(val == "813" ? "selected" : "")>左營區</option>
+    <option data-city='15' value='814' @(val == "814" ? "selected" : "")>仁武區</option>
+    <option data-city='15' value='815' @(val == "815" ? "selected" : "")>大社區</option>
+    <option data-city='93' value='817' @(val == "817" ? "selected" : "")>東沙群島</option>
+    <option data-city='93' value='819' @(val == "819" ? "selected" : "")>南沙群島</option>
+    <option data-city='15' value='820' @(val == "820" ? "selected" : "")>岡山區</option>
+    <option data-city='15' value='821' @(val == "821" ? "selected" : "")>路竹區</option>
+    <option data-city='15' value='822' @(val == "822" ? "selected" : "")>阿蓮區</option>
+    <option data-city='15' value='823' @(val == "823" ? "selected" : "")>田寮區</option>
+    <option data-city='15' value='824' @(val == "824" ? "selected" : "")>燕巢區</option>
+    <option data-city='15' value='825' @(val == "825" ? "selected" : "")>橋頭區</option>
+    <option data-city='15' value='826' @(val == "826" ? "selected" : "")>梓官區</option>
+    <option data-city='15' value='827' @(val == "827" ? "selected" : "")>彌陀區</option>
+    <option data-city='15' value='828' @(val == "828" ? "selected" : "")>永安區</option>
+    <option data-city='15' value='829' @(val == "829" ? "selected" : "")>湖內區</option>
+    <option data-city='15' value='830' @(val == "830" ? "selected" : "")>鳳山區</option>
+    <option data-city='15' value='831' @(val == "831" ? "selected" : "")>大寮區</option>
+    <option data-city='15' value='832' @(val == "832" ? "selected" : "")>林園區</option>
+    <option data-city='15' value='833' @(val == "833" ? "selected" : "")>鳥松區</option>
+    <option data-city='15' value='840' @(val == "840" ? "selected" : "")>大樹區</option>
+    <option data-city='15' value='842' @(val == "842" ? "selected" : "")>旗山區</option>
+    <option data-city='15' value='843' @(val == "843" ? "selected" : "")>美濃區</option>
+    <option data-city='15' value='844' @(val == "844" ? "selected" : "")>六龜區</option>
+    <option data-city='15' value='845' @(val == "845" ? "selected" : "")>內門區</option>
+    <option data-city='15' value='846' @(val == "846" ? "selected" : "")>杉林區</option>
+    <option data-city='15' value='847' @(val == "847" ? "selected" : "")>甲仙區</option>
+    <option data-city='15' value='848' @(val == "848" ? "selected" : "")>桃源區</option>
+    <option data-city='15' value='849' @(val == "849" ? "selected" : "")>那瑪夏區</option>
+    <option data-city='15' value='851' @(val == "851" ? "selected" : "")>茂林區</option>
+    <option data-city='15' value='852' @(val == "852" ? "selected" : "")>茄萣區</option>
+    <option data-city='90' value='880' @(val == "880" ? "selected" : "")>馬公市</option>
+    <option data-city='90' value='881' @(val == "881" ? "selected" : "")>西嶼鄉</option>
+    <option data-city='90' value='882' @(val == "882" ? "selected" : "")>望安鄉</option>
+    <option data-city='90' value='883' @(val == "883" ? "selected" : "")>七美鄉</option>
+    <option data-city='90' value='884' @(val == "884" ? "selected" : "")>白沙鄉</option>
+    <option data-city='90' value='885' @(val == "885" ? "selected" : "")>湖西鄉</option>
+    <option data-city='91' value='890' @(val == "890" ? "selected" : "")>金沙鎮</option>
+    <option data-city='91' value='891' @(val == "891" ? "selected" : "")>金湖鎮</option>
+    <option data-city='91' value='892' @(val == "892" ? "selected" : "")>金寧鄉</option>
+    <option data-city='91' value='893' @(val == "893" ? "selected" : "")>金城鎮</option>
+    <option data-city='91' value='894' @(val == "894" ? "selected" : "")>烈嶼鄉</option>
+    <option data-city='91' value='896' @(val == "896" ? "selected" : "")>烏坵鄉</option>
+    <option data-city='16' value='900' @(val == "900" ? "selected" : "")>屏東市</option>
+    <option data-city='16' value='901' @(val == "901" ? "selected" : "")>三地門鄉</option>
+    <option data-city='16' value='902' @(val == "902" ? "selected" : "")>霧臺鄉</option>
+    <option data-city='16' value='903' @(val == "903" ? "selected" : "")>瑪家鄉</option>
+    <option data-city='16' value='904' @(val == "904" ? "selected" : "")>九如鄉</option>
+    <option data-city='16' value='905' @(val == "905" ? "selected" : "")>里港鄉</option>
+    <option data-city='16' value='906' @(val == "906" ? "selected" : "")>高樹鄉</option>
+    <option data-city='16' value='907' @(val == "907" ? "selected" : "")>鹽埔鄉</option>
+    <option data-city='16' value='908' @(val == "908" ? "selected" : "")>長治鄉</option>
+    <option data-city='16' value='909' @(val == "909" ? "selected" : "")>麟洛鄉</option>
+    <option data-city='16' value='911' @(val == "911" ? "selected" : "")>竹田鄉</option>
+    <option data-city='16' value='912' @(val == "912" ? "selected" : "")>內埔鄉</option>
+    <option data-city='16' value='913' @(val == "913" ? "selected" : "")>萬丹鄉</option>
+    <option data-city='16' value='920' @(val == "920" ? "selected" : "")>潮州鎮</option>
+    <option data-city='16' value='921' @(val == "921" ? "selected" : "")>泰武鄉</option>
+    <option data-city='16' value='922' @(val == "922" ? "selected" : "")>來義鄉</option>
+    <option data-city='16' value='923' @(val == "923" ? "selected" : "")>萬巒鄉</option>
+    <option data-city='16' value='924' @(val == "924" ? "selected" : "")>崁頂鄉</option>
+    <option data-city='16' value='925' @(val == "925" ? "selected" : "")>新埤鄉</option>
+    <option data-city='16' value='926' @(val == "926" ? "selected" : "")>南州鄉</option>
+    <option data-city='16' value='927' @(val == "927" ? "selected" : "")>林邊鄉</option>
+    <option data-city='16' value='928' @(val == "928" ? "selected" : "")>東港鎮</option>
+    <option data-city='16' value='929' @(val == "929" ? "selected" : "")>琉球鄉</option>
+    <option data-city='16' value='931' @(val == "931" ? "selected" : "")>佳冬鄉</option>
+    <option data-city='16' value='932' @(val == "932" ? "selected" : "")>新園鄉</option>
+    <option data-city='16' value='940' @(val == "940" ? "selected" : "")>枋寮鄉</option>
+    <option data-city='16' value='941' @(val == "941" ? "selected" : "")>枋山鄉</option>
+    <option data-city='16' value='942' @(val == "942" ? "selected" : "")>春日鄉</option>
+    <option data-city='16' value='943' @(val == "943" ? "selected" : "")>獅子鄉</option>
+    <option data-city='16' value='944' @(val == "944" ? "selected" : "")>車城鄉</option>
+    <option data-city='16' value='945' @(val == "945" ? "selected" : "")>牡丹鄉</option>
+    <option data-city='16' value='946' @(val == "946" ? "selected" : "")>恆春鎮</option>
+    <option data-city='16' value='947' @(val == "947" ? "selected" : "")>滿州鄉</option>
+    <option data-city='17' value='950' @(val == "950" ? "selected" : "")>臺東市</option>
+    <option data-city='17' value='951' @(val == "951" ? "selected" : "")>綠島鄉</option>
+    <option data-city='17' value='952' @(val == "952" ? "selected" : "")>蘭嶼鄉</option>
+    <option data-city='17' value='953' @(val == "953" ? "selected" : "")>延平鄉</option>
+    <option data-city='17' value='954' @(val == "954" ? "selected" : "")>卑南鄉</option>
+    <option data-city='17' value='955' @(val == "955" ? "selected" : "")>鹿野鄉</option>
+    <option data-city='17' value='956' @(val == "956" ? "selected" : "")>關山鄉</option>
+    <option data-city='17' value='957' @(val == "957" ? "selected" : "")>海端鄉</option>
+    <option data-city='17' value='958' @(val == "958" ? "selected" : "")>池上鄉</option>
+    <option data-city='17' value='959' @(val == "959" ? "selected" : "")>東河鄉</option>
+    <option data-city='17' value='961' @(val == "961" ? "selected" : "")>成功鎮</option>
+    <option data-city='17' value='962' @(val == "962" ? "selected" : "")>長濱鄉</option>
+    <option data-city='17' value='963' @(val == "963" ? "selected" : "")>太麻里鄉</option>
+    <option data-city='17' value='964' @(val == "964" ? "selected" : "")>金峰鄉</option>
+    <option data-city='17' value='965' @(val == "965" ? "selected" : "")>大武鄉</option>
+    <option data-city='17' value='966' @(val == "966" ? "selected" : "")>達仁鄉</option>
+    <option data-city='18' value='970' @(val == "970" ? "selected" : "")>花蓮市</option>
+    <option data-city='18' value='971' @(val == "971" ? "selected" : "")>新城鄉</option>
+    <option data-city='18' value='972' @(val == "972" ? "selected" : "")>秀林鄉</option>
+    <option data-city='18' value='973' @(val == "973" ? "selected" : "")>吉安鄉</option>
+    <option data-city='18' value='974' @(val == "974" ? "selected" : "")>壽豐鄉</option>
+    <option data-city='18' value='975' @(val == "975" ? "selected" : "")>鳳林鎮</option>
+    <option data-city='18' value='976' @(val == "976" ? "selected" : "")>光復鄉</option>
+    <option data-city='18' value='977' @(val == "977" ? "selected" : "")>豐濱鄉</option>
+    <option data-city='18' value='978' @(val == "978" ? "selected" : "")>瑞穗鄉</option>
+    <option data-city='18' value='979' @(val == "979" ? "selected" : "")>萬榮鄉</option>
+    <option data-city='18' value='981' @(val == "981" ? "selected" : "")>玉里鎮</option>
+    <option data-city='18' value='982' @(val == "982" ? "selected" : "")>卓溪鄉</option>
+    <option data-city='18' value='983' @(val == "983" ? "selected" : "")>富里鄉</option>
+</select>
+}
+

@@ -1,0 +1,60 @@
+﻿
+<script>
+
+    function UserPage() {
+        location.href = '@Url.Action("Index", "Member")';
+    }
+
+</script>
+
+@*會員登入*@
+<div class="container body-content">
+    <section style="margin-top: 150px;margin-bottom: 200px;">
+
+        <div class="row" style="margin-top: 80px;">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M63.4351 26.3787C64.5703 27.514 64.5703 29.3546 63.4351 30.4898L36.3033 57.6216C35.168 58.7568 33.3274 58.7568 32.1922 57.6216L20.5643 45.9937C19.429 44.8584 19.429 43.0178 20.5643 41.8826C21.6995 40.7474 23.5401 40.7474 24.6754 41.8826L34.2477 51.455L59.324 26.3787C60.4592 25.2435 62.2998 25.2435 63.4351 26.3787Z" fill="#FF7B00" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.333008 42.0002C0.333008 18.9883 18.9878 0.333496 41.9997 0.333496C65.0113 0.333496 83.6663 18.9883 83.6663 42.0002C83.6663 65.0118 65.0114 83.6668 41.9997 83.6668C18.9878 83.6668 0.333008 65.0118 0.333008 42.0002ZM41.9997 6.14745C22.1988 6.14745 6.14696 22.1992 6.14696 42.0002C6.14696 61.8009 22.1988 77.8529 41.9997 77.8529C61.8004 77.8529 77.8524 61.8009 77.8524 42.0002C77.8524 22.1993 61.8004 6.14745 41.9997 6.14745Z" fill="#FF7B00" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        <h1>註冊成功</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 30px;">
+                <div class="form-group">
+                    <div class="row" style="justify-content: center;">
+                        <div class="col-lg-10" style="text-align: center;">
+                            <h5> 歡迎加入 aeball，資料同步約需 3 分鐘，短暫熱身後再到機台登入借球吧！</h5>
+                            <h5> 別忘了完成會員資料領取 30 元租球金！</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 20px;">
+                <div class="form-group">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary Button-lg" style="width: 200px;" onclick="UserPage()">完成會員檔案</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+</div>
+
+
+
+

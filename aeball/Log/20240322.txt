@@ -1,0 +1,3 @@
+2024/03/22 15:01:50 => GetCusts API 取得錯誤：Error: ConnectFailure (Connection timed out)
+2024/03/22 15:02:32 => GetCusts API 取得錯誤：Thread was being aborted.
+2024/03/22 15:02:33 => GetCusts API 取得錯誤：Thread was being aborted.
