@@ -1,0 +1,406 @@
+﻿@model Comlib.SysUser
+@functions{
+    public string TokenValue()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
+
+<style>
+
+    .icon-pos-absolute {
+        position: absolute;
+        padding-top: 5px;
+        padding-left: 11px;
+        z-index: 2;
+    }
+
+    div.register-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        width: 100px;
+    }
+
+        div.register-state div.state {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+        }
+
+            div.register-state div.state.active {
+                background: #ffdec0;
+                border: 1px solid #ff7b00;
+            }
+
+    span.hint {
+        color: red;
+        font-size: 14px;
+        position: absolute;
+    }
+
+    i.password-icon svg.eye-on {
+        display: none;
+    }
+
+    i.password-icon svg.eye-close {
+        display: block;
+    }
+
+    i.password-icon.eye-on svg.eye-on {
+        display: block;
+    }
+
+    i.password-icon.eye-on svg.eye-close {
+        display: none;
+    }
+
+</style>
+
+<script>
+    const regrex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/
+    const phone_regrex = /^(09\d{8})$/
+    var sendCntdownTime = null;
+
+    $(document).ready(function () {
+        setInterval(
+            function () {
+                if (sendCntdownTime != null && new Date().getTime() - sendCntdownTime < 60000) {
+                    $('#btn-sendVerifyCode').html((60 - parseInt((new Date().getTime() - sendCntdownTime) / 1000)) + '秒');
+                    $('#btn-sendVerifyCode').prop('disabled', true);
+                } else {
+                    $('#btn-sendVerifyCode').html('發送驗證碼');
+                    $('#btn-sendVerifyCode').prop('disabled', false);
+                }
+            }, 1000);
+    });
+
+    function SavePhone() {
+        if ($('#txt_CuTel').val() == '') { alert('請輸入電話號碼！'); return false; }
+        if ($('#txt_ValidPhone').val() == '') { alert('請輸入簡訊驗證碼！'); return false; }
+        if ($('#txt_pwd').val() == '') { alert('請輸入密碼！'); return false; }
+        if (!regrex.test($('#txt_pwd').val())) { alert('密碼長度必須是6-18位，含大小寫英文及數字！'); return false; }
+        if ($('#txt_pwd').val() != $('#txt_pwd2').val()) { alert('確認密碼與密碼不同！'); return false; }
+        if (!$('#chk_Confirm').prop('checked')) { alert('請閱讀會員條款及隱私權政策！'); return false; }
+        var model = {
+            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+            cuTel: $('#txt_CuTel').val(),
+            VerifyCode: $('#txt_ValidPhone').val(),
+            cuPawd: $('#txt_pwd').val()
+        }
+        $.ajax({
+            url: '@Url.Action("SavePhone", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: model,
+            success: function (d) {
+                if (d.RetCode == 0) {
+                    location.href = '@Url.Action("RegisterUser", "Home")';
+                } else {
+                    alert("儲存失敗！" + d.Message);
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function VerifyPhone() {
+        if ($('#txt_CuTel').val() == '') { alert('請輸入電話號碼！'); return false; }
+        var phone = $('#txt_CuTel').val();
+        $.ajax({
+            url: '@Url.Action("VerifyPhone", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                phone: phone
+            },
+            success: function (d) {
+                if (d.RetCode == 0) {
+                    sendCntdownTime = new Date().getTime();
+                    $('btn-sendVerifyCode').html('60秒');
+                    $('btn-sendVerifyCode').prop('disabled', true);
+                    //if (d.Message)alert(d.Message);
+                } else {
+                    alert("簡訊發送失敗！" + d.Message);
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function txt_CuTel_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).next().html('請輸入電話號碼！'); return false; }
+        if (!phone_regrex.test($(obj).val())) { $(obj).next().html('手機號碼格式不正確！'); return false; }
+        var phone = $('#txt_CuTel').val();
+        $.ajax({
+            url: '@Url.Action("CheckPhone", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                phone: phone
+            },
+            success: function (d) {
+                if (d.RetCode != 0) {
+                    $(obj).next().html(d.Message);
+                    return false;
+                } else {
+                    $(obj).next().html('');
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function txt_VerifyCode_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).parent().find('.hint').html('請輸入簡訊驗證碼！'); return false; }
+        $.ajax({
+            url: '@Url.Action("CheckVerifyCode", "Home")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+                code: $(obj).val()
+            },
+            success: function (d) {
+                if (d.RetCode != 0) {
+                    $(obj).parent().find('.hint').html(d.Message);
+                    return false;
+                } else {
+                    $(obj).parent().find('.hint').html('');
+                }
+            },
+            error: function (e) {
+                alert("取得錯誤");
+            }
+        });
+    }
+
+    function txt_pwd_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).next().html('請輸入密碼！'); return false; }
+        else if (!regrex.test($(obj).val())) { $(obj).next().html('密碼格式不正確！'); return false; }
+        else {
+            $(obj).next().html('');
+            if ($('#txt_pwd2').val() != '') txt_pwd2_onchange($('#txt_pwd2'));
+            return true;
+        }
+    }
+
+    function txt_pwd2_onchange(obj) {
+        if ($(obj).val() == '') { $(obj).next().html('請輸入確認密碼！'); return false; }
+        else if ($(obj).val() != $('#txt_pwd').val()) { $(obj).next().html('確認密碼與密碼不同！'); return false; }
+        else { $(obj).next().html(''); return true; }
+    }
+
+    function chk_Confirm_onchange(obj) {
+        if ($(obj).prop('checked')) {
+            $('#btn_nextstep').prop('disabled', false);
+        } else {
+            $('#btn_nextstep').prop('disabled', true);
+        }
+    }
+
+    function showPass(obj) {
+        $(obj).toggleClass('eye-on');
+        if ($(obj).hasClass('eye-on')) {
+            $(obj).parent().find('input').prop('type', 'password');
+        } else {
+            $(obj).parent().find('input').prop('type', 'text');
+        }
+    }
+
+</script>
+
+@*加入會員*@
+<div class="container body-content">
+    <section style="margin-top: 200px;margin-bottom: 200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        @*<h1>加入aeball會員</h1>
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                            <div class="register-state"><div class="state active">1</div></div>
+                            <div class="register-state" style="width: 50px">---------</div>
+                            <div class="register-state"><div class="state">2</div></div>
+                            <div class="register-state" style="width: 50px">---------</div>
+                            <div class="register-state"><div class="state">3</div></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle">
+                            <div class="register-state"><div>建立帳號</div></div>
+                            <div class="register-state" style="width: 50px"></div>
+                            <div class="register-state"><div>填寫會員資料</div></div>
+                            <div class="register-state" style="width: 50px"></div>
+                            <div class="register-state"><div>設定PIN碼</div></div>
+                        </div>*@
+                        <div style="display: flex; justify-content: space-evenly; justify-content: center;vertical-align: middle;margin-top:20px;">
+                            <img style="width: 100%; max-width: 300px;" src="@Url.Content("~/Content/Images/Register/註冊狀態列-1.png")"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 50px; margin-bottom: 20px;">
+                <div class="form-group">
+                    <div class="text-center">
+                        <h3>建立帳號</h3>
+                        <div class="Caption">輸入手機後，按下「發送驗證碼」即會收到簡訊驗證</div>
+                    </div>
+                </div>
+            </div>
+
+            @Html.AntiForgeryToken()
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-2 web-only">手機號碼</label>
+                        <div class="col-lg-5">
+                            <i class="icon-pos-absolute">
+                                <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.79183 0.666626H2.2085C1.31136 0.666626 0.583496 1.3665 0.583496 2.22913V15.7708C0.583496 16.6334 1.31136 17.3333 2.2085 17.3333H9.79183C10.689 17.3333 11.4168 16.6334 11.4168 15.7708V2.22913C11.4168 1.3665 10.689 0.666626 9.79183 0.666626ZM6.00016 16.2916C5.40094 16.2916 4.91683 15.8261 4.91683 15.25C4.91683 14.6738 5.40094 14.2083 6.00016 14.2083C6.59938 14.2083 7.0835 14.6738 7.0835 15.25C7.0835 15.8261 6.59938 16.2916 6.00016 16.2916ZM9.79183 12.776C9.79183 12.9908 9.60902 13.1666 9.38558 13.1666H2.61475C2.39131 13.1666 2.2085 12.9908 2.2085 12.776V2.61975C2.2085 2.40491 2.39131 2.22913 2.61475 2.22913H9.38558C9.60902 2.22913 9.79183 2.40491 9.79183 2.61975V12.776Z" fill="#9E9E9E" />
+                                </svg>
+                            </i>
+                            <input class="input-group form-control" pattern="[0-9]*" maxlength="10" inputmode="numeric" id="txt_CuTel" value="@Model.cuTel" style="padding: 6px 30px;" placeholder="輸入手機號碼（如：0912345678）" onkeypress="return event.charCode >= 48 && event.charCode <= 57" onchange="txt_CuTel_onchange(this)">
+                            <span class="hint"></span>
+                            <div style="height: 12px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-2 web-only">簡訊驗證碼</label>
+                        <div class="col-lg-5" style="position: relative">
+                            <i class="icon-pos-absolute">
+                                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.32012 2.02143C7.64691 1.95355 6.01258 2.42952 4.72145 3.34611C3.43192 4.26155 2.58077 5.54654 2.29707 6.94904C2.01384 8.34922 2.30912 9.79947 3.14432 11.0355C3.27614 11.2306 3.30979 11.476 3.23537 11.6994L2.56027 13.726L5.21956 13.1598C5.38436 13.1247 5.55615 13.1457 5.70773 13.2193C7.16642 13.9279 8.87306 14.144 10.5055 13.8204C12.1378 13.4968 13.5634 12.6605 14.5283 11.489C15.491 10.3204 15.9328 8.89651 15.7942 7.48088C15.6556 6.06404 14.9415 4.72071 13.756 3.70888C12.5686 2.69539 10.9933 2.08932 9.32012 2.02143ZM3.84537 2.11043C5.42207 0.991115 7.3892 0.426788 9.38146 0.507618C11.3737 0.588448 13.2785 1.30999 14.7386 2.55617C16.2006 3.80401 17.1215 5.49863 17.3011 7.33318C17.4808 9.16894 16.9026 10.9887 15.6967 12.4527C14.493 13.9139 12.7489 14.9202 10.7998 15.3066C8.93883 15.6755 6.99235 15.4597 5.28679 14.6945L1.58122 15.4834C1.31565 15.5399 1.04015 15.4498 0.859221 15.2473C0.678287 15.0447 0.619627 14.7607 0.705488 14.5029L1.68487 11.5628C0.785905 10.0708 0.471397 8.33767 0.813091 6.64847C1.17914 4.83885 2.26706 3.23088 3.84537 2.11043Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.99406 7.25124C9.41216 7.25124 9.7511 7.5904 9.7511 8.00877V8.01719C9.7511 8.43556 9.41216 8.77471 8.99406 8.77471C8.57596 8.77471 8.23702 8.43556 8.23702 8.01719V8.00877C8.23702 7.5904 8.57596 7.25124 8.99406 7.25124Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.62945 7.25124C6.04755 7.25124 6.38649 7.5904 6.38649 8.00877V8.01719C6.38649 8.43556 6.04755 8.77471 5.62945 8.77471C5.21135 8.77471 4.87241 8.43556 4.87241 8.01719V8.00877C4.87241 7.5904 5.21135 7.25124 5.62945 7.25124Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3587 7.25124C12.7768 7.25124 13.1157 7.5904 13.1157 8.00877V8.01719C13.1157 8.43556 12.7768 8.77471 12.3587 8.77471C11.9406 8.77471 11.6016 8.43556 11.6016 8.01719V8.00877C11.6016 7.5904 11.9406 7.25124 12.3587 7.25124Z" fill="#BDBDBD" />
+                                </svg>
+                            </i>
+                            <input class="input-group form-control" id="txt_ValidPhone" pattern="[0-9]*" maxlength="6" inputmode="numeric" value="@(Model.SmsValid?Model.VerifyCode:"")" placeholder="輸入六位數簡訊驗證碼" style="padding: 6px 30px; width: calc(100% - 120px); display: inline-block;" onchange="txt_VerifyCode_onchange(this)">
+                            <button type="button" class="btn Button-lg" id="btn-sendVerifyCode" style="width: 116px; padding-top: 4px; padding-bottom: 5px; float: right; background-color: #2E2C2C; color: white" onclick="VerifyPhone()">發送驗證碼</button>
+                            <span class="hint" style="left: 13px; top: 36px;"></span>
+                            <div style="height: 12px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-2 web-only">設定密碼</label>
+                        <div class="col-lg-5" style="position: relative">
+                            <i class="icon-pos-absolute">
+                                <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.3335 8.16663H3.66683C3.55739 8.16666 3.44901 8.14512 3.34789 8.10325C3.24678 8.06138 3.1549 8 3.07751 7.92261C3.00012 7.84522 2.93874 7.75335 2.89687 7.65223C2.855 7.55111 2.83347 7.44274 2.8335 7.33329V4.83329C2.8335 3.72822 3.27248 2.66842 4.05388 1.88701C4.83529 1.10561 5.89509 0.666626 7.00016 0.666626C8.10523 0.666626 9.16504 1.10561 9.94644 1.88701C10.7278 2.66842 11.1668 3.72822 11.1668 4.83329V7.33329C11.1669 7.44274 11.1453 7.55111 11.1035 7.65223C11.0616 7.75335 11.0002 7.84522 10.9228 7.92261C10.8454 8 10.7536 8.06138 10.6524 8.10325C10.5513 8.14512 10.4429 8.16666 10.3335 8.16663ZM4.50016 6.49996H9.50016V4.83329C9.50016 4.17025 9.23677 3.53437 8.76793 3.06553C8.29909 2.59668 7.6632 2.33329 7.00016 2.33329C6.33712 2.33329 5.70124 2.59668 5.2324 3.06553C4.76355 3.53437 4.50016 4.17025 4.50016 4.83329V6.49996Z" fill="#9E9E9E" />
+                                    <path d="M11.1668 6.49996H2.8335C1.45278 6.49996 0.333496 7.61925 0.333496 8.99996V14.8333C0.333496 16.214 1.45278 17.3333 2.8335 17.3333H11.1668C12.5475 17.3333 13.6668 16.214 13.6668 14.8333V8.99996C13.6668 7.61925 12.5475 6.49996 11.1668 6.49996Z" fill="#9E9E9E" />
+                                </svg>
+                            </i>
+                            <i class="password-icon eye-on" style="position: absolute; padding-top: 9px; padding-right: 20px; z-index: 2; right: 0px;" onclick="showPass(this)">
+                                <svg class="eye-close" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.68806 9.41454C4.71275 6.52412 7.3444 5 9.9892 5C13.0931 5 15.7601 7.01284 17.3308 9.42892L17.3317 9.4302C17.4416 9.60026 17.5 9.79822 17.5 10.0005C17.5 10.2024 17.4417 10.4001 17.3321 10.5701C15.7624 13.0175 13.1125 15 9.9892 15C6.83266 15 4.23342 13.0212 2.66775 10.581C2.55529 10.407 2.49697 10.2038 2.50012 9.99693C2.50329 9.78949 2.56812 9.58764 2.68643 9.41688L2.68806 9.41454ZM3.62829 10.0144C5.06142 12.2302 7.34161 13.8889 9.9892 13.8889C12.6082 13.8889 14.9384 12.2214 16.3734 10.0007C14.9324 7.80276 12.5837 6.11111 9.9892 6.11111C7.81298 6.11111 5.50026 7.3603 3.62829 10.0144Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99971 8.08643C8.93854 8.08643 8.07829 8.94317 8.07829 10C8.07829 11.0569 8.93854 11.9136 9.99971 11.9136C11.0609 11.9136 11.9211 11.0569 11.9211 10C11.9211 8.94317 11.0609 8.08643 9.99971 8.08643ZM6.96264 10C6.96264 8.32952 8.32238 6.97532 9.99971 6.97532C11.677 6.97532 13.0368 8.32952 13.0368 10C13.0368 11.6705 11.677 13.0247 9.99971 13.0247C8.32238 13.0247 6.96264 11.6705 6.96264 10Z" fill="#BDBDBD" />
+                                </svg>
+                                <svg class="eye-on" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.89625 5.89682C3.23814 5.73771 3.64322 5.88819 3.80102 6.23293C6.28448 11.6586 13.7155 11.6586 16.199 6.23293C16.3568 5.88819 16.7619 5.73771 17.1037 5.89682C17.4456 6.05593 17.5949 6.46438 17.4371 6.80912C14.4661 13.2999 5.53388 13.2999 2.56292 6.80912C2.40512 6.46438 2.55436 6.05593 2.89625 5.89682Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9767 9.00641C14.281 8.78278 14.7075 8.85024 14.9293 9.15709L17.3691 12.5326C17.5908 12.8395 17.5239 13.2695 17.2196 13.4932C16.9153 13.7168 16.4888 13.6493 16.2671 13.3425L13.8273 9.96692C13.6055 9.66007 13.6724 9.23004 13.9767 9.00641Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10.3022C10.3766 10.3022 10.6818 10.61 10.6818 10.9897V14.3126C10.6818 14.6922 10.3766 15 10 15C9.62347 15 9.31822 14.6922 9.31822 14.3126V10.9897C9.31822 10.61 9.62347 10.3022 10 10.3022Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.02333 9.00641C6.32764 9.23004 6.39454 9.66008 6.17276 9.96692L3.73296 13.3425C3.51118 13.6493 3.0847 13.7168 2.7804 13.4932C2.47609 13.2695 2.40919 12.8395 2.63097 12.5326L5.07076 9.15709C5.29254 8.85024 5.71902 8.78278 6.02333 9.00641Z" fill="#BDBDBD" />
+                                </svg>
+                            </i>
+                            <input type="password" class="input-group form-control" id="txt_pwd" value="@Model.cuPawd" style="padding: 6px 30px;" placeholder="輸入密碼（6-18 位，含大小寫英文及數字）" onchange="txt_pwd_onchange(this)">
+                            <span class="hint"></span>
+                            <div style="height: 12px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row" style="justify-content: center;">
+                        <label class="control-label col-lg-2 web-only">確認密碼</label>
+                        <div class="col-lg-5" style="position: relative">
+                            <i class="icon-pos-absolute">
+                                <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.3335 8.16663H3.66683C3.55739 8.16666 3.44901 8.14512 3.34789 8.10325C3.24678 8.06138 3.1549 8 3.07751 7.92261C3.00012 7.84522 2.93874 7.75335 2.89687 7.65223C2.855 7.55111 2.83347 7.44274 2.8335 7.33329V4.83329C2.8335 3.72822 3.27248 2.66842 4.05388 1.88701C4.83529 1.10561 5.89509 0.666626 7.00016 0.666626C8.10523 0.666626 9.16504 1.10561 9.94644 1.88701C10.7278 2.66842 11.1668 3.72822 11.1668 4.83329V7.33329C11.1669 7.44274 11.1453 7.55111 11.1035 7.65223C11.0616 7.75335 11.0002 7.84522 10.9228 7.92261C10.8454 8 10.7536 8.06138 10.6524 8.10325C10.5513 8.14512 10.4429 8.16666 10.3335 8.16663ZM4.50016 6.49996H9.50016V4.83329C9.50016 4.17025 9.23677 3.53437 8.76793 3.06553C8.29909 2.59668 7.6632 2.33329 7.00016 2.33329C6.33712 2.33329 5.70124 2.59668 5.2324 3.06553C4.76355 3.53437 4.50016 4.17025 4.50016 4.83329V6.49996Z" fill="#9E9E9E" />
+                                    <path d="M11.1668 6.49996H2.8335C1.45278 6.49996 0.333496 7.61925 0.333496 8.99996V14.8333C0.333496 16.214 1.45278 17.3333 2.8335 17.3333H11.1668C12.5475 17.3333 13.6668 16.214 13.6668 14.8333V8.99996C13.6668 7.61925 12.5475 6.49996 11.1668 6.49996Z" fill="#9E9E9E" />
+                                </svg>
+                            </i>
+                            <i class="password-icon eye-on" style="position: absolute; padding-top: 9px; padding-right: 20px; z-index: 2; right: 0px;" onclick="showPass(this)">
+                                <svg class="eye-close" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.68806 9.41454C4.71275 6.52412 7.3444 5 9.9892 5C13.0931 5 15.7601 7.01284 17.3308 9.42892L17.3317 9.4302C17.4416 9.60026 17.5 9.79822 17.5 10.0005C17.5 10.2024 17.4417 10.4001 17.3321 10.5701C15.7624 13.0175 13.1125 15 9.9892 15C6.83266 15 4.23342 13.0212 2.66775 10.581C2.55529 10.407 2.49697 10.2038 2.50012 9.99693C2.50329 9.78949 2.56812 9.58764 2.68643 9.41688L2.68806 9.41454ZM3.62829 10.0144C5.06142 12.2302 7.34161 13.8889 9.9892 13.8889C12.6082 13.8889 14.9384 12.2214 16.3734 10.0007C14.9324 7.80276 12.5837 6.11111 9.9892 6.11111C7.81298 6.11111 5.50026 7.3603 3.62829 10.0144Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99971 8.08643C8.93854 8.08643 8.07829 8.94317 8.07829 10C8.07829 11.0569 8.93854 11.9136 9.99971 11.9136C11.0609 11.9136 11.9211 11.0569 11.9211 10C11.9211 8.94317 11.0609 8.08643 9.99971 8.08643ZM6.96264 10C6.96264 8.32952 8.32238 6.97532 9.99971 6.97532C11.677 6.97532 13.0368 8.32952 13.0368 10C13.0368 11.6705 11.677 13.0247 9.99971 13.0247C8.32238 13.0247 6.96264 11.6705 6.96264 10Z" fill="#BDBDBD" />
+                                </svg>
+                                <svg class="eye-on" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.89625 5.89682C3.23814 5.73771 3.64322 5.88819 3.80102 6.23293C6.28448 11.6586 13.7155 11.6586 16.199 6.23293C16.3568 5.88819 16.7619 5.73771 17.1037 5.89682C17.4456 6.05593 17.5949 6.46438 17.4371 6.80912C14.4661 13.2999 5.53388 13.2999 2.56292 6.80912C2.40512 6.46438 2.55436 6.05593 2.89625 5.89682Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9767 9.00641C14.281 8.78278 14.7075 8.85024 14.9293 9.15709L17.3691 12.5326C17.5908 12.8395 17.5239 13.2695 17.2196 13.4932C16.9153 13.7168 16.4888 13.6493 16.2671 13.3425L13.8273 9.96692C13.6055 9.66007 13.6724 9.23004 13.9767 9.00641Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10.3022C10.3766 10.3022 10.6818 10.61 10.6818 10.9897V14.3126C10.6818 14.6922 10.3766 15 10 15C9.62347 15 9.31822 14.6922 9.31822 14.3126V10.9897C9.31822 10.61 9.62347 10.3022 10 10.3022Z" fill="#BDBDBD" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.02333 9.00641C6.32764 9.23004 6.39454 9.66008 6.17276 9.96692L3.73296 13.3425C3.51118 13.6493 3.0847 13.7168 2.7804 13.4932C2.47609 13.2695 2.40919 12.8395 2.63097 12.5326L5.07076 9.15709C5.29254 8.85024 5.71902 8.78278 6.02333 9.00641Z" fill="#BDBDBD" />
+                                </svg>
+                            </i>
+                            <input type="password" class="input-group form-control" id="txt_pwd2" value="@Model.cuPawd" style="padding: 6px 30px;" placeholder="再次輸入密碼" onchange="txt_pwd2_onchange(this)">
+                            <span class="hint"></span>
+                            <div style="height: 12px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 20px">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row" style="justify-content: center;">
+                        <div class="form-check form-check-inline" style="width: auto;">
+                            <input class="form-check-input" type="checkbox" value="" id="chk_Confirm" onchange="chk_Confirm_onchange(this)">
+                            <label class="form-check-label" for="chk_Confirm" style="width: fit-content;">
+                                我已閱讀並同意<a class="" href="@Url.Content("~/Content/file/智能籃球櫃會員註冊條款_20241030.docx.pdf")" target="_blank" style="color: #FF7B00; text-decoration: none;">會員條款</a>及<a class="" href="@Url.Content("~/Content/file/隱私權條款.pdf")" target="_blank"  style="color:#FF7B00; text-decoration: none;">隱私權政策</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="text-center">
+                        <button type="button" id="btn_nextstep" class="btn btn-primary Button-lg" style="width: 300px;" onclick="SavePhone()" disabled>下一步</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12" >
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="row" style="justify-content: center;">
+                        <div class="form-check form-check-inline" style="width: auto;">
+                            <label class="form-check-label" for="chk_Confirm" style="width: fit-content;">
+                                已有aeball帳號？<a class="" href="@Url.Action("Login", "Home")" style="color: #FF7B00; text-decoration: none;">立即登入</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+</div>
+
