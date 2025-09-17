@@ -25,3 +25,11 @@ C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\a
 C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.csproj.Up2Date
 C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.dll
 C:\Users\bens1\Desktop\aeball\aeball 網頁原始碼_1003-20241012T140425Z-001\aeball 網頁原始碼_1003\Comlib\obj\Debug\Comlib.pdb
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\bin\Debug\Comlib.dll
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\bin\Debug\Comlib.pdb
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Debug\Comlib.csproj.AssemblyReference.cache
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Debug\Comlib.csproj.CoreCompileInputs.cache
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Debug\Comlib.csproj.Up2Date
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Debug\Comlib.dll
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Debug\Comlib.pdb

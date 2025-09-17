@@ -70,3 +70,11 @@ D:/aeball/產品/官網/aeball 網頁原始碼_0819-20240819T154359Z-001/aeball 
 /Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.csproj.CopyComplete
 /Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.dll
 /Users/jlhuang0830/Desktop/aeball/網頁開發/aeball 網頁原始碼_1001/Comlib/obj/Release/Comlib.pdb
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\bin\Release\Comlib.dll
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\bin\Release\Comlib.pdb
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\bin\Release\Newtonsoft.Json.dll
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Release\Comlib.csproj.AssemblyReference.cache
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Release\Comlib.csproj.CoreCompileInputs.cache
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Release\Comlib.csproj.Up2Date
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Release\Comlib.dll
+C:\Users\bens1\Desktop\aeball公事\aeball-official-website\Comlib\obj\Release\Comlib.pdb

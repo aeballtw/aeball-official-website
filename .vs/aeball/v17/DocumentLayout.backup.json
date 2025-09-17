@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\bens1\\Desktop\\aeball\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003-20241012T140425Z-001\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003\\",
+  "WorkspaceRootPath": "C:\\Users\\bens1\\Desktop\\aeball\u516C\u4E8B\\aeball-official-website\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|aeball\\aeball.csproj|c:\\users\\bens1\\desktop\\aeball\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003-20241012t140425z-001\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003\\aeball\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|aeball\\aeball.csproj|c:\\users\\bens1\\desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|aeball\\aeball.csproj|solutionrelative:aeball\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|aeball\\aeball.csproj|c:\\users\\bens1\\desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\scripts\\data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|aeball\\aeball.csproj|solutionrelative:aeball\\scripts\\data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|aeball\\aeball.csproj|c:\\users\\bens1\\desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|aeball\\aeball.csproj|solutionrelative:aeball\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\bens1\\Desktop\\aeball\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003-20241012T140425Z-001\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003\\aeball\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\bens1\\Desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "aeball\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\bens1\\Desktop\\aeball\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003-20241012T140425Z-001\\aeball \u7DB2\u9801\u539F\u59CB\u78BC_1003\\aeball\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\bens1\\Desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "aeball\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAD8AAAALAAAAAAAAAA==",
+              "ViewState": "AgIAADUBAAAAAAAAAIAwwEEBAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-18T16:40:41.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "data.js",
+              "DocumentMoniker": "C:\\Users\\bens1\\Desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\Scripts\\data.js",
+              "RelativeDocumentMoniker": "aeball\\Scripts\\data.js",
+              "ToolTip": "C:\\Users\\bens1\\Desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\Scripts\\data.js",
+              "RelativeToolTip": "aeball\\Scripts\\data.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-16T09:42:59.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\bens1\\Desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "aeball\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\bens1\\Desktop\\aeball\u516C\u4E8B\\aeball-official-website\\aeball\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "aeball\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEEBAAAAAAAAAAAAAFEBAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-16T08:34:40.879Z",
               "EditorCaption": ""
             }
           ]
