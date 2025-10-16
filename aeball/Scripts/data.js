@@ -5,12 +5,12 @@
         content: '深溝設計，手感升級',
         price: 15
     },
-    {
+    /*{
         src: webroot + 'Content/images/basketball/Molten合作用球/B7G2010.png',
         title: 'B7G2010',
         content: '室外用仿皮超質感籃球',
         price: 20
-    },
+    },*/
     {
         src: webroot + 'Content/images/basketball/Molten合作用球/B7G3200-2.png',
         title: 'B7G3200-2',
@@ -70,19 +70,19 @@
         title: 'Mikasa V300W',
         content: 'FIVB 認證超纖皮製比賽排球',
         price: 30
-    }
+    },
     /*{
         src: webroot + 'Content/Images/basketball/Tarmak BT 500X.png',
         title: 'Tarmak BT 500X',
         content: '獨特合成皮，絕佳回彈性',
         price: 35
-    },
+    }*/
     {
         src: webroot + 'Content/Images/basketball/Nike All Court.png',
         title: 'Nike All Court',
         content: '表面膠黏設計，提升控制力',
-        price: 35
-    },*/
+        price: 30
+    }
     /*{
         src: webroot + 'Content/Images/basketball/KIPSTA 3 號足球.png',
         title: 'KIPSTA 3 號足球',

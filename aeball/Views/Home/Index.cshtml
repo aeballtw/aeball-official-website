@@ -13,12 +13,12 @@
             content: '深溝設計，手感升級',
             price: 15
         },
-        {
+        @*{
             src: webroot + 'Content/images/basketball/Molten/B7G2010.png',
             title: 'B7G2010',
             content: '室外用仿皮超質感籃球',
             price: 20
-        },
+        },*@
         {
             src: webroot + 'Content/images/basketball/Molten/B7G3200-2.png',
             title: 'B7G3200-2',
@@ -85,13 +85,13 @@
             title: 'Mikasa V300W',
             content: 'FIVB 認證超纖皮製比賽排球',
             price: 30
-        }
-        @*{
+        },
+        {
             src: webroot + 'Content/Images/basketball/Nike All Court.png',
             title: 'Nike All Court',
             content: '表面膠黏設計，提升控制力',
-            price: 35
-        },*@
+            price: 30
+        }
         @*{
             src: webroot + 'Content/Images/basketball/KIPSTA 3 號足球.png',
             title: 'KIPSTA 3 號足球',
@@ -365,9 +365,9 @@
                         <div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti/Conti 1000.png")">
                         </div>
-                        <div>
+                        @*@<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Molten/B7G2010.png")">
-                        </div>
+                        </div>*@
                         <div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Molten/B7G3200-2.png")">
                         </div>
@@ -404,9 +404,9 @@
                         <div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Mikasa V300W.png")">
                         </div>
-                        @*<div>
+                        <div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Nike All Court.png")">
-                        </div>*@
+                        </div>
                         @*<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/KIPSTA 3 號足球.png")">
                         </div>*@
@@ -460,7 +460,7 @@
 @*借球*@
 <section id="sec_borrow" style="padding-top: 70px; overflow: hidden">
     <div class="container body-content">
-        <div class="web-only">
+         <div class="web-only">
 
             <div class="col-md-12 px-0" style="background: #fff4ea ">
                 <div class="form-group">
@@ -638,10 +638,11 @@
     </div>
 </section>
 
-<div class="container body-content">
-    @*還球*@
-    <section id="sec_return" style="padding-top: 70px; overflow: hidden">
 
+@*還球*@
+
+<section id="sec_return" style="padding-top: 70px; overflow: hidden">
+    <div class="container body-content">
         <div class="web-only">
 
             <div class="col-md-12 px-0" style="background: #fff4ea ">
@@ -746,8 +747,7 @@
 
         </div>
 
-        <div class="phone-only">
-
+        <div class="pad-only">
             <div class="col-md-12">
                 <div class="form-group">
                     <h1 style="color: #ff7b00; font-size: 26px;">歸還</h1>
@@ -819,10 +819,10 @@
 
             </div>
         </div>
+    </div>    
+</section>
 
-    </section>
 
-</div>
 
 <section id="sec_coorperate" style="margin-top: 30px; margin-bottom: 100px; transform: translateY(100px); padding-top: 70px; background-image: url( @Url.Content("~/Content/Images/Coop/合作夥伴＿背景圖.png") ); height: 500px; background-position: center; display: flex; align-items: center; overflow: hidden;">
     <div class="row">
@@ -831,12 +831,13 @@
                 <div class="text-center">
                     <h1 style="line-height: 2; padding-left: 60px; padding-right: 60px">
                         @*如果你也喜歡和人分享運動的樂趣，歡迎與 <span style="white-space:nowrap">aeball</span> 合作或加入團隊一同打造更輕便的運動體驗！*@
-                        我們提供公司/學生盃賽等體育活動專屬借球方案，也歡迎任何合作提案，立即與我們聯繫！
+                        @*我們提供公司/學生盃賽等體育活動專屬借球方案，也歡迎任何合作提案，立即與我們聯繫！*@
+                        提供多元合作模式，包含無人自動化器材管理、大量球類及運動器材訂購、比賽活動短期租借等，歡迎各式合作提案與洽談。
                     </h1>
                 </div>
             </div>
         </div>
-
+                           
         @*<div class="col-md-12">
                 <div class="form-group">
                     <div class="text-center">
