@@ -1,30 +1,28 @@
 ﻿<Properties StartupConfiguration="{74B15727-DF5A-4C4B-83C5-F0AB1501A26D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="aeball/Views/Home/Register.cshtml">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.aeball PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="aeball/Views/Home/FAQ.cshtml">
     <Files>
-      <File FileName="aeball/Content/css/all.css" />
       <File FileName="aeball/Views/Home/Index.cshtml" />
       <File FileName="aeball/Scripts/data.js" />
-      <File FileName="aeball/Views/Home/Place.cshtml" Line="53" Column="23" />
-      <File FileName="aeball/Views/Home/Register.cshtml" Line="374" Column="239" />
+      <File FileName="aeball/Views/Home/Register.cshtml" />
+      <File FileName="aeball/Web.config" />
+      <File FileName="aeball/Views/Home/FAQ.cshtml" Line="203" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="aeball" expanded="True">
+          <Node name="aeball">
             <Node name="aeball" expanded="True">
-              <Node name="Content" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="images" expanded="True">
-                  <Node name="banner" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Scripts" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True">
-                  <Node name="Register.cshtml" selected="True" />
+                  <Node name="FAQ.cshtml" selected="True" />
                 </Node>
-                <Node name="Member" expanded="True" />
-                <Node name="Shared" expanded="True" />
               </Node>
             </Node>
             <Node name="Comlib" expanded="True" />
@@ -33,11 +31,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.aeball PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
 </Properties>

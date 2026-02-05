@@ -200,9 +200,6 @@
     <Content Include="Content\images\brand\brand_2.png" />
     <Content Include="Content\images\brand\brand_3.png" />
     <Content Include="Content\images\Coop\合作夥伴＿背景圖.png" />
-    <Content Include="Content\images\place\place_1_1.png" />
-    <Content Include="Content\images\place\place_1_2.png" />
-    <Content Include="Content\images\place\place_1_3.png" />
     <Content Include="Content\images\poster\poster1.png" />
     <Content Include="Content\images\poster\poster2.png" />
     <Content Include="Content\images\poster\poster_1.png" />
@@ -278,10 +275,43 @@
     <Content Include="Views\Member\ModifyPin.cshtml" />
     <Content Include="Views\Home\ForgetPWD.cshtml" />
     <Content Include="Views\Home\ForgetPWD2.cshtml" />
+    <Content Include="Content\images\place\台大\台大_5.png" />
+    <Content Include="Content\images\place\台大\台大_4.png" />
+    <Content Include="Content\images\place\台大\台大_1.png" />
+    <Content Include="Content\images\place\台大\台大_3.png" />
+    <Content Include="Content\images\place\台大\台大_2.png" />
+    <Content Include="Content\images\place\台科大\台科大_4.png" />
+    <Content Include="Content\images\place\台科大\台科大_1.png" />
+    <Content Include="Content\images\place\台科大\台科大_3.png" />
+    <Content Include="Content\images\place\台科大\台科大_2.png" />
+    <Content Include="Content\images\place\靜宜大學\靜宜大學_2.png" />
+    <Content Include="Content\images\place\靜宜大學\靜宜大學_3.png" />
+    <Content Include="Content\images\place\靜宜大學\靜宜大學_1.png" />
+    <Content Include="Content\images\place\archive\place_2_1.png" />
+    <Content Include="Content\images\place\archive\place_3_3.png" />
+    <Content Include="Content\images\place\archive\place_3_2.png" />
+    <Content Include="Content\images\place\archive\place_3_1.png" />
+    <Content Include="Content\images\place\archive\place_3_5.png" />
+    <Content Include="Content\images\place\archive\place_3_4.png" />
+    <Content Include="Content\images\place\中興大學\中興大學_1.png" />
+    <Content Include="Content\images\place\中興大學\中興大學_3.png" />
+    <Content Include="Content\images\place\中興大學\中興大學_2.png" />
+    <Content Include="Content\images\place\信義國中\信義國中_5.png" />
+    <Content Include="Content\images\place\信義國中\信義國中_4.png" />
+    <Content Include="Content\images\place\信義國中\信義國中_3.png" />
+    <Content Include="Content\images\place\信義國中\信義國中_2.png" />
+    <Content Include="Content\images\place\信義國中\信義國中_1.png" />
+    <Content Include="Content\images\place\逢甲大學\逢甲大學_3.png" />
+    <Content Include="Content\images\place\逢甲大學\逢甲大學_2.png" />
+    <Content Include="Content\images\place\逢甲大學\逢甲大學_1.png" />
+    <Content Include="Content\images\banner\PC_Banner_5.png" />
+    <Content Include="Content\images\banner\手機_Banner_5.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Common\" />
+    <Folder Include="Content\images\place\逢甲大學\" />
+    <Folder Include="Content\images\place\中興大學\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -323,6 +353,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

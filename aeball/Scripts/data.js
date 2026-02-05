@@ -10,13 +10,13 @@
         title: 'B7G2010',
         content: '室外用仿皮超質感籃球',
         price: 20
-    },*/
+    },
     {
         src: webroot + 'Content/images/basketball/Molten合作用球/B7G3200-2.png',
         title: 'B7G3200-2',
         content: '深溝抓握手感，室內外兩用球',
         price: 25
-    },
+    },*/
     /*{
         src: webroot + 'Content/images/basketball/Molten合作用球/B6G2010.png',
         title: 'B6G2010',
@@ -35,17 +35,23 @@
         content: '極致控球手感，回不去的體驗',
         price: 40
     },*/
-    {
+    /*{
         src: webroot + 'Content/Images/basketball/Conti/Conti 1500.png',
         title: 'Conti 1500',
         content: '高觸感仿皮橡膠，減緩衝擊',
         price: 20
-    },
+    },*/
     {
         src: webroot + 'Content/Images/basketball/Conti/Conti 5000.png',
         title: 'Conti 5000',
         content: '弧形顆粒球溝設計，柔和手感',
-        price: 35
+        price: 30
+    },
+    {
+        src: webroot + 'Content/Images/basketball/Conti/Conti 1000 六號球.png',
+        title: 'Conti 1000 六號球',
+        content: '深溝設計，手感升級',
+        price: 15
     },
     {
         src: webroot + 'Content/Images/basketball/Conti/Conti 3000 排球.png',
@@ -54,9 +60,9 @@
         price: 30
     },
     {
-        src: webroot + 'Content/Images/basketball/Conti/Conti 1000 六號球.png',
-        title: 'Conti 1000 六號球',
-        content: '深溝設計，手感升級',
+        src: webroot + 'Content/Images/basketball/Conti/Conti 700 排球.png',
+        title: 'Conti 700 排球',
+        content: '超軟橡膠排球',
         price: 15
     },
     /*{

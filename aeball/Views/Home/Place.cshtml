@@ -9,6 +9,16 @@
         border-radius: 50%;
         transform: translateY(20px);
     }
+
+    .open-24h {
+        margin-left: 8px;
+        padding: 2px 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #2E7D32;
+        background-color: #E8F5E9;
+        border-radius: 12px;
+    }
 </style>
 
 <script>
@@ -57,7 +67,7 @@
         <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-3">
             <div class="col">
                 <div class="card h-100" style="overflow:hidden">
-                    <div class="forb-place"><h3>Coming Soon</h3></div>
+                    @*<div class="forb-place"><h3>Coming Soon</h3></div>*@
                     @*<img src="@Url.Content("~/Content/Images/place/place_1_1.png")" class="card-img-top" alt="...">*@
                     <div id="carousel_1" class="carousel slide card-img-top" data-bs-ride="carousel">
                         <div class="carousel-indicators">
@@ -65,19 +75,23 @@
                             <button type="button" data-bs-target="#carousel_1" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carousel_1" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             <button type="button" data-bs-target="#carousel_1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carousel_1" data-bs-slide-to="4" aria-label="Slide 5"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_1.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/台大/台大_1.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_2.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/台大/台大_2.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_3.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/台大/台大_3.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_4.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/台大/台大_4.png")" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="4000">
+                                <img src="@Url.Content("~/Content/images/place/台大/台大_5.png")" class="d-block w-100">
                             </div>
                         </div>
                         <div class="place-pic-desc">熱門球場</div>
@@ -93,17 +107,17 @@
                         </h5>
                         <div class="card-text">
                             <div>
-                                <a href="javascript:void(0)" style="color: #ff7b00; font-size: 14px;" onclick="window.open('@("https://maps.app.goo.gl/h53psftS56b87QjJ6")')">
-                                    台灣大學舊體育館外南側
+                                <a href="javascript:void(0)" style="color: #ff7b00; font-size: 14px;" onclick="window.open('@("https://maps.app.goo.gl/wQxsDzzmECziL2xs5")')">
+                                    台灣大學舊體育館外
                                     <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
                                         <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
                             </div>
-                            <div onclick="Toggle_placeTime(this)" style="margin-top: 5px; cursor: pointer;">開放時間<i class="fa fa-solid fa-angle-down" style="margin-left: 10px;"></i></div>
-                            <div class="place_time Caption" style="display: none; font-size: 16px; color: #626262;">
-                                週一至週六 8:00-22:00<br />週日、例假日 8:00-18:00
+                            <div style="margin-top: 5px; font-size: 16px;">
+                                開放時間
+                                <span class="open-24h">24 小時</span>
                             </div>
                             <div style="margin-top: 5px;">
                                 場地種類&nbsp;&nbsp;
@@ -136,37 +150,33 @@
                             <button type="button" data-bs-target="#carousel_2" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carousel_2" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             <button type="button" data-bs-target="#carousel_2" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                            <button type="button" data-bs-target="#carousel_2" data-bs-slide-to="4" aria-label="Slide 5"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_2_1.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/信義國中/信義國中_1.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_2_2.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/信義國中/信義國中_2.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_2_3.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/信義國中/信義國中_3.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_2_4.png")" class="d-block w-100">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_2_5.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/信義國中/信義國中_4.png")" class="d-block w-100">
                             </div>
                         </div>
-                        <div class="place-pic-desc">現正開幕</div>
+                        <div class="place-pic-desc">學生優惠</div>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">
-                            信義國中戶外球場
+                            信義國中室外球場
                             <div style="float:right">
                                 <div class="restroom" style="display: inline-block;margin-right:10px"></div>
                             </div>
                         </h5>
                         <div class="card-text">
                             <a href="javascript:void(0)" style="color: #ff7b00; font-size: 14px;" onclick="window.open('@("https://maps.app.goo.gl/tBhb19RofWVp1CWLA")')">
-                                台北市信義區松仁路158巷一號
+                                台北市信義區松仁路158巷一號室外球場旁
                                 <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
                                     <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
@@ -189,7 +199,6 @@
                                 <div class="dv-tag-row">
                                     <div class="place-tag">籃球</div>
                                     <div class="place-tag">排球</div>
-                                    <div class="place-tag">足球</div>
                                 </div>
                             </div>
                         </div>
@@ -199,62 +208,58 @@
 
             <div class="col">
                 <div class="card h-100 forbidden" style="overflow:hidden">
-                    <div class="forb-place"><h3>Coming Soon</h3></div>
+                    @*<div class="forb-place"><h3>Coming Soon</h3></div>*@
                     <div id="carousel_3" class="carousel slide card-img-top" data-bs-ride="carousel">
-                    @*<div class="carousel-indicators">
+                    <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carousel_3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carousel_3" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carousel_3" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carousel_3" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carousel_3" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                    </div>*@
+                    </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="4000">
-                            <img src="@Url.Content("~/Content/images/place/place_3_1.png")" class="d-block w-100">
+                            <img src="@Url.Content("~/Content/images/place/台科大/台科大_1.png")" class="d-block w-100">
                         </div>
                         <div class="carousel-item" data-bs-interval="4000">
-                            <img src="@Url.Content("~/Content/images/place/place_3_2.png")" class="d-block w-100">
+                            <img src="@Url.Content("~/Content/images/place/台科大/台科大_2.png")" class="d-block w-100">
                         </div>
                         <div class="carousel-item" data-bs-interval="4000">
-                            <img src="@Url.Content("~/Content/images/place/place_3_3.png")" class="d-block w-100">
+                            <img src="@Url.Content("~/Content/images/place/台科大/台科大_3.png")" class="d-block w-100">
                         </div>
                         <div class="carousel-item" data-bs-interval="4000">
-                            <img src="@Url.Content("~/Content/images/place/place_3_4.png")" class="d-block w-100">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="4000">
-                            <img src="@Url.Content("~/Content/images/place/place_3_5.png")" class="d-block w-100">
+                            <img src="@Url.Content("~/Content/images/place/台科大/台科大_4.png")" class="d-block w-100">
                         </div>
                     </div>
                     <div class="place-pic-desc">現正開幕</div>
                 </div>
                     <div class="card-body">
                         <h5 class="card-title">
-                            迪卡儂綜合球場
+                            台科大室外球場
                             <div style="float:right">
                                 <div class="restroom" style="display: inline-block;margin-right:10px"></div>
                                 <div class="water" style="display: inline-block;margin-right:10px"></div>
+                                <div class="vendingMachine" style="display: inline-block;margin-right:10px"></div>
                             </div>
                         </h5>
                         <div class="card-text">
                             <div>
-                                <a href="javascript:void(0)" style="color: #ff7b00; font-size: 14px;" onclick="window.open('@("https://maps.app.goo.gl/GsHtEjB7ZJEQHgGq9")')">
-                                    台中市北屯區中清路二段1075號
+                                <a href="javascript:void(0)" style="color: #ff7b00; font-size: 14px;" onclick="window.open('@("https://maps.app.goo.gl/YoPC8MJ5KVfHcvLn6")')">
+                                    台北市大安區基隆路四段43號體育館前
                                     <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
                                         <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
                             </div>
-                            <div onclick="Toggle_placeTime(this)" style="margin-top: 5px; cursor: pointer;">開放時間<i class="fa fa-solid fa-angle-down" style="margin-left: 10px;"></i></div>
-                            <div class="place_time Caption" style="display: none; font-size: 16px; color: #626262; ">
-                                週一至週五 10:00-22:00<br />週六、週日 9:30-22:00
+                            <div style="margin-top: 5px; font-size: 16px;">
+                                開放時間
+                                <span class="open-24h">24 小時</span>
                             </div>
                             <div style="margin-top: 5px;">
                                 場地種類&nbsp;&nbsp;
                                 <div class="dv-tag-row">
                                     <div class="place-tag">籃球場</div>
-                                    <div class="place-tag">排球/網球場</div>
-                                    <div class="place-tag">五人制足球場</div>
+                                    <div class="place-tag">排球場</div>
                                 </div>
                             </div>
                             <div style="margin-top: 5px;">
@@ -262,8 +267,6 @@
                                 <div class="dv-tag-row">
                                     <div class="place-tag">籃球</div>
                                     <div class="place-tag">排球</div>
-                                    <div class="place-tag">足球</div>
-                                    <div class="place-tag">羽球</div>
                                 </div>
                             </div>
                         </div>
@@ -273,7 +276,7 @@
 
             <div class="col">
                 <div class="card h-100 forbidden" style="overflow:hidden">
-                    <div class="forb-place"><h3>Coming Soon</h3></div>
+                    @*<div class="forb-place"><h3>Coming Soon</h3></div>*@
                     <div id="carousel_4" class="carousel slide card-img-top" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carousel_4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -282,40 +285,53 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_1.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/靜宜大學/靜宜大學_1.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_2.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/靜宜大學/靜宜大學_2.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_3.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/靜宜大學/靜宜大學_3.png")" class="d-block w-100">
                             </div>
                         </div>
-                        <div class="place-pic-desc">學生優惠</div>
+                        <div class="place-pic-desc">現正開幕</div>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">
-                            台大中央籃球場
+                            靜宜大學室外球場
                             <div style="float:right">
                                 <div class="restroom" style="display: inline-block;margin-right:10px"></div>
                                 <div class="water" style="display: inline-block;margin-right:10px"></div>
+                                <div class="vendingMachine" style="display: inline-block;margin-right:10px"></div>
                             </div>
                         </h5>
                         <div class="card-text">
-                            <a href="javascript:void(0)" style="color: #ff7b00" onclick="window.open('@("https://maps.app.goo.gl/h53psftS56b87QjJ6")')">
-                                台北市大安區羅斯福路四段一號
-                                <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
-                                    <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                            <div onclick="Toggle_placeTime(this)" style="margin-top: 5px; cursor: pointer;">開放時間<i class="fa fa-solid fa-angle-down" style="margin-left: 10px;"></i></div>
-                            <div class="place_time Caption" style="display: none; margin-left: 10px; font-size: 12px;">
-                                周一至周五 18:00-22:00<br />周六、周日、例假日 18:00-21:00
+                            <div>
+                                <a href="javascript:void(0)" style="color: #ff7b00" onclick="window.open('@("https://maps.app.goo.gl/Wjdp4vYHxbiaBKXw6")')">
+                                    台中市沙鹿區台灣大道七段200號室外球場
+                                    <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
+                                        <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div style="margin-top: 5px; font-size: 16px;">
+                                開放時間
+                                <span class="open-24h">24 小時</span>
                             </div>
                             <div style="margin-top: 5px;">
-                                <div class="place-tag">近捷運公館站</div>
-                                <div class="place-tag">新手友善</div>
+                                場地種類&nbsp;&nbsp;
+                                <div class="dv-tag-row">
+                                    <div class="place-tag">籃球場</div>
+                                    <div class="place-tag">排球場</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 5px;">
+                                提供器材&nbsp;&nbsp;
+                                <div class="dv-tag-row">
+                                    <div class="place-tag">籃球</div>
+                                    <div class="place-tag">排球</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -324,49 +340,62 @@
 
             <div class="col">
                 <div class="card h-100 forbidden" style="overflow:hidden">
-                    <div class="forb-place"><h3>Coming Soon</h3></div>
-                    <div id="carousel_4" class="carousel slide card-img-top" data-bs-ride="carousel">
+                    @*<div class="forb-place"><h3>Coming Soon</h3></div>*@
+                    <div id="carousel_5" class="carousel slide card-img-top" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carousel_4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carousel_4" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carousel_4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carousel_5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carousel_5" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carousel_5" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_1.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/中興大學/中興大學_1.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_2.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/中興大學/中興大學_2.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_3.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/中興大學/中興大學_3.png")" class="d-block w-100">
                             </div>
                         </div>
-                        <div class="place-pic-desc">學生優惠</div>
+                        <div class="place-pic-desc">熱門球場</div>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">
-                            台大中央籃球場
+                            中興大學籃球場
                             <div style="float:right">
                                 <div class="restroom" style="display: inline-block;margin-right:10px"></div>
                                 <div class="water" style="display: inline-block;margin-right:10px"></div>
+                                <div class="vendingMachine" style="display: inline-block;margin-right:10px"></div>
                             </div>
                         </h5>
                         <div class="card-text">
-                            <a href="javascript:void(0)" style="color: #ff7b00" onclick="window.open('@("https://maps.app.goo.gl/h53psftS56b87QjJ6")')">
-                                台北市大安區羅斯福路四段一號
-                                <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
-                                    <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                            <div onclick="Toggle_placeTime(this)" style="margin-top: 5px; cursor: pointer;">開放時間<i class="fa fa-solid fa-angle-down" style="margin-left: 10px;"></i></div>
-                            <div class="place_time Caption" style="display: none; margin-left: 10px; font-size: 12px;">
-                                周一至周五 18:00-22:00<br />周六、周日、例假日 18:00-21:00
+                            <div>
+                                <a href="javascript:void(0)" style="color: #ff7b00" onclick="window.open('@("https://maps.app.goo.gl/PQREnPc7GMXfASqK9")')">
+                                    台中市南區興大路145號籃球場東側
+                                    <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
+                                        <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div style="margin-top: 5px; font-size: 16px;">
+                                開放時間
+                                <span class="open-24h">24 小時</span>
                             </div>
                             <div style="margin-top: 5px;">
-                                <div class="place-tag">近捷運公館站</div>
-                                <div class="place-tag">新手友善</div>
+                                場地種類&nbsp;&nbsp;
+                                <div class="dv-tag-row">
+                                    <div class="place-tag">籃球場</div>
+                                    <div class="place-tag">排球場</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 5px;">
+                                提供器材&nbsp;&nbsp;
+                                <div class="dv-tag-row">
+                                    <div class="place-tag">籃球</div>
+                                    <div class="place-tag">排球</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -375,49 +404,62 @@
 
             <div class="col">
                 <div class="card h-100 forbidden" style="overflow:hidden">
-                    <div class="forb-place"><h3>Coming Soon</h3></div>
-                    <div id="carousel_4" class="carousel slide card-img-top" data-bs-ride="carousel">
+                    @*<div class="forb-place"><h3>Coming Soon</h3></div>*@
+                    <div id="carousel_6" class="carousel slide card-img-top" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carousel_4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carousel_4" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carousel_4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carousel_6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carousel_6" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carousel_6" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_1.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/逢甲大學/逢甲大學_1.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_2.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/逢甲大學/逢甲大學_2.png")" class="d-block w-100">
                             </div>
                             <div class="carousel-item" data-bs-interval="4000">
-                                <img src="@Url.Content("~/Content/images/place/place_1_3.png")" class="d-block w-100">
+                                <img src="@Url.Content("~/Content/images/place/逢甲大學/逢甲大學_3.png")" class="d-block w-100">
                             </div>
                         </div>
-                        <div class="place-pic-desc">學生優惠</div>
+                        <div class="place-pic-desc">現正開幕</div>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">
-                            台大中央籃球場
+                            逢甲大學室外球場
                             <div style="float:right">
                                 <div class="restroom" style="display: inline-block;margin-right:10px"></div>
                                 <div class="water" style="display: inline-block;margin-right:10px"></div>
+                                <div class="vendingMachine" style="display: inline-block;margin-right:10px"></div>
                             </div>
                         </h5>
                         <div class="card-text">
-                            <a href="javascript:void(0)" style="color: #ff7b00" onclick="window.open('@("https://maps.app.goo.gl/h53psftS56b87QjJ6")')">
-                                台北市大安區羅斯福路四段一號
-                                <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
-                                    <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                            <div onclick="Toggle_placeTime(this)" style="margin-top: 5px; cursor: pointer;">開放時間<i class="fa fa-solid fa-angle-down" style="margin-left: 10px;"></i></div>
-                            <div class="place_time Caption" style="display: none; margin-left: 10px; font-size: 12px;">
-                                周一至周五 18:00-22:00<br />周六、周日、例假日 18:00-21:00
+                            <div>
+                                <a href="javascript:void(0)" style="color: #ff7b00" onclick="window.open('@("https://maps.app.goo.gl/ezxYW3fPsfdU2H687?g_st=ic")')">
+                                    台中市北屯區中清路二段1075號
+                                    <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 6.5C13 9.81373 7 15.5 7 15.5C7 15.5 1 9.81373 1 6.5C1 3.18629 3.68629 0.5 7 0.5C10.3137 0.5 13 3.18629 13 6.5Z" stroke="#FF7B00" />
+                                        <path d="M7 7.75C7.69037 7.75 8.25 7.19037 8.25 6.5C8.25 5.80965 7.69037 5.25 7 5.25C6.30963 5.25 5.75 5.80965 5.75 6.5C5.75 7.19037 6.30963 7.75 7 7.75Z" stroke="#FF7B00" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div style="margin-top: 5px; font-size: 16px;">
+                                開放時間
+                                <span class="open-24h">24 小時</span>
                             </div>
                             <div style="margin-top: 5px;">
-                                <div class="place-tag">近捷運公館站</div>
-                                <div class="place-tag">新手友善</div>
+                                場地種類&nbsp;&nbsp;
+                                <div class="dv-tag-row">
+                                    <div class="place-tag">籃球場</div>
+                                    <div class="place-tag">排球場</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 5px;">
+                                提供器材&nbsp;&nbsp;
+                                <div class="dv-tag-row">
+                                    <div class="place-tag">籃球</div>
+                                    <div class="place-tag">排球</div>
+                                </div>
                             </div>
                         </div>
                     </div>

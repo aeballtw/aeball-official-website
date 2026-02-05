@@ -19,12 +19,12 @@
             content: '室外用仿皮超質感籃球',
             price: 20
         },*@
-        {
+        @*{
             src: webroot + 'Content/images/basketball/Molten/B7G3200-2.png',
             title: 'B7G3200-2',
             content: '深溝抓握手感，室內外兩用球',
             price: 25
-        },
+        },*@
         @*{
             src: webroot + 'Content/images/basketball/Molten/B6G2010.png',
             title: 'B6G2010',
@@ -43,22 +43,16 @@
             content: '極致控球手感，回不去的體驗',
             price: 40
         },*@
-        {
+        @*{
             src: webroot + 'Content/Images/basketball/Conti/Conti 1500.png',
             title: 'Conti 1500',
             content: '高觸感仿皮橡膠，減緩衝擊',
             price: 20
-        },
+        },*@
         {
             src: webroot + 'Content/Images/basketball/Conti/Conti 5000.png',
             title: 'Conti 5000',
             content: '弧形顆粒球溝設計，極致手感',
-            price: 35
-        },
-        {
-            src: webroot + 'Content/Images/basketball/Conti/Conti 3000 排球.png',
-            title: 'Conti 3000 排球',
-            content: '合格比賽用球，DVV1正式比賽用球',
             price: 30
         },
         {
@@ -67,6 +61,19 @@
             content: '深溝設計，手感升級',
             price: 15
         },
+        {
+            src: webroot + 'Content/Images/basketball/Conti/Conti 3000 排球.png',
+            title: 'Conti 3000 排球',
+            content: '合格比賽用球，DVV1正式比賽用球',
+            price: 30
+        },
+        {
+            src: webroot + 'Content/Images/basketball/Conti/Conti 700 排球.png',
+            title: 'Conti 700 排球',
+            content: '超軟橡膠排球',
+            price: 15
+        },
+
         @*{
             src: webroot + 'Content/Images/basketball/Reebok Essential.png',
             title: 'Reebok Essential',
@@ -213,8 +220,12 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
                     </div>
                     <div class="carousel-inner">
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/PC_Banner_5.png")" class="d-block w-100" style="cursor: pointer;" onclick="window.open('https://aeball.com.tw/Home/Place')">
+                        </div>
                         <div class="carousel-item active" data-bs-interval="4000">
                             <img src="@Url.Content("~/Content/images/banner/PC_Banner_1.png")" class="d-block w-100" style="cursor: pointer;" onclick="window.open('https://app.aeball.com.tw/profile')">
                         </div>
@@ -246,8 +257,12 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="4" aria-label="Slide 5"></button>
                     </div>
                     <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="4000">
+                            <img src="@Url.Content("~/Content/images/banner/手機_Banner_5.png")" class="d-block w-100" style="cursor: pointer;" onclick="window.open('https://aeball.com.tw/Home/Place')">
+                        </div>
                         <div class="carousel-item active" data-bs-interval="4000">
                             <img src="@Url.Content("~/Content/images/banner/手機_Banner_1.png")" class="d-block w-100" style="cursor: pointer;" onclick="window.open('https://app.aeball.com.tw/profile')">
                         </div>
@@ -368,9 +383,9 @@
                         @*@<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Molten/B7G2010.png")">
                         </div>*@
-                        <div>
+                        @*<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Molten/B7G3200-2.png")">
-                        </div>
+                        </div>*@
                         @*<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Molten/B6G2010.png")">
                         </div>*@
@@ -383,17 +398,20 @@
                         @*<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Tarmak R100.png")">
                         </div>*@
-                        <div>
+                        @*<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti/Conti 1500.png")">
-                        </div>
+                        </div>*@
                         <div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti/Conti 5000.png")">
+                        </div>
+                        <div>
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti/Conti 1000 六號球.png")">
                         </div>
                         <div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti/Conti 3000 排球.png")">
                         </div>
                         <div>
-                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti/Conti 1000 六號球.png")">
+                            <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Conti/Conti 700 排球.png")">
                         </div>
                         @*<div>
                             <img style="margin:auto;width:250px;" src="@Url.Content("~/Content/images/basketball/Reebok Essential.png")">
