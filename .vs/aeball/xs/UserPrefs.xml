@@ -8,19 +8,19 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="aeball/Views/Home/Index.cshtml">
     <Files>
-      <File FileName="aeball/Views/Home/Index.cshtml" Line="43" Column="27" />
+      <File FileName="aeball/Views/Home/Index.cshtml" Line="13" Column="28" />
       <File FileName="aeball/Views/Home/Place.cshtml" />
       <File FileName="aeball/Content/css/style.css" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="aeball" expanded="True">
+          <Node name="aeball">
             <Node name="aeball" expanded="True">
               <Node name="Content" expanded="True">
                 <Node name="images" expanded="True">
                   <Node name="banner" expanded="True" />
-                  <Node name="place" expanded="True" selected="True" />
+                  <Node name="place" expanded="True" />
                 </Node>
               </Node>
               <Node name="Views" expanded="True">
