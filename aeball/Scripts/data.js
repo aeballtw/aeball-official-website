@@ -53,12 +53,12 @@
         content: '深溝設計，手感升級',
         price: 15
     },
-    {
+    /*{
         src: webroot + 'Content/Images/basketball/Conti/Conti 3000 排球.png',
         title: 'Conti 3000 排球',
         content: '高觸感仿皮橡膠，減緩衝擊',
         price: 30
-    },
+    },*/
     {
         src: webroot + 'Content/Images/basketball/Conti/Conti 700 排球.png',
         title: 'Conti 700 排球',
@@ -83,12 +83,12 @@
         content: '獨特合成皮，絕佳回彈性',
         price: 35
     }*/
-    {
+    /*{
         src: webroot + 'Content/Images/basketball/Nike All Court.png',
         title: 'Nike All Court',
         content: '表面膠黏設計，提升控制力',
         price: 30
-    }
+    }*/
     /*{
         src: webroot + 'Content/Images/basketball/KIPSTA 3 號足球.png',
         title: 'KIPSTA 3 號足球',
