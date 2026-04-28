@@ -6,28 +6,10 @@
         price: 15
     },
     /*{
-        src: webroot + 'Content/images/basketball/Molten合作用球/B7G2010.png',
-        title: 'B7G2010',
-        content: '室外用仿皮超質感籃球',
-        price: 20
-    },
-    {
-        src: webroot + 'Content/images/basketball/Molten合作用球/B7G3200-2.png',
-        title: 'B7G3200-2',
-        content: '深溝抓握手感，室內外兩用球',
-        price: 25
-    },*/
-    /*{
         src: webroot + 'Content/images/basketball/Molten合作用球/B6G2010.png',
         title: 'B6G2010',
         content: '室外用仿皮超質感六號女籃球',
         price: 15
-    },*/
-    /*{
-        src: webroot + 'Content/images/basketball/Molten合作用球/BGM7X-C.png',
-        title: 'BGM7X-C',
-        content: '高級 PU 內膽，絕佳回彈感受',
-        price: 35
     },
     {
         src: webroot + 'Content/images/basketball/Molten合作用球/B7X-W.png',
@@ -77,6 +59,24 @@
         content: 'FIVB 認證超纖皮製比賽排球',
         price: 30
     },
+    {
+        src: webroot + 'Content/Images/basketball/JOOLA Agassi Edge.png',
+        title: 'JOOLA Agassi Edge 匹克球拍',
+        content: '蜂窩狀核心與碳纖維表面，高水準旋轉及咬球',
+        price: 15
+    },
+    {
+        src: webroot + 'Content/Images/basketball/JOOLA Graf Edge.png',
+        title: 'JOOLA Graf Edge 匹克球拍',
+        content: '蜂窩狀核心與碳纖維表面，高水準旋轉及咬球',
+        price: 15
+    },
+    {
+        src: webroot + 'Content/Images/basketball/JOOLA Primo.png',
+        title: 'JOOLA Primo 匹克球',
+        content: '戶外匹克球，絕佳平衡性將晃動降到最低',
+        price: 5
+    },
     /*{
         src: webroot + 'Content/Images/basketball/Tarmak BT 500X.png',
         title: 'Tarmak BT 500X',
@@ -89,18 +89,6 @@
         content: '表面膠黏設計，提升控制力',
         price: 30
     }*/
-    /*{
-        src: webroot + 'Content/Images/basketball/KIPSTA 3 號足球.png',
-        title: 'KIPSTA 3 號足球',
-        content: '9 歲以下適用尺寸足球',
-        price: 15
-    },
-    {
-        src: webroot + 'Content/Images/basketball/KIPSTA 5 號足球.png',
-        title: 'KIPSTA 5 號足球',
-        content: 'FIFA 成人 5 號混合足球',
-        price: 20
-    },*/
     /*{
         src: webroot + 'Content/Images/basketball/Tarmak R100.png',
         title: 'Tarmak R100',
