@@ -171,7 +171,9 @@
     <Content Include="Content\images\basketball\Conti\Conti 3000 排球.png" />
     <Content Include="Content\images\basketball\Conti\Conti 3000.png" />
     <Content Include="Content\images\basketball\Conti\Conti 5000.png" />
-    <Content Include="Content\images\basketball\KIPSTA 5 號足球.png" />
+    <Content Include="Content\images\basketball\Joola Agassi Edge.png" />
+    <Content Include="Content\images\basketball\Joola Graf Edge.png" />
+    <Content Include="Content\images\basketball\Joola Primo.png" />
     <Content Include="Content\images\basketball\Mikasa V300W.png" />
     <Content Include="Content\images\basketball\molten GR7D.png" />
     <Content Include="Content\images\basketball\Molten\B33T5000.png" />
@@ -179,13 +181,8 @@
     <Content Include="Content\images\basketball\Molten\B7G2010.png" />
     <Content Include="Content\images\basketball\Molten\B7G3200-2.png" />
     <Content Include="Content\images\basketball\Molten\B7X-W.png" />
-    <Content Include="Content\images\basketball\Molten\BGM7X-C.png" />
-    <Content Include="Content\images\basketball\Molten\F3A2000-OB.png" />
-    <Content Include="Content\images\basketball\Molten\F4A2000-RY.png" />
-    <Content Include="Content\images\basketball\Molten\V5M1500.png" />
     <Content Include="Content\images\basketball\Nike All Court.png" />
     <Content Include="Content\images\basketball\Reebok Essential.png" />
-    <Content Include="Content\images\basketball\Spalding DownTown.png" />
     <Content Include="Content\images\basketball\Tarmak BT 500X.png" />
     <Content Include="Content\images\basketball\Tarmak R100.png" />
     <Content Include="Content\images\borrow\PC_租借-1.png" />
@@ -200,6 +197,15 @@
     <Content Include="Content\images\brand\brand_2.png" />
     <Content Include="Content\images\brand\brand_3.png" />
     <Content Include="Content\images\Coop\合作夥伴＿背景圖.png" />
+    <Content Include="Content\images\place\台中科大\台中科大_1.png" />
+    <Content Include="Content\images\place\台中科大\台中科大_2.png" />
+    <Content Include="Content\images\place\台中科大\台中科大_3.png" />
+    <Content Include="Content\images\place\國北教\國北教_1.png" />
+    <Content Include="Content\images\place\國北教\國北教_2.png" />
+    <Content Include="Content\images\place\國北教\國北教_3.png" />
+    <Content Include="Content\images\place\新莊\新莊_1.png" />
+    <Content Include="Content\images\place\新莊\新莊_2.png" />
+    <Content Include="Content\images\place\新莊\新莊_3.png" />
     <Content Include="Content\images\poster\poster1.png" />
     <Content Include="Content\images\poster\poster2.png" />
     <Content Include="Content\images\poster\poster_1.png" />
@@ -231,10 +237,10 @@
     <Content Include="Content\fonts\fa-solid-900.woff2" />
     <Content Include="Content\fonts\fa-v4compatibility.ttf" />
     <Content Include="Content\fonts\fa-v4compatibility.woff2" />
-    <Content Include="Content\file\智能籃球櫃會員註冊條款_20210218.docx.pdf" />
     <Content Include="Content\file\隱私權條款.pdf" />
     <Content Include=".DS_Store" />
     <Content Include="Content\file\退款政策.pdf" />
+    <Content Include="Content\file\智能籃球櫃會員註冊條款_20251205.pdf" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\data.js" />
@@ -296,7 +302,6 @@
     <Content Include="Content\images\place\中興大學\中興大學_1.png" />
     <Content Include="Content\images\place\中興大學\中興大學_3.png" />
     <Content Include="Content\images\place\中興大學\中興大學_2.png" />
-    <Content Include="Content\images\place\信義國中\信義國中_5.png" />
     <Content Include="Content\images\place\信義國中\信義國中_4.png" />
     <Content Include="Content\images\place\信義國中\信義國中_3.png" />
     <Content Include="Content\images\place\信義國中\信義國中_2.png" />
@@ -310,8 +315,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Common\" />
-    <Folder Include="Content\images\place\逢甲大學\" />
-    <Folder Include="Content\images\place\中興大學\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

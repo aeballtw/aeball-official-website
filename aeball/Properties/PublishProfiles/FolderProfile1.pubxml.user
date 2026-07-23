@@ -5,18 +5,18 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\WebSys\aeball</_PublishTargetUrl>
-    <History>True|2025-10-16T20:13:18.9346131Z||;True|2025-10-17T03:59:56.4304456+08:00||;True|2025-09-17T11:38:05.8556097+08:00||;True|2025-05-17T02:06:24.5449787+08:00||;True|2025-04-07T11:15:22.8537457+08:00||;True|2025-04-07T09:55:41.7010723+08:00||;True|2025-04-04T09:21:46.8783728+08:00||;True|2025-03-05T23:58:56.2047555+08:00||;True|2025-03-05T23:54:31.4458297+08:00||;True|2025-03-05T23:49:02.1427122+08:00||;True|2025-03-05T18:37:00.2438751+08:00||;True|2024-11-08T12:02:22.4550923+08:00||;True|2024-11-08T04:24:08.4675767+08:00||;True|2024-11-08T03:53:57.8958443+08:00||;True|2024-11-08T03:50:54.3337000+08:00||;True|2024-11-08T03:49:44.6462512+08:00||;True|2024-11-08T03:46:51.1152928+08:00||;True|2024-11-08T03:43:48.9483865+08:00||;True|2024-05-05T22:28:46.4798253+08:00||;True|2024-04-25T00:48:25.2993987+08:00||;True|2024-04-25T00:34:52.9722056+08:00||;True|2024-04-19T14:10:05.2073013+08:00||;True|2024-04-19T13:41:50.4253467+08:00||;True|2024-04-19T10:37:21.3603359+08:00||;True|2024-04-19T10:34:53.8547801+08:00||;True|2024-04-19T01:16:49.8628030+08:00||;True|2024-04-19T01:06:33.2111041+08:00||;True|2024-04-19T00:56:34.2240255+08:00||;True|2024-04-18T14:56:50.7859045+08:00||;True|2024-04-18T01:03:07.7886212+08:00||;</History>
+    <History>True|2026-05-06T20:36:36.1086737Z||;True|2026-04-28T15:08:19.9177387+08:00||;False|2026-04-28T15:06:51.2550964+08:00||;False|2026-04-28T15:06:00.1326569+08:00||;True|2026-04-25T05:24:28.5593716+08:00||;False|2026-04-25T05:23:05.9284999+08:00||;True|2025-10-17T04:13:18.9346131+08:00||;True|2025-10-17T03:59:56.4304456+08:00||;True|2025-09-17T11:38:05.8556097+08:00||;True|2025-05-17T02:06:24.5449787+08:00||;True|2025-04-07T11:15:22.8537457+08:00||;True|2025-04-07T09:55:41.7010723+08:00||;True|2025-04-04T09:21:46.8783728+08:00||;True|2025-03-05T23:58:56.2047555+08:00||;True|2025-03-05T23:54:31.4458297+08:00||;True|2025-03-05T23:49:02.1427122+08:00||;True|2025-03-05T18:37:00.2438751+08:00||;True|2024-11-08T12:02:22.4550923+08:00||;True|2024-11-08T04:24:08.4675767+08:00||;True|2024-11-08T03:53:57.8958443+08:00||;True|2024-11-08T03:50:54.3337000+08:00||;True|2024-11-08T03:49:44.6462512+08:00||;True|2024-11-08T03:46:51.1152928+08:00||;True|2024-11-08T03:43:48.9483865+08:00||;True|2024-05-05T22:28:46.4798253+08:00||;True|2024-04-25T00:48:25.2993987+08:00||;True|2024-04-25T00:34:52.9722056+08:00||;True|2024-04-19T14:10:05.2073013+08:00||;True|2024-04-19T13:41:50.4253467+08:00||;True|2024-04-19T10:37:21.3603359+08:00||;True|2024-04-19T10:34:53.8547801+08:00||;True|2024-04-19T01:16:49.8628030+08:00||;True|2024-04-19T01:06:33.2111041+08:00||;True|2024-04-19T00:56:34.2240255+08:00||;True|2024-04-18T14:56:50.7859045+08:00||;True|2024-04-18T01:03:07.7886212+08:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include=".DS_Store">
-      <publishTime>10/12/2024 22:08:39</publishTime>
+      <publishTime>04/28/2026 15:03:40</publishTime>
     </File>
     <File Include="bin/aeball.dll">
-      <publishTime>10/17/2025 04:13:16</publishTime>
+      <publishTime>05/07/2026 04:36:33</publishTime>
     </File>
     <File Include="bin/aeball.pdb">
-      <publishTime>10/17/2025 04:13:16</publishTime>
+      <publishTime>05/07/2026 04:36:33</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/16/2025 21:48:57</publishTime>
@@ -282,11 +282,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/file/智能籃球櫃會員註冊條款_20210218.docx.pdf">
       <publishTime>10/12/2024 22:08:48</publishTime>
     </File>
+    <File Include="Content/file/智能籃球櫃會員註冊條款_20251205.pdf">
+      <publishTime>05/07/2026 04:15:17</publishTime>
+    </File>
     <File Include="Content/file/退款政策.pdf">
       <publishTime>09/16/2025 16:40:20</publishTime>
     </File>
     <File Include="Content/file/隱私權條款.pdf">
-      <publishTime>10/12/2024 22:08:49</publishTime>
+      <publishTime>05/07/2026 04:19:23</publishTime>
     </File>
     <File Include="Content/fonts/fa-brands-400.ttf">
       <publishTime>10/12/2024 22:08:48</publishTime>
@@ -322,7 +325,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/16/2025 17:20:24</publishTime>
     </File>
     <File Include="Content/images/banner/PC_Banner_4.png">
-      <publishTime>09/16/2025 17:20:26</publishTime>
+      <publishTime>04/25/2026 05:19:44</publishTime>
+    </File>
+    <File Include="Content/images/banner/PC_Banner_5.png">
+      <publishTime>04/25/2026 05:19:44</publishTime>
     </File>
     <File Include="Content/images/banner/手機_Banner_1.png">
       <publishTime>09/16/2025 17:18:13</publishTime>
@@ -334,7 +340,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/16/2025 17:18:18</publishTime>
     </File>
     <File Include="Content/images/banner/手機_Banner_4.png">
-      <publishTime>09/16/2025 17:18:18</publishTime>
+      <publishTime>04/25/2026 05:19:44</publishTime>
+    </File>
+    <File Include="Content/images/banner/手機_Banner_5.png">
+      <publishTime>04/25/2026 05:19:44</publishTime>
     </File>
     <File Include="Content/images/basketball/Archive/Nike Playground.png">
       <publishTime>10/12/2024 22:08:49</publishTime>
@@ -380,6 +389,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/images/basketball/Conti/Conti 5000.png">
       <publishTime>08/04/2025 16:40:35</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Joola Agassi Edge.png">
+      <publishTime>04/28/2026 15:03:40</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Joola Graf Edge.png">
+      <publishTime>04/28/2026 15:03:40</publishTime>
+    </File>
+    <File Include="Content/images/basketball/Joola Primo.png">
+      <publishTime>04/28/2026 15:03:40</publishTime>
     </File>
     <File Include="Content/images/basketball/KIPSTA 3 號足球.png">
       <publishTime>12/25/2024 11:37:19</publishTime>
@@ -537,6 +555,24 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/images/Coop/合作夥伴＿背景圖.png">
       <publishTime>10/12/2024 22:08:49</publishTime>
     </File>
+    <File Include="Content/images/place/archive/place_2_1.png">
+      <publishTime>02/06/2026 04:32:55</publishTime>
+    </File>
+    <File Include="Content/images/place/archive/place_3_1.png">
+      <publishTime>02/06/2026 04:32:55</publishTime>
+    </File>
+    <File Include="Content/images/place/archive/place_3_2.png">
+      <publishTime>02/06/2026 04:32:56</publishTime>
+    </File>
+    <File Include="Content/images/place/archive/place_3_3.png">
+      <publishTime>02/06/2026 04:32:56</publishTime>
+    </File>
+    <File Include="Content/images/place/archive/place_3_4.png">
+      <publishTime>02/06/2026 04:32:56</publishTime>
+    </File>
+    <File Include="Content/images/place/archive/place_3_5.png">
+      <publishTime>02/06/2026 04:32:56</publishTime>
+    </File>
     <File Include="Content/images/place/place_1_1.png">
       <publishTime>10/12/2024 22:08:50</publishTime>
     </File>
@@ -545,6 +581,99 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/images/place/place_1_3.png">
       <publishTime>10/12/2024 22:08:50</publishTime>
+    </File>
+    <File Include="Content/images/place/中興大學/中興大學_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/中興大學/中興大學_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/中興大學/中興大學_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/信義國中/信義國中_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/信義國中/信義國中_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/信義國中/信義國中_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/信義國中/信義國中_4.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台中科大/台中科大_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台中科大/台中科大_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台中科大/台中科大_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台大/台大_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台大/台大_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台大/台大_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台大/台大_4.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台大/台大_5.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台科大/台科大_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台科大/台科大_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台科大/台科大_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/台科大/台科大_4.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/國北教/國北教_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/國北教/國北教_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/國北教/國北教_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/新莊/新莊_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/新莊/新莊_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/新莊/新莊_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/逢甲大學/逢甲大學_1.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/逢甲大學/逢甲大學_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/逢甲大學/逢甲大學_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/靜宜大學/靜宜大學_1.png">
+      <publishTime>02/06/2026 04:32:57</publishTime>
+    </File>
+    <File Include="Content/images/place/靜宜大學/靜宜大學_2.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/靜宜大學/靜宜大學_3.png">
+      <publishTime>04/08/2026 18:42:26</publishTime>
     </File>
     <File Include="Content/images/poster/poster1.png">
       <publishTime>09/17/2025 11:29:24</publishTime>
@@ -646,7 +775,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/12/2024 22:08:41</publishTime>
     </File>
     <File Include="Scripts/data.js">
-      <publishTime>10/16/2025 17:21:16</publishTime>
+      <publishTime>04/28/2026 15:03:40</publishTime>
     </File>
     <File Include="Scripts/jquery-3.6.0.min.js">
       <publishTime>10/12/2024 22:08:41</publishTime>
@@ -682,7 +811,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/12/2024 22:08:41</publishTime>
     </File>
     <File Include="Views/Home/FAQ.cshtml">
-      <publishTime>10/16/2025 10:51:01</publishTime>
+      <publishTime>04/08/2026 18:40:39</publishTime>
     </File>
     <File Include="Views/Home/ForgetPWD.cshtml">
       <publishTime>10/12/2024 22:08:40</publishTime>
@@ -691,13 +820,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/12/2024 22:08:40</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/17/2025 03:55:14</publishTime>
+      <publishTime>04/28/2026 15:07:54</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
       <publishTime>10/12/2024 22:08:40</publishTime>
     </File>
     <File Include="Views/Home/Place.cshtml">
-      <publishTime>05/17/2025 01:39:56</publishTime>
+      <publishTime>04/25/2026 05:19:44</publishTime>
     </File>
     <File Include="Views/Home/Register.cshtml">
       <publishTime>10/31/2024 17:42:22</publishTime>
@@ -730,7 +859,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/13/2024 00:36:51</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/16/2025 18:05:04</publishTime>
+      <publishTime>05/07/2026 04:32:58</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/12/2024 22:08:40</publishTime>
@@ -739,7 +868,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/12/2024 22:08:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/17/2025 04:13:17</publishTime>
+      <publishTime>02/06/2026 04:35:53</publishTime>
     </File>
   </ItemGroup>
 </Project>
