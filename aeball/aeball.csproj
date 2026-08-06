@@ -241,6 +241,7 @@
     <Content Include=".DS_Store" />
     <Content Include="Content\file\退款政策.pdf" />
     <Content Include="Content\file\智能籃球櫃會員註冊條款_20251205.pdf" />
+    <Content Include=".vs\aeball.csproj.dtbcache.json" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\data.js" />
