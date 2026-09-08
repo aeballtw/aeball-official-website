@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\WebSys\aeball</_PublishTargetUrl>
-    <History>True|2026-08-29T08:09:42.6962683Z||;False|2026-08-29T16:08:52.2822164+08:00||;True|2025-10-17T04:13:18.9346131+08:00||;True|2025-10-17T03:59:56.4304456+08:00||;True|2025-09-17T11:38:05.8556097+08:00||;True|2025-05-17T02:06:24.5449787+08:00||;True|2025-04-07T11:15:22.8537457+08:00||;True|2025-04-07T09:55:41.7010723+08:00||;True|2025-04-04T09:21:46.8783728+08:00||;True|2025-03-05T23:58:56.2047555+08:00||;True|2025-03-05T23:54:31.4458297+08:00||;True|2025-03-05T23:49:02.1427122+08:00||;True|2025-03-05T18:37:00.2438751+08:00||;True|2024-11-08T12:02:22.4550923+08:00||;True|2024-11-08T04:24:08.4675767+08:00||;True|2024-11-08T03:53:57.8958443+08:00||;True|2024-11-08T03:50:54.3337000+08:00||;True|2024-11-08T03:49:44.6462512+08:00||;True|2024-11-08T03:46:51.1152928+08:00||;True|2024-11-08T03:43:48.9483865+08:00||;True|2024-05-05T22:28:46.4798253+08:00||;True|2024-04-25T00:48:25.2993987+08:00||;True|2024-04-25T00:34:52.9722056+08:00||;True|2024-04-19T14:10:05.2073013+08:00||;True|2024-04-19T13:41:50.4253467+08:00||;True|2024-04-19T10:37:21.3603359+08:00||;True|2024-04-19T10:34:53.8547801+08:00||;True|2024-04-19T01:16:49.8628030+08:00||;True|2024-04-19T01:06:33.2111041+08:00||;True|2024-04-19T00:56:34.2240255+08:00||;True|2024-04-18T14:56:50.7859045+08:00||;True|2024-04-18T01:03:07.7886212+08:00||;</History>
+    <History>True|2026-09-08T07:00:51.1022490Z||;True|2026-08-29T16:09:42.6962683+08:00||;False|2026-08-29T16:08:52.2822164+08:00||;True|2025-10-17T04:13:18.9346131+08:00||;True|2025-10-17T03:59:56.4304456+08:00||;True|2025-09-17T11:38:05.8556097+08:00||;True|2025-05-17T02:06:24.5449787+08:00||;True|2025-04-07T11:15:22.8537457+08:00||;True|2025-04-07T09:55:41.7010723+08:00||;True|2025-04-04T09:21:46.8783728+08:00||;True|2025-03-05T23:58:56.2047555+08:00||;True|2025-03-05T23:54:31.4458297+08:00||;True|2025-03-05T23:49:02.1427122+08:00||;True|2025-03-05T18:37:00.2438751+08:00||;True|2024-11-08T12:02:22.4550923+08:00||;True|2024-11-08T04:24:08.4675767+08:00||;True|2024-11-08T03:53:57.8958443+08:00||;True|2024-11-08T03:50:54.3337000+08:00||;True|2024-11-08T03:49:44.6462512+08:00||;True|2024-11-08T03:46:51.1152928+08:00||;True|2024-11-08T03:43:48.9483865+08:00||;True|2024-05-05T22:28:46.4798253+08:00||;True|2024-04-25T00:48:25.2993987+08:00||;True|2024-04-25T00:34:52.9722056+08:00||;True|2024-04-19T14:10:05.2073013+08:00||;True|2024-04-19T13:41:50.4253467+08:00||;True|2024-04-19T10:37:21.3603359+08:00||;True|2024-04-19T10:34:53.8547801+08:00||;True|2024-04-19T01:16:49.8628030+08:00||;True|2024-04-19T01:06:33.2111041+08:00||;True|2024-04-19T00:56:34.2240255+08:00||;True|2024-04-18T14:56:50.7859045+08:00||;True|2024-04-18T01:03:07.7886212+08:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -13,10 +13,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/29/2026 13:04:03</publishTime>
     </File>
     <File Include="bin/aeball.dll">
-      <publishTime>08/29/2026 16:09:39</publishTime>
+      <publishTime>09/08/2026 15:00:48</publishTime>
     </File>
     <File Include="bin/aeball.pdb">
-      <publishTime>08/29/2026 16:09:39</publishTime>
+      <publishTime>09/08/2026 15:00:48</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/16/2025 21:48:57</publishTime>
@@ -634,13 +634,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/08/2026 18:42:26</publishTime>
     </File>
     <File Include="Content/images/place/師大/師大_1.png">
-      <publishTime>08/29/2026 15:41:52</publishTime>
+      <publishTime>09/08/2026 14:06:41</publishTime>
     </File>
     <File Include="Content/images/place/師大/師大_2.png">
-      <publishTime>08/29/2026 15:41:54</publishTime>
+      <publishTime>09/08/2026 14:32:34</publishTime>
     </File>
     <File Include="Content/images/place/師大/師大_3.png">
-      <publishTime>08/29/2026 15:41:55</publishTime>
+      <publishTime>09/08/2026 14:06:45</publishTime>
     </File>
     <File Include="Content/images/place/新莊/新莊_1.png">
       <publishTime>04/08/2026 18:42:26</publishTime>
@@ -650,6 +650,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/images/place/新莊/新莊_3.png">
       <publishTime>04/08/2026 18:42:26</publishTime>
+    </File>
+    <File Include="Content/images/place/東海/東海_1.png">
+      <publishTime>09/08/2026 14:46:20</publishTime>
+    </File>
+    <File Include="Content/images/place/東海/東海_2.png">
+      <publishTime>09/08/2026 14:46:22</publishTime>
+    </File>
+    <File Include="Content/images/place/東海/東海_3.png">
+      <publishTime>09/08/2026 14:46:24</publishTime>
     </File>
     <File Include="Content/images/place/逢甲大學/逢甲大學_1.png">
       <publishTime>04/08/2026 18:42:26</publishTime>
@@ -814,13 +823,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/12/2024 22:08:40</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/29/2026 16:08:35</publishTime>
+      <publishTime>08/29/2026 16:20:34</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
       <publishTime>10/12/2024 22:08:40</publishTime>
     </File>
     <File Include="Views/Home/Place.cshtml">
-      <publishTime>08/29/2026 16:08:36</publishTime>
+      <publishTime>09/08/2026 14:59:49</publishTime>
     </File>
     <File Include="Views/Home/Register.cshtml">
       <publishTime>10/31/2024 17:42:22</publishTime>

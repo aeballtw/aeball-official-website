@@ -235,6 +235,9 @@
     <Content Include="Content\images\place\新莊\新莊_1.png" />
     <Content Include="Content\images\place\新莊\新莊_2.png" />
     <Content Include="Content\images\place\新莊\新莊_3.png" />
+    <Content Include="Content\images\place\東海\東海_1.png" />
+    <Content Include="Content\images\place\東海\東海_2.png" />
+    <Content Include="Content\images\place\東海\東海_3.png" />
     <Content Include="Content\images\place\逢甲大學\逢甲大學_1.png" />
     <Content Include="Content\images\place\逢甲大學\逢甲大學_2.png" />
     <Content Include="Content\images\place\逢甲大學\逢甲大學_3.png" />
